@@ -1,0 +1,10 @@
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Birthdays\bin\Debug\Birthdays.exe.config
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Birthdays\bin\Debug\Birthdays.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Birthdays\bin\Debug\Birthdays.pdb
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Birthdays\bin\Debug\HumanResources.dll
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Birthdays\bin\Debug\HumanResources.pdb
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Birthdays\obj\Debug\Birthdays.csprojAssemblyReference.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Birthdays\obj\Debug\Birthdays.csproj.CoreCompileInputs.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Birthdays\obj\Debug\Birthdays.csproj.CopyComplete
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Birthdays\obj\Debug\Birthdays.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Birthdays\obj\Debug\Birthdays.pdb

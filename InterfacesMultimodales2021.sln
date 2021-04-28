@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld", "HelloWorld\He
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Suma", "Suma\Suma.csproj", "{F049AAC8-B0F4-459C-ABE2-E165C1748E48}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HumanResources", "HumanResources\HumanResources.csproj", "{629DC859-B545-47AD-88A2-74EBF7C4CC49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Birthdays", "Birthdays\Birthdays.csproj", "{9C51B455-A794-4B02-94AF-85CCBFE85EDF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{F049AAC8-B0F4-459C-ABE2-E165C1748E48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F049AAC8-B0F4-459C-ABE2-E165C1748E48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F049AAC8-B0F4-459C-ABE2-E165C1748E48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{629DC859-B545-47AD-88A2-74EBF7C4CC49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{629DC859-B545-47AD-88A2-74EBF7C4CC49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{629DC859-B545-47AD-88A2-74EBF7C4CC49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{629DC859-B545-47AD-88A2-74EBF7C4CC49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C51B455-A794-4B02-94AF-85CCBFE85EDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C51B455-A794-4B02-94AF-85CCBFE85EDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C51B455-A794-4B02-94AF-85CCBFE85EDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C51B455-A794-4B02-94AF-85CCBFE85EDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

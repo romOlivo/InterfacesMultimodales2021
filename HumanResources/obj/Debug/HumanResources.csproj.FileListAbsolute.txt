@@ -1,0 +1,6 @@
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\HumanResources\bin\Debug\HumanResources.dll
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\HumanResources\bin\Debug\HumanResources.pdb
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\HumanResources\obj\Debug\HumanResources.csprojAssemblyReference.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\HumanResources\obj\Debug\HumanResources.csproj.CoreCompileInputs.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\HumanResources\obj\Debug\HumanResources.dll
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\HumanResources\obj\Debug\HumanResources.pdb
