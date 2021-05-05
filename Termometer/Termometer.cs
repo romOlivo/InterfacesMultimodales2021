@@ -11,7 +11,7 @@ namespace Termometer
 
     class Termometer
     {
-        public TemperatureChanged TemperatureChanged;
+        public event TemperatureChanged TemperatureChanged;
 
         public void SetTemp(double nt)
         {
