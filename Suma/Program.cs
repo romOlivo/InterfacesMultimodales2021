@@ -15,7 +15,7 @@ namespace Suma
             a = int.Parse(Console.ReadLine());
             Console.WriteLine("Introduzca otro número");
             b = int.Parse(Console.ReadLine());
-            Console.WriteLine("El resultado de la suma es {0}", a+b);
+            Console.WriteLine("El resultado de la suma es {0}", a + b);
         }
     }
 }

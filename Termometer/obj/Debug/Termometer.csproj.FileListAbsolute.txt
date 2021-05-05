@@ -1,0 +1,7 @@
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Termometer\bin\Debug\Termometer.exe.config
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Termometer\bin\Debug\Termometer.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Termometer\bin\Debug\Termometer.pdb
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Termometer\obj\Debug\Termometer.csprojAssemblyReference.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Termometer\obj\Debug\Termometer.csproj.CoreCompileInputs.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Termometer\obj\Debug\Termometer.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Termometer\obj\Debug\Termometer.pdb
