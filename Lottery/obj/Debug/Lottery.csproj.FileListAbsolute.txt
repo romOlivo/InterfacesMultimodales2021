@@ -1,0 +1,7 @@
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Lottery\bin\Debug\Lottery.exe.config
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Lottery\bin\Debug\Lottery.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Lottery\bin\Debug\Lottery.pdb
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Lottery\obj\Debug\Lottery.csprojAssemblyReference.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Lottery\obj\Debug\Lottery.csproj.CoreCompileInputs.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Lottery\obj\Debug\Lottery.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Lottery\obj\Debug\Lottery.pdb
