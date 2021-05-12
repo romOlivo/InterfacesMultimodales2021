@@ -50,8 +50,12 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
-            <Button Margin="2" Click="Left_People">&lt;</Button>
-            <Button Margin="2" Click="Right_People" Grid.Column="1">&gt;</Button>
+            <Button Margin="2" Click="Left_People" Name="LeftB">
+                <Label Target="{Binding ElementName=LeftB}">_&lt;</Label> 
+            </Button>
+            <Button Margin="2" Click="Right_People" Name="RightB" Grid.Column="1">
+                <Label Target="{Binding ElementName=RightB}">_&gt;</Label>
+            </Button>
         </Grid>
         
         <Button Grid.Row="2" Grid.Column="1" Margin="4" Click="Button_Click"> Ok </Button>
