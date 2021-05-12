@@ -57,7 +57,9 @@
                 <Label Target="{Binding ElementName=RightB}">_&gt;</Label>
             </Button>
         </Grid>
-        
-        <Button Grid.Row="2" Grid.Column="1" Margin="4" Click="Button_Click"> Ok </Button>
+
+        <Button Grid.Row="2" Grid.Column="1" Margin="4" Click="Button_Click" Name="OkB">
+            <Label Target="{Binding ElementName=OkB}">_ok</Label>
+        </Button>
     </Grid>
 </Window>
