@@ -15,14 +15,48 @@ using System.Windows.Shapes;
 
 namespace DemoFormularios
 {
+
+    class Person
+    {
+        public string Name { get; set; }
+        public string Surname { get; set; }
+
+        public Person(string name, string surname)
+        {
+            Name = name;
+            Surname = surname;
+        }
+    }
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow() => InitializeComponent();
 
+        private List<Person> people = new List<Person>();
+        private int index = 0;
 
+        public MainWindow()
+        {
+            InitializeComponent();
+            Loaded += MainWindow_Loaded;
+        }
+
+        private void update_people()
+        {
+            CajaNombre.Text = people[index].Name;
+            CajaApellidos.Text = people[index].Surname;
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            people.Add(new Person("Federico", "Garcia"));
+            people.Add(new Person("Macarena", "Fernandez"));
+            people.Add(new Person("Garcia", "Lorca"));
+            people.Add(new Person("Santi", "Lopez"));
+            update_people();
+        }
 
         #region ScaleValue Depdency Property
         public static readonly DependencyProperty ScaleValueProperty = DependencyProperty.Register("ScaleValue", typeof(double), typeof(MainWindow), new UIPropertyMetadata(1.0, new PropertyChangedCallback(OnScaleValueChanged), new CoerceValueCallback(OnCoerceScaleValue)));
@@ -58,7 +92,7 @@ namespace DemoFormularios
             get => (double)GetValue(ScaleValueProperty);
             set => SetValue(ScaleValueProperty, value);
         }
-        #endregion
+
 
         private void MainGrid_SizeChanged(object sender, EventArgs e) => CalculateScale();
 
@@ -69,6 +103,35 @@ namespace DemoFormularios
             double value = Math.Min(xScale, yScale);
 
             ScaleValue = (double)OnCoerceScaleValue(myMainWindow, value);
+        }
+
+        #endregion
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            people[index].Name = CajaNombre.Text;
+            people[index].Surname = CajaApellidos.Text;
+
+            MessageBox.Show("Usuario Actualizado");
+        }
+
+        private void Left_People(object sender, RoutedEventArgs e)
+        {
+            if (index == 0)
+            {
+                index = people.Count - 1;
+            }
+            else
+            {
+                index--;
+            }
+            update_people();
+        }
+
+        private void Right_People(object sender, RoutedEventArgs e)
+        {
+            index = (index + 1) % people.Count;
+            update_people();
         }
     }
 }

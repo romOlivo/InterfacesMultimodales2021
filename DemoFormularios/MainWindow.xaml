@@ -38,6 +38,22 @@
         <TextBox Name="CajaNombre" Grid.Column="1" Width="150" Margin="4"></TextBox>
         <Label Target="{Binding ElementName=CajaApellidos}" Grid.Row="1"> _Apellidos: </Label>
         <TextBox Name="CajaApellidos" Grid.Column="1" Grid.Row="1" Width="150" Margin="4"></TextBox>
-        <Button Grid.Row="2" Margin="4" Grid.ColumnSpan="2"> Ok </Button>
+
+        <Grid Grid.Row="2" Margin="4">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Button Margin="2" Click="Left_People">&lt;</Button>
+            <Button Margin="2" Click="Right_People" Grid.Column="1">&gt;</Button>
+        </Grid>
+        
+        <Button Grid.Row="2" Grid.Column="1" Margin="4" Click="Button_Click"> Ok </Button>
     </Grid>
 </Window>
