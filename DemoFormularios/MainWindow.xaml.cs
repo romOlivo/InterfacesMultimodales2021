@@ -35,7 +35,12 @@ namespace DemoFormularios
     {
 
         private List<Person> people = new List<Person>();
-        private int index = 0;
+        private int index;
+        public int Index { get { return index; } 
+            set {
+                index = value;
+                update_people();
+            } }
 
         public MainWindow()
         {
@@ -45,8 +50,8 @@ namespace DemoFormularios
 
         private void update_people()
         {
-            CajaNombre.Text = people[index].Name;
-            CajaApellidos.Text = people[index].Surname;
+            CajaNombre.Text = people[Index].Name;
+            CajaApellidos.Text = people[Index].Surname;
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -55,7 +60,7 @@ namespace DemoFormularios
             people.Add(new Person("Macarena", "Fernandez"));
             people.Add(new Person("Garcia", "Lorca"));
             people.Add(new Person("Santi", "Lopez"));
-            update_people();
+            Index = 0;
         }
 
         #region ScaleValue Depdency Property
@@ -109,29 +114,23 @@ namespace DemoFormularios
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            people[index].Name = CajaNombre.Text;
-            people[index].Surname = CajaApellidos.Text;
+            people[Index].Name = CajaNombre.Text;
+            people[Index].Surname = CajaApellidos.Text;
 
             MessageBox.Show("Usuario Actualizado");
         }
 
         private void Left_People(object sender, RoutedEventArgs e)
         {
-            if (index == 0)
-            {
-                index = people.Count - 1;
-            }
+            if (Index == 0)
+                Index = people.Count - 1;
             else
-            {
-                index--;
-            }
-            update_people();
+                Index--;
         }
 
         private void Right_People(object sender, RoutedEventArgs e)
         {
-            index = (index + 1) % people.Count;
-            update_people();
+            Index = (Index + 1) % people.Count;
         }
     }
 }
