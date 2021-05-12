@@ -36,11 +36,18 @@ namespace DemoFormularios
 
         private List<Person> people = new List<Person>();
         private int index;
-        public int Index { get { return index; } 
-            set {
-                index = value;
+        public int Index
+        {
+            get { return index; }
+            set
+            {
+                if (value >= 0 && value <= people.Count - 1)
+                    index = value;
+                LeftB.IsEnabled = index > 0;
+                RightB.IsEnabled = index < people.Count - 1;
                 update_people();
-            } }
+            }
+        }
 
         public MainWindow()
         {
@@ -122,15 +129,12 @@ namespace DemoFormularios
 
         private void Left_People(object sender, RoutedEventArgs e)
         {
-            if (Index == 0)
-                Index = people.Count - 1;
-            else
-                Index--;
+            Index--;
         }
 
         private void Right_People(object sender, RoutedEventArgs e)
         {
-            Index = (Index + 1) % people.Count;
+            Index++;
         }
     }
 }
