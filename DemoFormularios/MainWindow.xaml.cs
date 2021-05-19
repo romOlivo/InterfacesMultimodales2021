@@ -15,16 +15,27 @@ using System.Windows.Shapes;
 
 namespace DemoFormularios
 {
+    enum SexEnum
+    {
+        Man,
+        Woman
+    }
+
 
     class Person
     {
         public string Name { get; set; }
         public string Surname { get; set; }
+        public bool IsFriend { get; set; }
 
-        public Person(string name, string surname)
+        public SexEnum Sex { get; set; }
+
+        public Person(string name, string surname, bool isFriend, SexEnum sex)
         {
             Name = name;
             Surname = surname;
+            IsFriend = isFriend;
+            Sex = sex;
         }
     }
 
@@ -43,6 +54,9 @@ namespace DemoFormularios
             {
                 CajaNombre.TextChanged -= TextChanged;
                 CajaApellidos.TextChanged -= TextChanged;
+                CheckFriend.Click -= Click;
+                rdMan.Click -= Click;
+                rdWoman.Click -= Click;
                 if (value >= 0 && value <= people.Count - 1)
                     index = value;
                 LeftB.IsEnabled = index > 0;
@@ -50,15 +64,32 @@ namespace DemoFormularios
                 update_people();
                 CajaNombre.TextChanged += TextChanged;
                 CajaApellidos.TextChanged += TextChanged;
+                CheckFriend.Click += Click;
+                rdMan.Click += Click;
+                rdWoman.Click += Click;
             }
+        }
+
+        private void Click(object sender, RoutedEventArgs e)
+        {
+            enableModify();
         }
 
         private void TextChanged(object sender, TextChangedEventArgs e)
         {
-            OkB.IsEnabled = CajaNombre.Text != people[Index].Name || CajaApellidos.Text != people[Index].Surname;
+            enableModify();
         }
 
-        public MainWindow()
+        private void enableModify()
+        { 
+        OkB.IsEnabled = CajaNombre.Text != people[Index].Name || 
+                CajaApellidos.Text != people[Index].Surname ||
+                CheckFriend.IsChecked != people[Index].IsFriend ||
+                (rdMan.IsChecked == true && people[Index].Sex != SexEnum.Man) ||
+                (rdWoman.IsChecked == true && people[Index].Sex != SexEnum.Woman);
+        }
+
+    public MainWindow()
         {
             InitializeComponent();
             Loaded += MainWindow_Loaded;
@@ -68,14 +99,17 @@ namespace DemoFormularios
         {
             CajaNombre.Text = people[Index].Name;
             CajaApellidos.Text = people[Index].Surname;
+            CheckFriend.IsChecked = people[Index].IsFriend;
+            rdMan.IsChecked = people[Index].Sex == SexEnum.Man;
+            rdWoman.IsChecked = people[Index].Sex == SexEnum.Woman;
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            people.Add(new Person("Federico", "Garcia"));
-            people.Add(new Person("Macarena", "Fernandez"));
-            people.Add(new Person("Garcia", "Lorca"));
-            people.Add(new Person("Santi", "Lopez"));
+            people.Add(new Person("Federico", "Garcia", true, SexEnum.Man));
+            people.Add(new Person("Macarena", "Fernandez", true, SexEnum.Woman));
+            people.Add(new Person("Garcia", "Lorca", false, SexEnum.Man));
+            people.Add(new Person("Santi", "Lopez", false, SexEnum.Man));
             Index = 0;
             OkB.IsEnabled = false;
         }
@@ -133,6 +167,11 @@ namespace DemoFormularios
         {
             people[Index].Name = CajaNombre.Text;
             people[Index].Surname = CajaApellidos.Text;
+            people[Index].IsFriend = (bool)CheckFriend.IsChecked;
+            if (rdMan.IsChecked == true)
+                people[Index].Sex = SexEnum.Man;
+            else if(rdWoman.IsChecked == true)
+                people[Index].Sex = SexEnum.Woman;
             OkB.IsEnabled = false;
             MessageBox.Show("Usuario Actualizado", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
         }

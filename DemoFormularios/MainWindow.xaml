@@ -32,15 +32,32 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <Label Target="{Binding ElementName=CajaNombre}">_Nombre:</Label>
+        <!-- Fila 0 -->
+        <Label Target="{Binding ElementName=CajaNombre}">_Nombre</Label>
         <TextBox Name="CajaNombre" Grid.Column="1" Width="150" Margin="4"></TextBox>
-        <Label Target="{Binding ElementName=CajaApellidos}" Grid.Row="1"> _Apellidos: </Label>
+        
+        <!-- Fila 1 -->
+        <Label Target="{Binding ElementName=CajaApellidos}" Grid.Row="1"> _Apellidos </Label>
         <TextBox Name="CajaApellidos" Grid.Column="1" Grid.Row="1" Width="150" Margin="4"></TextBox>
 
-        <Grid Grid.Row="2" Margin="4">
+        <!-- Fila 2 -->
+        <Label Grid.Row="2" Target="{Binding ElementName=CheckFriend}" >A_migo</Label>
+        <CheckBox Grid.Row="2" Grid.Column="1" Name="CheckFriend" VerticalContentAlignment="Center" Margin="4"></CheckBox>
 
+        <!-- Fila 3 -->
+        <Label Grid.Row="3">Sexo</Label>
+        <UniformGrid Grid.Row="3" Grid.Column="1" Rows="2" Columns="1" Margin="4">
+            <RadioButton Name="rdMan">Hombre</RadioButton>
+            <RadioButton Name="rdWoman" Grid.Row="1">Mujer</RadioButton>
+        </UniformGrid>
+        
+
+        <!-- Fila 4 -->
+        <Grid Grid.Row="4" Margin="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -58,8 +75,9 @@
             </Button>
         </Grid>
 
-        <Button Grid.Row="2" Grid.Column="1" Margin="4" Click="Button_Click" Name="OkB">
+        <Button Grid.Row="4" Grid.Column="1" Margin="4" Click="Button_Click" Name="OkB">
             <Label Target="{Binding ElementName=OkB}">_Modificar</Label>
         </Button>
     </Grid>
+    
 </Window>
