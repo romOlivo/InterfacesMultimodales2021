@@ -41,12 +41,21 @@ namespace DemoFormularios
             get { return index; }
             set
             {
+                CajaNombre.TextChanged -= TextChanged;
+                CajaApellidos.TextChanged -= TextChanged;
                 if (value >= 0 && value <= people.Count - 1)
                     index = value;
                 LeftB.IsEnabled = index > 0;
                 RightB.IsEnabled = index < people.Count - 1;
                 update_people();
+                CajaNombre.TextChanged += TextChanged;
+                CajaApellidos.TextChanged += TextChanged;
             }
+        }
+
+        private void TextChanged(object sender, TextChangedEventArgs e)
+        {
+            OkB.IsEnabled = CajaNombre.Text != people[Index].Name || CajaApellidos.Text != people[Index].Surname;
         }
 
         public MainWindow()
@@ -68,6 +77,7 @@ namespace DemoFormularios
             people.Add(new Person("Garcia", "Lorca"));
             people.Add(new Person("Santi", "Lopez"));
             Index = 0;
+            OkB.IsEnabled = false;
         }
 
         #region ScaleValue Depdency Property
@@ -123,8 +133,8 @@ namespace DemoFormularios
         {
             people[Index].Name = CajaNombre.Text;
             people[Index].Surname = CajaApellidos.Text;
-
-            MessageBox.Show("Usuario Actualizado");
+            OkB.IsEnabled = false;
+            MessageBox.Show("Usuario Actualizado", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void Left_People(object sender, RoutedEventArgs e)
@@ -136,5 +146,6 @@ namespace DemoFormularios
         {
             Index++;
         }
+
     }
 }
