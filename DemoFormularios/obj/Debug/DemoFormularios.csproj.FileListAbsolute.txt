@@ -13,3 +13,4 @@ C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoFormularios\obj\Debug\D
 C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoFormularios\obj\Debug\DemoFormularios.csproj.CoreCompileInputs.cache
 C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoFormularios\obj\Debug\DemoFormularios.exe
 C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoFormularios\obj\Debug\DemoFormularios.pdb
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoFormularios\obj\Debug\GeneratedInternalTypeHelper.g.cs

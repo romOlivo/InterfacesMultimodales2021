@@ -9,23 +9,39 @@
         SizeToContent="WidthAndHeight"
         Title="MainWindow" Height="400" Width="800">
 
-    <Grid Margin="8" Name="MainGrid" SizeChanged="MainGrid_SizeChanged">
-
-        <Grid.LayoutTransform>
+    <Window.Resources>
+        <local:ConvierteEnPorcentaje x:Key="PercentageConverter" />
+    </Window.Resources>
+    <DockPanel>
+        <DockPanel.LayoutTransform>
             <ScaleTransform x:Name="ApplicationScaleTransform"
                         CenterX="0"
                         CenterY="0"
                         ScaleX="2"
                         ScaleY="2" />
-                            <!--
+                        <!--
                         ScaleX="{Binding ElementName=myMainWindow, Path=ScaleValue}"
                         ScaleY="{Binding ElementName=myMainWindow, Path=ScaleValue}" />
                             -->
-        </Grid.LayoutTransform>
+        </DockPanel.LayoutTransform>
 
-        <Grid.ColumnDefinitions>
+
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_Archivo">
+                <MenuItem Header="_Nuevo"/>
+                <MenuItem Header="_Abrir" Click="MenuItem_Abrir"/>
+                <MenuItem Header="_Guardar"/>
+                <Separator/>
+                <MenuItem Header="_Salir"/>
+                </MenuItem>
+        </Menu>
+
+        <Grid Margin="8" Name="MainGrid" SizeChanged="MainGrid_SizeChanged">
+
+            <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="40"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
@@ -78,6 +94,9 @@
         <Button Grid.Row="4" Grid.Column="1" Margin="4" Click="Button_Click" Name="OkB">
             <Label Target="{Binding ElementName=OkB}">_Modificar</Label>
         </Button>
+
+        <TextBlock Text="{Binding ElementName=ElSlider, Path=Value, Converter={StaticResource PercentageConverter}}" Grid.Column="3" HorizontalAlignment="Center"/>
+        <Slider Name="ElSlider" Grid.Row="1" Grid.Column="3" Grid.RowSpan="5" Orientation="Vertical" Minimum="0" Maximum="100" HorizontalAlignment="Center" ValueChanged="ElSlider_ValueChanged"/>
     </Grid>
-    
+    </DockPanel>
 </Window>

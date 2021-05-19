@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -186,5 +187,16 @@ namespace DemoFormularios
             Index++;
         }
 
+        private void ElSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            Index = (int)Math.Round(e.NewValue * (people.Count - 1) / 100);
+        }
+
+        private void MenuItem_Abrir(object sender, RoutedEventArgs e)
+        {
+            var dialog = new OpenFileDialog();
+            var response = dialog.ShowDialog();
+
+        }
     }
 }
