@@ -195,8 +195,27 @@ namespace DemoFormularios
         private void MenuItem_Abrir(object sender, RoutedEventArgs e)
         {
             var dialog = new OpenFileDialog();
-            var response = dialog.ShowDialog();
+            dialog.DefaultExt = ".ag";
+            dialog.Filter = "Agenda Documents (.ag)|*.ag";
+            if(dialog.ShowDialog() == true)
+            {
+                Console.WriteLine(dialog.FileName);
+                // dialog.FileName
+            }
 
+
+        }
+
+        private void MenuItem_Guardar(object sender, RoutedEventArgs e)
+        {
+            var dialog = new SaveFileDialog();
+            dialog.DefaultExt = ".ag";
+            dialog.Filter = "Agenda Documents (.ag)|*.ag";
+
+            if (dialog.ShowDialog() == true)
+            {
+                Console.WriteLine(dialog.FileName);
+            }
         }
     }
 }
