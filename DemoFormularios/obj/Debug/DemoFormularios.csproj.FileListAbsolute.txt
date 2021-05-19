@@ -14,3 +14,6 @@ C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoFormularios\obj\Debug\D
 C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoFormularios\obj\Debug\DemoFormularios.exe
 C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoFormularios\obj\Debug\DemoFormularios.pdb
 C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoFormularios\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoFormularios\bin\Debug\Newtonsoft.Json.dll
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoFormularios\bin\Debug\Newtonsoft.Json.xml
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoFormularios\obj\Debug\DemoFormularios.csproj.CopyComplete

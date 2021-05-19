@@ -1,6 +1,8 @@
 ﻿using Microsoft.Win32;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,13 +18,14 @@ using System.Windows.Shapes;
 
 namespace DemoFormularios
 {
+    [Serializable()]
     enum SexEnum
     {
         Man,
         Woman
     }
 
-
+    [Serializable()]
     class Person
     {
         public string Name { get; set; }
@@ -199,8 +202,9 @@ namespace DemoFormularios
             dialog.Filter = "Agenda Documents (.ag)|*.ag";
             if(dialog.ShowDialog() == true)
             {
-                Console.WriteLine(dialog.FileName);
-                // dialog.FileName
+                string readText = File.ReadAllText(dialog.FileName);
+                people = JsonConvert.DeserializeObject<List<Person>>(readText);
+                Index = 0;
             }
 
 
@@ -214,7 +218,8 @@ namespace DemoFormularios
 
             if (dialog.ShowDialog() == true)
             {
-                Console.WriteLine(dialog.FileName);
+                string jsonString = JsonConvert.SerializeObject(people);
+                File.WriteAllText(dialog.FileName, jsonString);
             }
         }
     }
