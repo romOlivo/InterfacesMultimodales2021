@@ -182,12 +182,12 @@ namespace DemoFormularios
 
         private void Left_People(object sender, RoutedEventArgs e)
         {
-            Index--;
+            ElSlider.Value = (Index - 1) / (double)(people.Count - 1) * 100;
         }
 
         private void Right_People(object sender, RoutedEventArgs e)
         {
-            Index++;
+            ElSlider.Value = (Index + 1) / (double)(people.Count - 1) * 100;
         }
 
         private void ElSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -204,7 +204,7 @@ namespace DemoFormularios
             {
                 string readText = File.ReadAllText(dialog.FileName);
                 people = JsonConvert.DeserializeObject<List<Person>>(readText);
-                Index = 0;
+                ElSlider.Value = 0;
             }
 
 
@@ -221,6 +221,14 @@ namespace DemoFormularios
                 string jsonString = JsonConvert.SerializeObject(people);
                 File.WriteAllText(dialog.FileName, jsonString);
             }
+        }
+
+        private void delB_Click(object sender, RoutedEventArgs e)
+        {
+            people.RemoveAt(Index);
+            Index = Math.Min(Index, people.Count - 1);
+            ElSlider.Value = (Index) / (double)(people.Count - 1) * 100;
+            update_people();
         }
     }
 }

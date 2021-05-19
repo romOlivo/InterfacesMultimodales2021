@@ -39,64 +39,75 @@
         <Grid Margin="8" Name="MainGrid" SizeChanged="MainGrid_SizeChanged">
 
             <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="40"/>
-        </Grid.ColumnDefinitions>
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
-
-        <!-- Fila 0 -->
-        <Label Target="{Binding ElementName=CajaNombre}">_Nombre</Label>
-        <TextBox Name="CajaNombre" Grid.Column="1" Width="150" Margin="4"></TextBox>
-        
-        <!-- Fila 1 -->
-        <Label Target="{Binding ElementName=CajaApellidos}" Grid.Row="1"> _Apellidos </Label>
-        <TextBox Name="CajaApellidos" Grid.Column="1" Grid.Row="1" Width="150" Margin="4"></TextBox>
-
-        <!-- Fila 2 -->
-        <Label Grid.Row="2" Target="{Binding ElementName=CheckFriend}" >A_migo</Label>
-        <CheckBox Grid.Row="2" Grid.Column="1" Name="CheckFriend" VerticalContentAlignment="Center" Margin="4"></CheckBox>
-
-        <!-- Fila 3 -->
-        <Label Grid.Row="3">Sexo</Label>
-        <UniformGrid Grid.Row="3" Grid.Column="1" Rows="2" Columns="1" Margin="4">
-            <RadioButton Name="rdMan">Hombre</RadioButton>
-            <RadioButton Name="rdWoman" Grid.Row="1">Mujer</RadioButton>
-        </UniformGrid>
-        
-
-        <!-- Fila 4 -->
-        <Grid Grid.Row="4" Margin="4">
-            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
-            <Button Margin="2" Click="Left_People" Name="LeftB">
-                <Label Target="{Binding ElementName=LeftB}">_&lt;</Label> 
-            </Button>
-            <Button Margin="2" Click="Right_People" Name="RightB" Grid.Column="1">
-                <Label Target="{Binding ElementName=RightB}">_&gt;</Label>
-            </Button>
+            <!-- Fila 0 -->
+            <Label Target="{Binding ElementName=CajaNombre}">_Nombre</Label>
+            <TextBox Name="CajaNombre" Grid.Column="1" Width="150" Margin="4" HorizontalAlignment="Left"></TextBox>
+        
+            <!-- Fila 1 -->
+            <Label Target="{Binding ElementName=CajaApellidos}" Grid.Row="1"> _Apellidos </Label>
+            <TextBox Name="CajaApellidos" Grid.Column="1" Grid.Row="1" Width="150" Margin="4" HorizontalAlignment="Left"></TextBox>
+
+            <!-- Fila 2 -->
+            <Label Grid.Row="2" Target="{Binding ElementName=CheckFriend}" >A_migo</Label>
+            <CheckBox Grid.Row="2" Grid.Column="1" Name="CheckFriend" VerticalContentAlignment="Center" Margin="4"></CheckBox>
+
+            <!-- Fila 3 -->
+            <Label Grid.Row="3">Sexo</Label>
+            <UniformGrid Grid.Row="3" Grid.Column="1" Rows="2" Columns="1" Margin="4">
+                <RadioButton Name="rdMan">Hombre</RadioButton>
+                <RadioButton Name="rdWoman" Grid.Row="1">Mujer</RadioButton>
+            </UniformGrid>
+        
+
+            <!-- Fila 4 -->
+            <Grid Grid.Row="4" Margin="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Button Margin="2" Click="Left_People" Name="LeftB">
+                    <Label Target="{Binding ElementName=LeftB}">_&lt;</Label> 
+                </Button>
+                <Button Margin="2" Click="Right_People" Name="RightB" Grid.Column="1">
+                    <Label Target="{Binding ElementName=RightB}">_&gt;</Label>
+                </Button>
+            </Grid>
+
+            <UniformGrid Grid.Row="4" Grid.Column="1" Margin="4" Rows="1" Columns="3">
+                <Button   Click="delB_Click" Name="delB" Grid.Column="1" Margin="2">
+                    <Label Target="{Binding ElementName=delB}">_Eliminar</Label>
+                </Button>
+
+                <Button   Click="Button_Click" Name="OkB" Grid.Column="1" Margin="2">
+                    <Label Target="{Binding ElementName=OkB}">_Modificar</Label>
+                </Button>
+
+                <Button   Click="Button_Click" Name="addB" Grid.Column="1" Margin="2">
+                    <Label Target="{Binding ElementName=addB}">_Añadir</Label>
+                </Button>
+            </UniformGrid>
+            
+
+            <TextBlock Text="{Binding ElementName=ElSlider, Path=Value, Converter={StaticResource PercentageConverter}}" Grid.Column="3" HorizontalAlignment="Center"/>
+            <Slider Name="ElSlider" Grid.Row="1" Grid.Column="3" Grid.RowSpan="5" Orientation="Vertical" Minimum="0" Maximum="100" HorizontalAlignment="Center" ValueChanged="ElSlider_ValueChanged"/>
         </Grid>
-
-        <Button Grid.Row="4" Grid.Column="1" Margin="4" Click="Button_Click" Name="OkB">
-            <Label Target="{Binding ElementName=OkB}">_Modificar</Label>
-        </Button>
-
-        <TextBlock Text="{Binding ElementName=ElSlider, Path=Value, Converter={StaticResource PercentageConverter}}" Grid.Column="3" HorizontalAlignment="Center"/>
-        <Slider Name="ElSlider" Grid.Row="1" Grid.Column="3" Grid.RowSpan="5" Orientation="Vertical" Minimum="0" Maximum="100" HorizontalAlignment="Center" ValueChanged="ElSlider_ValueChanged"/>
-    </Grid>
     </DockPanel>
 </Window>
