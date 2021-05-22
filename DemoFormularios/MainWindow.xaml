@@ -32,8 +32,8 @@
                 <MenuItem Header="_Abrir" Click="MenuItem_Abrir"/>
                 <MenuItem Header="_Guardar" Click="MenuItem_Guardar"/>
                 <Separator/>
-                <MenuItem Header="_Salir"/>
-                </MenuItem>
+                <MenuItem Header="_Salir" Click="MenuItem_Salir"/>
+            </MenuItem>
         </Menu>
 
         <Grid Margin="8" Name="MainGrid" SizeChanged="MainGrid_SizeChanged">

@@ -291,5 +291,13 @@ namespace DemoFormularios
             MessageBox.Show("Nuevo usuario añadido exitosamente.", "Información",
                 MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
+        private void MenuItem_Salir(object sender, RoutedEventArgs e)
+        {
+            var response = MessageBox.Show("¿Está seguro de que desea salir? Todos los cambios no guardados se perderán",
+                "Salir", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (response == MessageBoxResult.Yes)
+                this.Close();
+        }
     }
 }
