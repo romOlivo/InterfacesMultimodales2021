@@ -19,14 +19,14 @@ using System.Windows.Shapes;
 namespace DemoFormularios
 {
     [Serializable()]
-    enum SexEnum
+    public enum SexEnum
     {
         Man,
         Woman
     }
 
     [Serializable()]
-    class Person
+    public class Person
     {
         public string Name { get; set; }
         public string Surname { get; set; }
@@ -85,15 +85,15 @@ namespace DemoFormularios
         }
 
         private void enableModify()
-        { 
-        OkB.IsEnabled = CajaNombre.Text != people[Index].Name || 
-                CajaApellidos.Text != people[Index].Surname ||
-                CheckFriend.IsChecked != people[Index].IsFriend ||
-                (rdMan.IsChecked == true && people[Index].Sex != SexEnum.Man) ||
-                (rdWoman.IsChecked == true && people[Index].Sex != SexEnum.Woman);
+        {
+            OkB.IsEnabled = CajaNombre.Text != people[Index].Name ||
+                    CajaApellidos.Text != people[Index].Surname ||
+                    CheckFriend.IsChecked != people[Index].IsFriend ||
+                    (rdMan.IsChecked == true && people[Index].Sex != SexEnum.Man) ||
+                    (rdWoman.IsChecked == true && people[Index].Sex != SexEnum.Woman);
         }
 
-    public MainWindow()
+        public MainWindow()
         {
             InitializeComponent();
             Loaded += MainWindow_Loaded;
@@ -167,14 +167,14 @@ namespace DemoFormularios
 
         #endregion
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void modB_Click(object sender, RoutedEventArgs e)
         {
             people[Index].Name = CajaNombre.Text;
             people[Index].Surname = CajaApellidos.Text;
             people[Index].IsFriend = (bool)CheckFriend.IsChecked;
             if (rdMan.IsChecked == true)
                 people[Index].Sex = SexEnum.Man;
-            else if(rdWoman.IsChecked == true)
+            else if (rdWoman.IsChecked == true)
                 people[Index].Sex = SexEnum.Woman;
             OkB.IsEnabled = false;
             MessageBox.Show("Usuario Actualizado", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -200,7 +200,7 @@ namespace DemoFormularios
             var dialog = new OpenFileDialog();
             dialog.DefaultExt = ".ag";
             dialog.Filter = "Agenda Documents (.ag)|*.ag";
-            if(dialog.ShowDialog() == true)
+            if (dialog.ShowDialog() == true)
             {
                 string readText = File.ReadAllText(dialog.FileName);
                 people = JsonConvert.DeserializeObject<List<Person>>(readText);
@@ -229,6 +229,18 @@ namespace DemoFormularios
             Index = Math.Min(Index, people.Count - 1);
             ElSlider.Value = (Index) / (double)(people.Count - 1) * 100;
             update_people();
+        }
+
+        private void addB_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new NewContact();
+            window.ShowDialog();
+            if (window.NewPerson == null)
+                return;
+            people.Add(window.NewPerson);
+            ElSlider.Value = 100;
+            MessageBox.Show("Nuevo usuario añadido exitosamente.", "Información", 
+                MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }
