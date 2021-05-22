@@ -101,11 +101,40 @@ namespace DemoFormularios
 
         private void update_people()
         {
-            CajaNombre.Text = people[Index].Name;
-            CajaApellidos.Text = people[Index].Surname;
-            CheckFriend.IsChecked = people[Index].IsFriend;
-            rdMan.IsChecked = people[Index].Sex == SexEnum.Man;
-            rdWoman.IsChecked = people[Index].Sex == SexEnum.Woman;
+            if (people.Count == 0)
+            {
+                setFields("", "", false, false, false);
+                setVisibility(false);
+            }
+            else
+            {
+                setFields(people[Index].Name, people[Index].Surname, people[Index].IsFriend,
+                    people[Index].Sex == SexEnum.Man, people[Index].Sex == SexEnum.Woman);
+                if (people.Count == 1)
+                    setVisibility(true);
+            }
+
+
+        }
+
+        private void setFields(string name, string surname, bool isFriend, bool isMan, bool isWoman)
+        {
+            CajaNombre.Text = name;
+            CajaApellidos.Text = surname;
+            CheckFriend.IsChecked = isFriend;
+            rdMan.IsChecked = isMan;
+            rdWoman.IsChecked = isWoman;
+        }
+
+        private void setVisibility(bool visibility)
+        {
+            delB.IsEnabled = visibility;
+            CajaNombre.IsEnabled = visibility;
+            CajaApellidos.IsEnabled = visibility;
+            CheckFriend.IsEnabled = visibility;
+            rdMan.IsEnabled = visibility;
+            rdWoman.IsEnabled = visibility;
+            ElSlider.IsEnabled = visibility;
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -246,7 +275,8 @@ namespace DemoFormularios
         {
             people.RemoveAt(Index);
             Index = Math.Min(Index, people.Count - 1);
-            ElSlider.Value = (Index) / (double)(people.Count - 1) * 100;
+            if (Index > 0)
+                ElSlider.Value = (Index) / (double)(people.Count - 1) * 100;
             update_people();
         }
 
@@ -257,7 +287,7 @@ namespace DemoFormularios
             if (window.NewPerson == null)
                 return;
             people.Add(window.NewPerson);
-            ElSlider.Value = 100;
+            Index = people.Count - 1;
             MessageBox.Show("Nuevo usuario añadido exitosamente.", "Información",
                 MessageBoxButton.OK, MessageBoxImage.Information);
         }
