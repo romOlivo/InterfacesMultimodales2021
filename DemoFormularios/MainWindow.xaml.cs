@@ -202,9 +202,28 @@ namespace DemoFormularios
             dialog.Filter = "Agenda Documents (.ag)|*.ag";
             if (dialog.ShowDialog() == true)
             {
-                string readText = File.ReadAllText(dialog.FileName);
-                people = JsonConvert.DeserializeObject<List<Person>>(readText);
+                string readText = null;
+                try
+                {
+                    readText = File.ReadAllText(dialog.FileName);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("El fichero no se ha podido leer. Por favor, compruebe el fichero e intentelo de nuevo.",
+                        "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+                try
+                {
+                    people = JsonConvert.DeserializeObject<List<Person>>(readText);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("El formato del fichero es incorrecto. Por favor, compruebe el fichero e intentelo de nuevo.",
+                        "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
                 ElSlider.Value = 0;
+                update_people();
             }
 
 
@@ -239,7 +258,7 @@ namespace DemoFormularios
                 return;
             people.Add(window.NewPerson);
             ElSlider.Value = 100;
-            MessageBox.Show("Nuevo usuario añadido exitosamente.", "Información", 
+            MessageBox.Show("Nuevo usuario añadido exitosamente.", "Información",
                 MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
