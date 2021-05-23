@@ -266,6 +266,7 @@ namespace DemoFormularios
                 return;
             people.Add(window.NewPerson);
             Index = people.Count - 1;
+            ElSlider.Value = 100;
             MessageBox.Show("Nuevo usuario añadido exitosamente.", "Información",
                 MessageBoxButton.OK, MessageBoxImage.Information);
         }
