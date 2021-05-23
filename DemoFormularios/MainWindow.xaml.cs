@@ -17,7 +17,10 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace DemoFormularios
+
 {
+    #region Clase Persona
+
     [Serializable()]
     public enum SexEnum
     {
@@ -43,6 +46,8 @@ namespace DemoFormularios
         }
     }
 
+    #endregion
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -56,85 +61,20 @@ namespace DemoFormularios
             get { return index; }
             set
             {
-                CajaNombre.TextChanged -= TextChanged;
-                CajaApellidos.TextChanged -= TextChanged;
-                CheckFriend.Click -= Click;
-                rdMan.Click -= Click;
-                rdWoman.Click -= Click;
+                unlistenEvents();
                 if (value >= 0 && value <= people.Count - 1)
                     index = value;
                 LeftB.IsEnabled = index > 0;
                 RightB.IsEnabled = index < people.Count - 1;
                 update_people();
-                CajaNombre.TextChanged += TextChanged;
-                CajaApellidos.TextChanged += TextChanged;
-                CheckFriend.Click += Click;
-                rdMan.Click += Click;
-                rdWoman.Click += Click;
+                listenEvents();
             }
-        }
-
-        private void Click(object sender, RoutedEventArgs e)
-        {
-            enableModify();
-        }
-
-        private void TextChanged(object sender, TextChangedEventArgs e)
-        {
-            enableModify();
-        }
-
-        private void enableModify()
-        {
-            OkB.IsEnabled = CajaNombre.Text != people[Index].Name ||
-                    CajaApellidos.Text != people[Index].Surname ||
-                    CheckFriend.IsChecked != people[Index].IsFriend ||
-                    (rdMan.IsChecked == true && people[Index].Sex != SexEnum.Man) ||
-                    (rdWoman.IsChecked == true && people[Index].Sex != SexEnum.Woman);
-        }
+        }   
 
         public MainWindow()
         {
             InitializeComponent();
             Loaded += MainWindow_Loaded;
-        }
-
-        private void update_people()
-        {
-            if (people.Count == 0)
-            {
-                setFields("", "", false, false, false);
-                setVisibility(false);
-            }
-            else
-            {
-                setFields(people[Index].Name, people[Index].Surname, people[Index].IsFriend,
-                    people[Index].Sex == SexEnum.Man, people[Index].Sex == SexEnum.Woman);
-                if (people.Count == 1)
-                    setVisibility(true);
-            }
-
-
-        }
-
-        private void setFields(string name, string surname, bool isFriend, bool isMan, bool isWoman)
-        {
-            CajaNombre.Text = name;
-            CajaApellidos.Text = surname;
-            CheckFriend.IsChecked = isFriend;
-            rdMan.IsChecked = isMan;
-            rdWoman.IsChecked = isWoman;
-        }
-
-        private void setVisibility(bool visibility)
-        {
-            delB.IsEnabled = visibility;
-            CajaNombre.IsEnabled = visibility;
-            CajaApellidos.IsEnabled = visibility;
-            CheckFriend.IsEnabled = visibility;
-            rdMan.IsEnabled = visibility;
-            rdWoman.IsEnabled = visibility;
-            ElSlider.IsEnabled = visibility;
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -196,6 +136,96 @@ namespace DemoFormularios
 
         #endregion
 
+        #region Métodos Auxiliares
+
+        private void listenEvents()
+        {
+            CajaNombre.TextChanged += TextChanged;
+            CajaApellidos.TextChanged += TextChanged;
+            CheckFriend.Click += Click;
+            rdMan.Click += Click;
+            rdWoman.Click += Click;
+        }
+
+        private void unlistenEvents()
+        {
+            CajaNombre.TextChanged -= TextChanged;
+            CajaApellidos.TextChanged -= TextChanged;
+            CheckFriend.Click -= Click;
+            rdMan.Click -= Click;
+            rdWoman.Click -= Click;
+        }
+
+        private void enableModify()
+        {
+            OkB.IsEnabled = CajaNombre.Text != people[Index].Name ||
+                    CajaApellidos.Text != people[Index].Surname ||
+                    CheckFriend.IsChecked != people[Index].IsFriend ||
+                    (rdMan.IsChecked == true && people[Index].Sex != SexEnum.Man) ||
+                    (rdWoman.IsChecked == true && people[Index].Sex != SexEnum.Woman);
+        }
+
+        private void update_people()
+        {
+            if (people.Count == 0)
+            {
+                setFields("", "", false, false, false);
+                setVisibility(false);
+            }
+            else
+            {
+                setFields(people[Index].Name, people[Index].Surname, people[Index].IsFriend,
+                    people[Index].Sex == SexEnum.Man, people[Index].Sex == SexEnum.Woman);
+                if (people.Count == 1)
+                    setVisibility(true);
+            }
+
+
+        }
+
+        private void setFields(string name, string surname, bool isFriend, bool isMan, bool isWoman)
+        {
+            CajaNombre.Text = name;
+            CajaApellidos.Text = surname;
+            CheckFriend.IsChecked = isFriend;
+            rdMan.IsChecked = isMan;
+            rdWoman.IsChecked = isWoman;
+        }
+
+        private void setVisibility(bool visibility)
+        {
+            delB.IsEnabled = visibility;
+            CajaNombre.IsEnabled = visibility;
+            CajaApellidos.IsEnabled = visibility;
+            CheckFriend.IsEnabled = visibility;
+            rdMan.IsEnabled = visibility;
+            rdWoman.IsEnabled = visibility;
+            ElSlider.IsEnabled = visibility;
+        }
+
+        #endregion
+
+        #region Eventos
+
+        private void Click(object sender, RoutedEventArgs e)
+        {
+            enableModify();
+        }
+
+        private void TextChanged(object sender, TextChangedEventArgs e)
+        {
+            enableModify();
+        }
+
+        private void ElSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            Index = (int)Math.Round(e.NewValue * (people.Count - 1) / 100);
+        }
+
+        #endregion
+
+        #region Buttons Click
+
         private void modB_Click(object sender, RoutedEventArgs e)
         {
             people[Index].Name = CajaNombre.Text;
@@ -219,9 +249,68 @@ namespace DemoFormularios
             ElSlider.Value = (Index + 1) / (double)(people.Count - 1) * 100;
         }
 
-        private void ElSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void delB_Click(object sender, RoutedEventArgs e)
         {
-            Index = (int)Math.Round(e.NewValue * (people.Count - 1) / 100);
+            people.RemoveAt(Index);
+            Index = Math.Min(Index, people.Count - 1);
+            if (Index > 0)
+                ElSlider.Value = (Index) / (double)(people.Count - 1) * 100;
+            update_people();
+        }
+
+        private void addB_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new NewContact();
+            window.ShowDialog();
+            if (window.NewPerson == null)
+                return;
+            people.Add(window.NewPerson);
+            Index = people.Count - 1;
+            MessageBox.Show("Nuevo usuario añadido exitosamente.", "Información",
+                MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        #endregion
+
+        #region MenuItems Click
+
+        private void MenuItem_Nuevo(object sender, RoutedEventArgs e)
+        {
+            var response = MessageBox.Show("¿Está seguro de que desea crear una nueva agenda? Todos los cambios no guardados de la vieja agenda se perderán",
+                "Nuevo", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (response == MessageBoxResult.Yes)
+            {
+                Index = 0;
+                unlistenEvents();
+                this.people.Clear();
+                update_people();
+                OkB.IsEnabled = false;
+                LeftB.IsEnabled = false;
+                RightB.IsEnabled = false;
+                listenEvents();
+            }
+
+        }
+
+        private void MenuItem_Salir(object sender, RoutedEventArgs e)
+        {
+            var response = MessageBox.Show("¿Está seguro de que desea salir? Todos los cambios no guardados se perderán",
+                "Salir", MessageBoxButton.YesNo, MessageBoxImage.Exclamation);
+            if (response == MessageBoxResult.Yes)
+                this.Close();
+        }
+
+        private void MenuItem_Guardar(object sender, RoutedEventArgs e)
+        {
+            var dialog = new SaveFileDialog();
+            dialog.DefaultExt = ".ag";
+            dialog.Filter = "Agenda Documents (.ag)|*.ag";
+
+            if (dialog.ShowDialog() == true)
+            {
+                string jsonString = JsonConvert.SerializeObject(people);
+                File.WriteAllText(dialog.FileName, jsonString);
+            }
         }
 
         private void MenuItem_Abrir(object sender, RoutedEventArgs e)
@@ -258,46 +347,7 @@ namespace DemoFormularios
 
         }
 
-        private void MenuItem_Guardar(object sender, RoutedEventArgs e)
-        {
-            var dialog = new SaveFileDialog();
-            dialog.DefaultExt = ".ag";
-            dialog.Filter = "Agenda Documents (.ag)|*.ag";
+        #endregion
 
-            if (dialog.ShowDialog() == true)
-            {
-                string jsonString = JsonConvert.SerializeObject(people);
-                File.WriteAllText(dialog.FileName, jsonString);
-            }
-        }
-
-        private void delB_Click(object sender, RoutedEventArgs e)
-        {
-            people.RemoveAt(Index);
-            Index = Math.Min(Index, people.Count - 1);
-            if (Index > 0)
-                ElSlider.Value = (Index) / (double)(people.Count - 1) * 100;
-            update_people();
-        }
-
-        private void addB_Click(object sender, RoutedEventArgs e)
-        {
-            var window = new NewContact();
-            window.ShowDialog();
-            if (window.NewPerson == null)
-                return;
-            people.Add(window.NewPerson);
-            Index = people.Count - 1;
-            MessageBox.Show("Nuevo usuario añadido exitosamente.", "Información",
-                MessageBoxButton.OK, MessageBoxImage.Information);
-        }
-
-        private void MenuItem_Salir(object sender, RoutedEventArgs e)
-        {
-            var response = MessageBox.Show("¿Está seguro de que desea salir? Todos los cambios no guardados se perderán",
-                "Salir", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (response == MessageBoxResult.Yes)
-                this.Close();
-        }
     }
 }
