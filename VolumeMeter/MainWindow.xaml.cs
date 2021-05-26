@@ -53,8 +53,16 @@ namespace VolumeMeter
                 var top = (sepVm + vmHeight + 2 * stroke) * i;
                 addVolumeMeter(top);
             }
+            this.PreviewKeyDown += MyCanvas_KeyDown;
 
+        }
 
+        private void MyCanvas_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.A)
+                MySlider.Value = Math.Max(MySlider.Minimum, MySlider.Value - 10);
+            if (e.Key == Key.S)
+                MySlider.Value = Math.Min(MySlider.Maximum, MySlider.Value + 10);
         }
 
         private void addVolumeMeter(int top)
