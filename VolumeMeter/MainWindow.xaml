@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VolumeMeter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        SizeToContent="WidthAndHeight"
+        Title="MainWindow">
+    <DockPanel>
+        <Slider DockPanel.Dock="Bottom" Minimum="0" Maximum="100" Name="MySlider" Margin="8" ValueChanged="Slider_ValueChanged"></Slider>
+        <Canvas Name="MyCanvas" Width="800" Height="600" Background="YellowGreen"/>
+    </DockPanel>
 </Window>

@@ -1,0 +1,15 @@
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\VolumeMeter\bin\Debug\VolumeMeter.exe.config
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\VolumeMeter\bin\Debug\VolumeMeter.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\VolumeMeter\bin\Debug\VolumeMeter.pdb
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\VolumeMeter\obj\Debug\VolumeMeter.csprojAssemblyReference.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\VolumeMeter\obj\Debug\MainWindow.g.cs
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\VolumeMeter\obj\Debug\App.g.cs
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\VolumeMeter\obj\Debug\VolumeMeter_MarkupCompile.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\VolumeMeter\obj\Debug\VolumeMeter_MarkupCompile.lref
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\VolumeMeter\obj\Debug\MainWindow.baml
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\VolumeMeter\obj\Debug\VolumeMeter.g.resources
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\VolumeMeter\obj\Debug\VolumeMeter.Properties.Resources.resources
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\VolumeMeter\obj\Debug\VolumeMeter.csproj.GenerateResource.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\VolumeMeter\obj\Debug\VolumeMeter.csproj.CoreCompileInputs.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\VolumeMeter\obj\Debug\VolumeMeter.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\VolumeMeter\obj\Debug\VolumeMeter.pdb
