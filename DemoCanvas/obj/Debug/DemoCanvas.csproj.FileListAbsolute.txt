@@ -1,0 +1,15 @@
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoCanvas\bin\Debug\DemoCanvas.exe.config
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoCanvas\bin\Debug\DemoCanvas.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoCanvas\bin\Debug\DemoCanvas.pdb
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoCanvas\obj\Debug\MainWindow.g.cs
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoCanvas\obj\Debug\App.g.cs
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoCanvas\obj\Debug\DemoCanvas_MarkupCompile.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoCanvas\obj\Debug\DemoCanvas_MarkupCompile.lref
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoCanvas\obj\Debug\MainWindow.baml
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoCanvas\obj\Debug\DemoCanvas.g.resources
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoCanvas\obj\Debug\DemoCanvas.Properties.Resources.resources
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoCanvas\obj\Debug\DemoCanvas.csproj.GenerateResource.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoCanvas\obj\Debug\DemoCanvas.csproj.CoreCompileInputs.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoCanvas\obj\Debug\DemoCanvas.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoCanvas\obj\Debug\DemoCanvas.pdb
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoCanvas\obj\Debug\DemoCanvas.csprojAssemblyReference.cache
