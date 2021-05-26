@@ -1,0 +1,15 @@
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\FormularioProg\bin\Debug\FormularioProg.exe.config
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\FormularioProg\bin\Debug\FormularioProg.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\FormularioProg\bin\Debug\FormularioProg.pdb
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\FormularioProg\obj\Debug\FormularioProg.csprojAssemblyReference.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\FormularioProg\obj\Debug\MainWindow.g.cs
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\FormularioProg\obj\Debug\App.g.cs
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\FormularioProg\obj\Debug\FormularioProg_MarkupCompile.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\FormularioProg\obj\Debug\FormularioProg_MarkupCompile.lref
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\FormularioProg\obj\Debug\MainWindow.baml
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\FormularioProg\obj\Debug\FormularioProg.g.resources
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\FormularioProg\obj\Debug\FormularioProg.Properties.Resources.resources
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\FormularioProg\obj\Debug\FormularioProg.csproj.GenerateResource.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\FormularioProg\obj\Debug\FormularioProg.csproj.CoreCompileInputs.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\FormularioProg\obj\Debug\FormularioProg.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\FormularioProg\obj\Debug\FormularioProg.pdb

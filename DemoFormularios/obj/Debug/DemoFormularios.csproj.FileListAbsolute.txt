@@ -38,3 +38,5 @@ C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\DemoFormularios\o
 C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\DemoFormularios\obj\Debug\DemoFormularios.pdb
 C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\DemoFormularios\obj\Debug\NewContact.g.cs
 C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\DemoFormularios\obj\Debug\NewContact.baml
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoFormularios\obj\Debug\NewContact.g.cs
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoFormularios\obj\Debug\NewContact.baml
