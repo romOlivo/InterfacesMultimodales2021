@@ -1,0 +1,15 @@
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\MouseDrag\bin\Debug\MouseDrag.exe.config
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\MouseDrag\bin\Debug\MouseDrag.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\MouseDrag\bin\Debug\MouseDrag.pdb
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\MouseDrag\obj\Debug\MainWindow.g.cs
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\MouseDrag\obj\Debug\App.g.cs
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\MouseDrag\obj\Debug\MouseDrag_MarkupCompile.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\MouseDrag\obj\Debug\MouseDrag_MarkupCompile.lref
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\MouseDrag\obj\Debug\MainWindow.baml
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\MouseDrag\obj\Debug\MouseDrag.g.resources
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\MouseDrag\obj\Debug\MouseDrag.Properties.Resources.resources
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\MouseDrag\obj\Debug\MouseDrag.csproj.GenerateResource.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\MouseDrag\obj\Debug\MouseDrag.csproj.CoreCompileInputs.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\MouseDrag\obj\Debug\MouseDrag.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\MouseDrag\obj\Debug\MouseDrag.pdb
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\MouseDrag\obj\Debug\MouseDrag.csprojAssemblyReference.cache
