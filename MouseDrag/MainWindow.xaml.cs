@@ -20,6 +20,9 @@ namespace MouseDrag
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        public bool ObjPressed { get; set; }
+        public Ellipse EllipsePressed { get; set; }
         public MainWindow()
         {
             Loaded += MainWindow_Loaded;
@@ -28,11 +31,26 @@ namespace MouseDrag
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            ObjPressed = false;
             MyCanvas.MouseDown += MyCanvas_MouseDown;
+            MyCanvas.MouseUp += MyCanvas_MouseUp;
+        }
+
+        private void MyCanvas_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (ObjPressed)
+            {
+                EllipsePressed.Fill = Brushes.Orange;
+            }
+            ObjPressed = false;
         }
 
         private void MyCanvas_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            if (ObjPressed)
+            {
+                return;
+            }
             var elipse = new Ellipse()
             {
                 Width = 80,
@@ -50,6 +68,8 @@ namespace MouseDrag
         {
             var elipse = (Ellipse)sender;
             elipse.Fill = Brushes.Purple;
+            ObjPressed = true;
+            EllipsePressed = elipse;
         }
     }
 }
