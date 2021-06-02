@@ -70,6 +70,27 @@ namespace MouseDrag
             elipse.Fill = Brushes.Purple;
             ObjPressed = true;
             EllipsePressed = elipse;
+
+            TransformGroup tg = new TransformGroup();
+            TranslateTransform tt = new TranslateTransform(
+                Left = 0,
+                Top = 0);
+            tg.Children.Add(tt);
+            elipse.RenderTransform = tg;
+
+            Binding binding = new Binding("X");
+            binding.Source = GetMousePosition();
+            BindingOperations.SetBinding(tt, TranslateTransform.XProperty, binding);
+        }
+
+        private Point GetMousePosition()
+        {
+            // Position of the mouse relative to the window
+            var position = Mouse.GetPosition(this);
+
+            // Add the window position
+            return new Point(position.X + this.Left - Canvas.GetLeft(EllipsePressed),
+                position.Y + this.Top);
         }
     }
 }
