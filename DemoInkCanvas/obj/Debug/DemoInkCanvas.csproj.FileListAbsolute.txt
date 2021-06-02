@@ -1,0 +1,14 @@
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkCanvas\obj\Debug\MainWindow.g.cs
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkCanvas\obj\Debug\App.g.cs
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkCanvas\obj\Debug\DemoInkCanvas_MarkupCompile.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkCanvas\obj\Debug\DemoInkCanvas_MarkupCompile.lref
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkCanvas\bin\Debug\DemoInkCanvas.exe.config
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkCanvas\bin\Debug\DemoInkCanvas.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkCanvas\bin\Debug\DemoInkCanvas.pdb
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkCanvas\obj\Debug\MainWindow.baml
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkCanvas\obj\Debug\DemoInkCanvas.g.resources
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkCanvas\obj\Debug\DemoInkCanvas.Properties.Resources.resources
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkCanvas\obj\Debug\DemoInkCanvas.csproj.GenerateResource.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkCanvas\obj\Debug\DemoInkCanvas.csproj.CoreCompileInputs.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkCanvas\obj\Debug\DemoInkCanvas.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkCanvas\obj\Debug\DemoInkCanvas.pdb
