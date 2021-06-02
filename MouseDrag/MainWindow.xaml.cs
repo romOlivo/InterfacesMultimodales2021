@@ -37,6 +37,7 @@ namespace MouseDrag
             MyCanvas.MouseDown += MyCanvas_MouseDown;
             MyCanvas.MouseUp += MyCanvas_MouseUp;
             MyCanvas.MouseMove += MyCanvas_MouseMove;
+            // Mouse.Capture(MyCanvas, CaptureMode.Element);
         }
 
         private void MyCanvas_MouseMove(object sender, MouseEventArgs e)

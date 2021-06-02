@@ -1,0 +1,14 @@
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoTimer\bin\Release\DemoTimer.exe.config
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoTimer\bin\Release\DemoTimer.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoTimer\bin\Release\DemoTimer.pdb
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoTimer\obj\Release\MainWindow.g.cs
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoTimer\obj\Release\App.g.cs
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoTimer\obj\Release\DemoTimer_MarkupCompile.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoTimer\obj\Release\DemoTimer_MarkupCompile.lref
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoTimer\obj\Release\MainWindow.baml
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoTimer\obj\Release\DemoTimer.g.resources
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoTimer\obj\Release\DemoTimer.Properties.Resources.resources
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoTimer\obj\Release\DemoTimer.csproj.GenerateResource.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoTimer\obj\Release\DemoTimer.csproj.CoreCompileInputs.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoTimer\obj\Release\DemoTimer.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoTimer\obj\Release\DemoTimer.pdb
