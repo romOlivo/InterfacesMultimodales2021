@@ -23,6 +23,8 @@ namespace MouseDrag
 
         public bool ObjPressed { get; set; }
         public Ellipse EllipsePressed { get; set; }
+
+        public Point PointPressed { get; set; }
         public MainWindow()
         {
             Loaded += MainWindow_Loaded;
@@ -34,6 +36,15 @@ namespace MouseDrag
             ObjPressed = false;
             MyCanvas.MouseDown += MyCanvas_MouseDown;
             MyCanvas.MouseUp += MyCanvas_MouseUp;
+            MyCanvas.MouseMove += MyCanvas_MouseMove;
+        }
+
+        private void MyCanvas_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (!ObjPressed)
+                return;
+            Canvas.SetTop(EllipsePressed, e.GetPosition(MyCanvas).Y - PointPressed.Y);
+            Canvas.SetLeft(EllipsePressed, e.GetPosition(MyCanvas).X - PointPressed.X);
         }
 
         private void MyCanvas_MouseUp(object sender, MouseButtonEventArgs e)
@@ -70,27 +81,8 @@ namespace MouseDrag
             elipse.Fill = Brushes.Purple;
             ObjPressed = true;
             EllipsePressed = elipse;
-
-            TransformGroup tg = new TransformGroup();
-            TranslateTransform tt = new TranslateTransform(
-                Left = 0,
-                Top = 0);
-            tg.Children.Add(tt);
-            elipse.RenderTransform = tg;
-
-            Binding binding = new Binding("X");
-            binding.Source = GetMousePosition();
-            BindingOperations.SetBinding(tt, TranslateTransform.XProperty, binding);
+            PointPressed = new Point(e.GetPosition(elipse).X, e.GetPosition(elipse).Y);
         }
 
-        private Point GetMousePosition()
-        {
-            // Position of the mouse relative to the window
-            var position = Mouse.GetPosition(this);
-
-            // Add the window position
-            return new Point(position.X + this.Left - Canvas.GetLeft(EllipsePressed),
-                position.Y + this.Top);
-        }
     }
 }
