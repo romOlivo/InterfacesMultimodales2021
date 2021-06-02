@@ -82,6 +82,9 @@ namespace MouseDrag
             ObjPressed = true;
             EllipsePressed = elipse;
             PointPressed = new Point(e.GetPosition(elipse).X, e.GetPosition(elipse).Y);
+            MyCanvas.Children.Remove(elipse);
+            MyCanvas.Children.Add(elipse);
+            e.Handled = true;
         }
 
     }
