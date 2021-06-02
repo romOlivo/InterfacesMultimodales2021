@@ -1,0 +1,15 @@
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Entrega1Snake\bin\Debug\Entrega1Snake.exe.config
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Entrega1Snake\bin\Debug\Entrega1Snake.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Entrega1Snake\bin\Debug\Entrega1Snake.pdb
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Entrega1Snake\obj\Debug\Entrega1Snake.csprojAssemblyReference.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Entrega1Snake\obj\Debug\MainWindow.g.cs
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Entrega1Snake\obj\Debug\App.g.cs
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Entrega1Snake\obj\Debug\Entrega1Snake_MarkupCompile.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Entrega1Snake\obj\Debug\Entrega1Snake_MarkupCompile.lref
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Entrega1Snake\obj\Debug\MainWindow.baml
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Entrega1Snake\obj\Debug\Entrega1Snake.g.resources
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Entrega1Snake\obj\Debug\Entrega1Snake.Properties.Resources.resources
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Entrega1Snake\obj\Debug\Entrega1Snake.csproj.GenerateResource.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Entrega1Snake\obj\Debug\Entrega1Snake.csproj.CoreCompileInputs.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Entrega1Snake\obj\Debug\Entrega1Snake.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Entrega1Snake\obj\Debug\Entrega1Snake.pdb
