@@ -1,0 +1,18 @@
+﻿<Window x:Class="Entrega2Calculadora.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Entrega2Calculadora"
+        mc:Ignorable="d"
+        SizeToContent="WidthAndHeight"
+        Title="MainWindow" Height="450" Width="800">
+    <DockPanel>
+        <UniformGrid DockPanel.Dock="Bottom" Columns="1" Rows="2">
+            <Label Name="myLabel" FontSize="40" BorderThickness="3" BorderBrush="Black" Margin="4">-</Label>
+            <Button Margin="8" Click="Button_Click">Limpiar</Button>
+        </UniformGrid>
+
+        <InkCanvas Name="myInkCanvas" Background="AliceBlue" Height="400" Width="800"/>
+    </DockPanel>
+</Window>

@@ -1,0 +1,17 @@
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkRecog\bin\Debug\DemoInkRecog.exe.config
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkRecog\bin\Debug\DemoInkRecog.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkRecog\bin\Debug\DemoInkRecog.pdb
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkRecog\bin\Debug\Microsoft.Ink.dll
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkRecog\obj\Debug\DemoInkRecog.csprojAssemblyReference.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkRecog\obj\Debug\MainWindow.g.cs
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkRecog\obj\Debug\App.g.cs
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkRecog\obj\Debug\DemoInkRecog_MarkupCompile.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkRecog\obj\Debug\DemoInkRecog_MarkupCompile.lref
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkRecog\obj\Debug\MainWindow.baml
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkRecog\obj\Debug\DemoInkRecog.g.resources
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkRecog\obj\Debug\DemoInkRecog.Properties.Resources.resources
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkRecog\obj\Debug\DemoInkRecog.csproj.GenerateResource.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkRecog\obj\Debug\DemoInkRecog.csproj.CoreCompileInputs.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkRecog\obj\Debug\DemoInkRecog.csproj.CopyComplete
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkRecog\obj\Debug\DemoInkRecog.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoInkRecog\obj\Debug\DemoInkRecog.pdb
