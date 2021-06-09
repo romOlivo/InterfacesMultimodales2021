@@ -1,0 +1,15 @@
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSharedRecog\bin\Debug\DemoSharedRecog.exe.config
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSharedRecog\bin\Debug\DemoSharedRecog.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSharedRecog\bin\Debug\DemoSharedRecog.pdb
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSharedRecog\obj\Debug\DemoSharedRecog.csprojAssemblyReference.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSharedRecog\obj\Debug\MainWindow.g.cs
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSharedRecog\obj\Debug\App.g.cs
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSharedRecog\obj\Debug\DemoSharedRecog_MarkupCompile.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSharedRecog\obj\Debug\DemoSharedRecog_MarkupCompile.lref
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSharedRecog\obj\Debug\MainWindow.baml
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSharedRecog\obj\Debug\DemoSharedRecog.g.resources
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSharedRecog\obj\Debug\DemoSharedRecog.Properties.Resources.resources
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSharedRecog\obj\Debug\DemoSharedRecog.csproj.GenerateResource.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSharedRecog\obj\Debug\DemoSharedRecog.csproj.CoreCompileInputs.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSharedRecog\obj\Debug\DemoSharedRecog.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSharedRecog\obj\Debug\DemoSharedRecog.pdb

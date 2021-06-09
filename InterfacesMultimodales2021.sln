@@ -45,6 +45,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Speech", "Speech", "{71BD62
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoSynthesis", "DemoSynthesis\DemoSynthesis.csproj", "{224FD102-2E0B-441D-B2DD-2A11ECA613EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoSharedRecog", "DemoSharedRecog\DemoSharedRecog.csproj", "{703CB990-84A1-4D69-9B37-7C16411A0F85}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -119,6 +121,10 @@ Global
 		{224FD102-2E0B-441D-B2DD-2A11ECA613EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{224FD102-2E0B-441D-B2DD-2A11ECA613EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{224FD102-2E0B-441D-B2DD-2A11ECA613EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{703CB990-84A1-4D69-9B37-7C16411A0F85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{703CB990-84A1-4D69-9B37-7C16411A0F85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{703CB990-84A1-4D69-9B37-7C16411A0F85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{703CB990-84A1-4D69-9B37-7C16411A0F85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -141,6 +147,7 @@ Global
 		{D0B63364-88E5-46CF-8F81-0F994E8E511B} = {E2E11A9A-4514-4B3D-9EF1-FC1C73DF9023}
 		{118B824C-7223-477A-983D-7D16C4D07F39} = {E2E11A9A-4514-4B3D-9EF1-FC1C73DF9023}
 		{224FD102-2E0B-441D-B2DD-2A11ECA613EF} = {71BD625D-9531-469F-A8AE-446124D7772A}
+		{703CB990-84A1-4D69-9B37-7C16411A0F85} = {71BD625D-9531-469F-A8AE-446124D7772A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0C07366E-E69A-40A5-9FB5-0F3A658D4F9F}
