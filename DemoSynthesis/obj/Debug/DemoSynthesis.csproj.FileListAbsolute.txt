@@ -1,0 +1,15 @@
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSynthesis\bin\Debug\DemoSynthesis.exe.config
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSynthesis\bin\Debug\DemoSynthesis.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSynthesis\bin\Debug\DemoSynthesis.pdb
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSynthesis\obj\Debug\DemoSynthesis.csprojAssemblyReference.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSynthesis\obj\Debug\MainWindow.g.cs
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSynthesis\obj\Debug\App.g.cs
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSynthesis\obj\Debug\DemoSynthesis_MarkupCompile.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSynthesis\obj\Debug\DemoSynthesis_MarkupCompile.lref
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSynthesis\obj\Debug\MainWindow.baml
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSynthesis\obj\Debug\DemoSynthesis.g.resources
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSynthesis\obj\Debug\DemoSynthesis.Properties.Resources.resources
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSynthesis\obj\Debug\DemoSynthesis.csproj.GenerateResource.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSynthesis\obj\Debug\DemoSynthesis.csproj.CoreCompileInputs.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSynthesis\obj\Debug\DemoSynthesis.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoSynthesis\obj\Debug\DemoSynthesis.pdb

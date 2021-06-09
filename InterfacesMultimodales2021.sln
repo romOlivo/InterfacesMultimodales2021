@@ -41,6 +41,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoInkRecog", "DemoInkReco
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entrega2Calculadora", "Entrega2Calculadora\Entrega2Calculadora.csproj", "{118B824C-7223-477A-983D-7D16C4D07F39}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Speech", "Speech", "{71BD625D-9531-469F-A8AE-446124D7772A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoSynthesis", "DemoSynthesis\DemoSynthesis.csproj", "{224FD102-2E0B-441D-B2DD-2A11ECA613EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +115,10 @@ Global
 		{118B824C-7223-477A-983D-7D16C4D07F39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{118B824C-7223-477A-983D-7D16C4D07F39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{118B824C-7223-477A-983D-7D16C4D07F39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{224FD102-2E0B-441D-B2DD-2A11ECA613EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{224FD102-2E0B-441D-B2DD-2A11ECA613EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{224FD102-2E0B-441D-B2DD-2A11ECA613EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{224FD102-2E0B-441D-B2DD-2A11ECA613EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -132,6 +140,7 @@ Global
 		{C81CA96B-3A62-4437-80E0-2DC4D0B1B055} = {E2E11A9A-4514-4B3D-9EF1-FC1C73DF9023}
 		{D0B63364-88E5-46CF-8F81-0F994E8E511B} = {E2E11A9A-4514-4B3D-9EF1-FC1C73DF9023}
 		{118B824C-7223-477A-983D-7D16C4D07F39} = {E2E11A9A-4514-4B3D-9EF1-FC1C73DF9023}
+		{224FD102-2E0B-441D-B2DD-2A11ECA613EF} = {71BD625D-9531-469F-A8AE-446124D7772A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0C07366E-E69A-40A5-9FB5-0F3A658D4F9F}

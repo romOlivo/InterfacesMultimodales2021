@@ -30,3 +30,5 @@ C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Entrega2Calculado
 C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Entrega2Calculadora\obj\Debug\Entrega2Calculadora.pdb
 C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Entrega2Calculadora\bin\Debug\Microsoft.Ink.dll
 C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Entrega2Calculadora\obj\Debug\Entrega2Calculadora.csproj.CopyComplete
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Entrega2Calculadora\bin\Debug\Microsoft.Ink.dll
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\Entrega2Calculadora\obj\Debug\Entrega2Calculadora.csproj.CopyComplete
