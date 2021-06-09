@@ -48,6 +48,7 @@ namespace Entrega2Calculadora
             };
             timer.Tick += Timer_Tick;
             isDrawing = false;
+            selectedText.IsChecked = true;
         }
 
         #region Eventos de Ratón
@@ -115,11 +116,25 @@ namespace Entrega2Calculadora
 
         #endregion
 
+        #region Menu
+        private void MenuItem_Checked(object sender, RoutedEventArgs e)
+        {
+            selectedCharacter.IsChecked = false;
+        }
+
+        private void MenuItem_Checked_1(object sender, RoutedEventArgs e)
+        {
+            selectedText.IsChecked = false;
+        }
+        #endregion
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             myInkCanvas.Strokes.Clear();
             myLabel.Content = "-";
             timer.Stop();
         }
+
+
     }
 }

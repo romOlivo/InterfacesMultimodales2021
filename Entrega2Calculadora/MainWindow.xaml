@@ -8,6 +8,12 @@
         SizeToContent="WidthAndHeight"
         Title="MainWindow" Height="450" Width="800">
     <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_Modo">
+                <MenuItem Header="_Escritura" IsCheckable="True" Checked="MenuItem_Checked" Name="selectedText"/>
+                <MenuItem Header="_Caracter" IsCheckable="True" Checked="MenuItem_Checked_1" Name="selectedCharacter"/>
+            </MenuItem>
+        </Menu>
         <UniformGrid DockPanel.Dock="Bottom" Columns="1" Rows="2">
             <Label Name="myLabel" FontSize="40" BorderThickness="3" BorderBrush="Black" Margin="4">-</Label>
             <Button Margin="8" Click="Button_Click">Limpiar</Button>
