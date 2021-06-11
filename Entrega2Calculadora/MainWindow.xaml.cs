@@ -30,7 +30,7 @@ namespace Entrega2Calculadora
         DispatcherTimer timer;
 
         private Boolean isDrawing;
-        private string[] delimiters = { "=" };
+        private string[] delimiters = { "=", "z", "Z" };
         public MainWindow()
         {
             Loaded += MainWindow_Loaded;
@@ -49,6 +49,7 @@ namespace Entrega2Calculadora
             timer.Tick += Timer_Tick;
             isDrawing = false;
             selectedText.IsChecked = true;
+            selectedText.IsEnabled = false;
         }
 
         #region Eventos de Ratón
@@ -89,12 +90,10 @@ namespace Entrega2Calculadora
                         var result = context.Recognize(out status);
                         if (status == RecognitionStatus.NoError)
                         {
-                            Console.WriteLine(result.TopString.Last());
-                            if (result.TopString.Length > 0 &&
-                                Array.Exists(delimiters, elem => elem == $"{result.TopString.Last()}"))
-                                showResult(result.TopString.Substring(0, result.TopString.Length - 1));
-                            else
-                                myLabel.Content = result.TopString;
+                            if (selectedText.IsChecked)
+                                textManager(result.TopString);
+                            if (selectedCharacter.IsChecked)
+                                characterManager(result.TopString);
                         }
                         else
                             MessageBox.Show("Recognition failed");
@@ -105,12 +104,37 @@ namespace Entrega2Calculadora
             }
         }
 
+        private void textManager(string drawedText)
+        {
+            if (drawedText.Length > 0 &&
+                                Array.Exists(delimiters, elem => elem == $"{drawedText.Last()}"))
+                showResult(drawedText.Substring(0, drawedText.Length - 1));
+            else
+                myLabel.Content = drawedText;
+        }
+
         private void showResult(string s)
         {
             DataTable dt = new DataTable();
             var sp = s.Replace("x", "*");
             var v = dt.Compute(sp, "");
-            myLabel.Content = $"{s}= {v}";
+            myLabel.Content = $"{s} = {v}";
+            timer.Stop();
+        }
+
+        private void characterManager(string drawedText)
+        {
+            if ((string)myLabel.Content == "-")
+                myLabel.Content = "";
+            if (Array.Exists(delimiters, elem => elem == $"{drawedText.Last()}"))
+            {
+                showResult((string)myLabel.Content);
+            }
+            else
+            {
+                myLabel.Content = $"{myLabel.Content} {drawedText.Last()}";
+            }
+            myInkCanvas.Strokes.Clear();
             timer.Stop();
         }
 
@@ -120,15 +144,26 @@ namespace Entrega2Calculadora
         private void MenuItem_Checked(object sender, RoutedEventArgs e)
         {
             selectedCharacter.IsChecked = false;
+            selectedText.IsEnabled = false;
+            selectedCharacter.IsEnabled = true;
+            clear();
         }
 
         private void MenuItem_Checked_1(object sender, RoutedEventArgs e)
         {
             selectedText.IsChecked = false;
+            selectedCharacter.IsEnabled = false;
+            selectedText.IsEnabled = true;
+            clear();
         }
         #endregion
 
         private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            clear();
+        }
+
+        private void clear()
         {
             myInkCanvas.Strokes.Clear();
             myLabel.Content = "-";
