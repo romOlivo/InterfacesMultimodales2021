@@ -28,6 +28,7 @@ namespace Entrega1Snake
 
         List<int[]> directions;
         int direction;
+        bool hasMove;
         int LEFT = -1;
         int RIGHT = 1;
 
@@ -55,6 +56,9 @@ namespace Entrega1Snake
             directions.Add(new int[] { -1, 0 });
 
             direction = 0;
+            hasMove = true;
+
+            this.KeyDown += keyDown;
 
             DrawInitialSnake();
         }
@@ -62,6 +66,7 @@ namespace Entrega1Snake
         private void Timer_Tick(object sender, EventArgs e)
         {
             updateSnake();
+            hasMove = false;
         }
 
         #region Serpiente
@@ -69,14 +74,13 @@ namespace Entrega1Snake
         private void DrawInitialSnake()
         {
             snakeColumn = 0;
-            snakeRow = 0;
-            snake.Add(drawNewEllipse(0, 0));
+            snakeRow = 10;
+            snake.Add(drawNewEllipse(snakeRow, snakeColumn));
             timer.Start();
         }
 
         private void updateSnake()
         {
-            Console.WriteLine("Updating");
             var head = snake.Last();
             snake.RemoveAt(snake.Count - 1);
             snake.Add(head);
@@ -107,6 +111,36 @@ namespace Entrega1Snake
         }
 
         #endregion
+
+        #region Movimiento
+        private void keyDown(object sender, KeyEventArgs e)
+        {
+            Console.WriteLine("Pressed");
+            switch (e.Key)
+            {
+                case Key.A:
+                    updateMovement(LEFT);
+                    break;
+                case Key.D:
+                    updateMovement(RIGHT);
+                    break;
+            }
+
+
+        }
+
+        private void updateMovement(int m)
+        {
+            Console.WriteLine("Moved");
+            if (hasMove) return;
+            direction = Math.Max(0, (direction + m) % 4);
+            hasMove = true;
+        }
+
+        #endregion
+
+
+
 
     }
 }
