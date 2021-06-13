@@ -72,6 +72,10 @@ namespace Entrega1Snake
         private void Timer_Tick(object sender, EventArgs e)
         {
             updateSnake();
+            if (hasDied())
+                died();
+            if (appleRow == snakeRow && appleColumn == snakeColumn)
+                appleEated();
             hasMove = false;
         }
 
@@ -90,16 +94,37 @@ namespace Entrega1Snake
         {
             var head = snake.First();
             snake.RemoveAt(0);
-            snake.Add(head);
             snakeRow = snakeRow + directions[direction][0];
             snakeColumn = snakeColumn + directions[direction][1];
+            snake.Add(head);
             Canvas.SetTop(head, MyCanvas.Width / N_BOXS_COL * snakeRow + 1);
             Canvas.SetLeft(head, MyCanvas.Height / N_BOXS_ROW * snakeColumn + 1);
+        }
 
-            if (appleRow == snakeRow && appleColumn == snakeColumn)
-            {
-                appleEated();
+        private void died()
+        {
+            timer.Stop();
+            MessageBox.Show("You died");
+        }
+
+        private bool hasDied()
+        {
+            bool dev = snakeRow < 0 || snakeRow >= N_BOXS_ROW;
+            dev = dev || snakeColumn < 0 || snakeColumn >= N_BOXS_COL;
+            if (!dev) {
+                int i = 0;
+                while(!dev && i < snake.Count - 1)
+                {
+                    Ellipse e = snake[i];
+                    int row = (int)Math.Round((Canvas.GetTop(e)) * N_BOXS_COL / MyCanvas.Width);
+                    int col = (int)Math.Round((Canvas.GetLeft(e)) * N_BOXS_ROW / MyCanvas.Height);
+                    Console.WriteLine($"myrow: {snakeRow} --- mycol: {snakeColumn}");
+                    Console.WriteLine($"row: {row} --- col: {col}");
+                    dev = dev || (snakeColumn == col && snakeRow == row);
+                    i++;
+                }
             }
+            return dev;
         }
 
         #endregion
@@ -126,7 +151,7 @@ namespace Entrega1Snake
         private void appleEated()
         {
             generateApple();
-            snake.Add(drawNewEllipse(snakeRow, snakeColumn));
+            snake.Insert(0, drawNewEllipse(snakeRow, snakeColumn));
         }
 
         #endregion
@@ -136,13 +161,13 @@ namespace Entrega1Snake
         {
             var elipse = new Ellipse()
             {
-                Width = MyCanvas.Width / N_BOXS_COL - 2,
-                Height = MyCanvas.Height / N_BOXS_ROW - 2,
+                Width = MyCanvas.Width / N_BOXS_COL,
+                Height = MyCanvas.Height / N_BOXS_ROW,
                 Stroke = Brushes.Black,
                 Fill = Brushes.Orange
             };
-            Canvas.SetTop(elipse, MyCanvas.Width / N_BOXS_COL * i + 1);
-            Canvas.SetLeft(elipse, MyCanvas.Height / N_BOXS_ROW * j + 1);
+            Canvas.SetTop(elipse, MyCanvas.Width / N_BOXS_COL * i);
+            Canvas.SetLeft(elipse, MyCanvas.Height / N_BOXS_ROW * j);
             MyCanvas.Children.Add(elipse);
             return elipse;
         }
