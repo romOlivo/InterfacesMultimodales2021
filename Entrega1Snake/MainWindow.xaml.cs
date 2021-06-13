@@ -88,19 +88,23 @@ namespace Entrega1Snake
 
         private void updateSnake()
         {
-            var head = snake.Last();
-            snake.RemoveAt(snake.Count - 1);
+            var head = snake.First();
+            snake.RemoveAt(0);
             snake.Add(head);
             snakeRow = snakeRow + directions[direction][0];
             snakeColumn = snakeColumn + directions[direction][1];
             Canvas.SetTop(head, MyCanvas.Width / N_BOXS_COL * snakeRow + 1);
             Canvas.SetLeft(head, MyCanvas.Height / N_BOXS_ROW * snakeColumn + 1);
 
-            if(appleRow == snakeRow && appleColumn == snakeColumn)
+            if (appleRow == snakeRow && appleColumn == snakeColumn)
             {
-                generateApple();
+                appleEated();
             }
         }
+
+        #endregion
+
+        #region Manzanas
 
         private void generateApple()
         {
@@ -117,6 +121,12 @@ namespace Entrega1Snake
                 Canvas.SetTop(apple, MyCanvas.Width / N_BOXS_COL * appleRow + 1);
                 Canvas.SetLeft(apple, MyCanvas.Height / N_BOXS_ROW * appleColumn + 1);
             }
+        }
+
+        private void appleEated()
+        {
+            generateApple();
+            snake.Add(drawNewEllipse(snakeRow, snakeColumn));
         }
 
         #endregion
