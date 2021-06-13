@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Entrega1Snake"
         mc:Ignorable="d"
         SizeToContent="WidthAndHeight"
-        Title="MainWindow" Height="900" Width="900">
+        Title="MainWindow" Height="600" Width="900">
     <DockPanel>
-        <Canvas Name="MyCanvas" Width="900" Height="900" Background="YellowGreen"/>
+        <Canvas Name="MyCanvas" Height="600" Width="900" Background="YellowGreen"/>
     </DockPanel>
 </Window>

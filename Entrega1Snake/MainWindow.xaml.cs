@@ -21,10 +21,16 @@ namespace Entrega1Snake
     /// </summary>
     public partial class MainWindow : Window
     {
-        readonly int N_BOXS_ROW = 45;
+        readonly int N_BOXS_ROW = 30;
         readonly int N_BOXS_COL = 45;
+        private readonly Random rand = new Random();
+
+
         int snakeColumn;
         int snakeRow;
+        int appleColumn;
+        int appleRow;
+        Ellipse apple;
 
         List<int[]> directions;
         int direction;
@@ -45,7 +51,7 @@ namespace Entrega1Snake
             snake = new List<Ellipse>();
             timer = new DispatcherTimer
             {
-                Interval = TimeSpan.FromMilliseconds(500)
+                Interval = TimeSpan.FromMilliseconds(200)
             };
             timer.Tick += Timer_Tick;
 
@@ -76,6 +82,7 @@ namespace Entrega1Snake
             snakeColumn = 0;
             snakeRow = 10;
             snake.Add(drawNewEllipse(snakeRow, snakeColumn));
+            generateApple();
             timer.Start();
         }
 
@@ -84,12 +91,32 @@ namespace Entrega1Snake
             var head = snake.Last();
             snake.RemoveAt(snake.Count - 1);
             snake.Add(head);
+            snakeRow = snakeRow + directions[direction][0];
+            snakeColumn = snakeColumn + directions[direction][1];
             Canvas.SetTop(head, MyCanvas.Width / N_BOXS_COL * snakeRow + 1);
             Canvas.SetLeft(head, MyCanvas.Height / N_BOXS_ROW * snakeColumn + 1);
 
+            if(appleRow == snakeRow && appleColumn == snakeColumn)
+            {
+                generateApple();
+            }
+        }
 
-            snakeRow = snakeRow + directions[direction][0];
-            snakeColumn = snakeColumn + directions[direction][1];
+        private void generateApple()
+        {
+            appleRow = rand.Next(N_BOXS_ROW);
+            appleColumn = rand.Next(N_BOXS_COL);
+            if (apple == null)
+            {
+                apple = drawNewEllipse(appleRow, appleColumn);
+                apple.Fill = Brushes.Red;
+            }
+
+            else
+            {
+                Canvas.SetTop(apple, MyCanvas.Width / N_BOXS_COL * appleRow + 1);
+                Canvas.SetLeft(apple, MyCanvas.Height / N_BOXS_ROW * appleColumn + 1);
+            }
         }
 
         #endregion
@@ -115,13 +142,12 @@ namespace Entrega1Snake
         #region Movimiento
         private void keyDown(object sender, KeyEventArgs e)
         {
-            Console.WriteLine("Pressed");
             switch (e.Key)
             {
-                case Key.A:
+                case Key.Left:
                     updateMovement(LEFT);
                     break;
-                case Key.D:
+                case Key.Right:
                     updateMovement(RIGHT);
                     break;
             }
@@ -131,9 +157,10 @@ namespace Entrega1Snake
 
         private void updateMovement(int m)
         {
-            Console.WriteLine("Moved");
             if (hasMove) return;
-            direction = Math.Max(0, (direction + m) % 4);
+            direction = (direction + m) % 4;
+            if (direction == -1)
+                direction = 3;
             hasMove = true;
         }
 
