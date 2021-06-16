@@ -1,0 +1,18 @@
+﻿<Window x:Class="WiimoteButtons.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WiimoteButtons"
+        mc:Ignorable="d"
+        SizeToContent="WidthAndHeight"
+        Title="MainWindow">
+    <UniformGrid Rows="1" Columns="2">
+
+        <Label Name="LabelA" FontWeight="Bold" FontSize="100" HorizontalContentAlignment="Center" 
+               Background="White" Foreground="Black" Padding="24"> A </Label>
+        <Label Name="LabelB" FontWeight="Bold" FontSize="100" HorizontalContentAlignment="Center" 
+               Background="White" Foreground="Black" Padding="24"> B </Label>
+        
+    </UniformGrid>
+</Window>

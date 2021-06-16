@@ -1,0 +1,17 @@
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteButtons\bin\Debug\WiimoteButtons.exe.config
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteButtons\bin\Debug\WiimoteButtons.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteButtons\bin\Debug\WiimoteButtons.pdb
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteButtons\obj\Debug\WiimoteButtons.csprojAssemblyReference.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteButtons\obj\Debug\MainWindow.g.cs
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteButtons\obj\Debug\App.g.cs
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteButtons\obj\Debug\WiimoteButtons_MarkupCompile.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteButtons\obj\Debug\WiimoteButtons_MarkupCompile.lref
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteButtons\obj\Debug\MainWindow.baml
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteButtons\obj\Debug\WiimoteButtons.g.resources
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteButtons\obj\Debug\WiimoteButtons.Properties.Resources.resources
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteButtons\obj\Debug\WiimoteButtons.csproj.GenerateResource.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteButtons\obj\Debug\WiimoteButtons.csproj.CoreCompileInputs.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteButtons\obj\Debug\WiimoteButtons.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteButtons\obj\Debug\WiimoteButtons.pdb
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteButtons\bin\Debug\WiimoteLib.dll
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteButtons\obj\Debug\WiimoteButtons.csproj.CopyComplete
