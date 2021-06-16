@@ -1,0 +1,9 @@
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLeds\bin\Debug\WiimoteLeds.exe.config
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLeds\bin\Debug\WiimoteLeds.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLeds\bin\Debug\WiimoteLeds.pdb
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLeds\bin\Debug\WiimoteLib.dll
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLeds\obj\Debug\WiimoteLeds.csprojAssemblyReference.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLeds\obj\Debug\WiimoteLeds.csproj.CoreCompileInputs.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLeds\obj\Debug\WiimoteLeds.csproj.CopyComplete
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLeds\obj\Debug\WiimoteLeds.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLeds\obj\Debug\WiimoteLeds.pdb
