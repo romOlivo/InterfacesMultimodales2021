@@ -1,0 +1,16 @@
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteTest\bin\Debug\WiimoteTest.exe.config
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteTest\bin\Debug\WiimoteTest.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteTest\bin\Debug\WiimoteTest.pdb
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteTest\bin\Debug\WiimoteLib.dll
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteTest\bin\Debug\WiimoteLib.pdb
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteTest\bin\Debug\WiimoteLib.xml
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteTest\obj\Debug\WiimoteTest.csprojAssemblyReference.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteTest\obj\Debug\WiimoteTest.SingleWiimoteForm.resources
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteTest\obj\Debug\WiimoteTest.MultipleWiimoteForm.resources
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteTest\obj\Debug\WiimoteTest.Properties.Resources.resources
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteTest\obj\Debug\WiimoteTest.WiimoteInfo.resources
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteTest\obj\Debug\WiimoteTest.csproj.GenerateResource.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteTest\obj\Debug\WiimoteTest.csproj.CoreCompileInputs.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteTest\obj\Debug\WiimoteTest.csproj.CopyComplete
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteTest\obj\Debug\WiimoteTest.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteTest\obj\Debug\WiimoteTest.pdb

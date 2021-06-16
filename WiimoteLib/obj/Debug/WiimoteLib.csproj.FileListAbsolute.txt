@@ -1,0 +1,7 @@
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLib\bin\Debug\WiimoteLib.XML
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLib\bin\Debug\WiimoteLib.dll
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLib\bin\Debug\WiimoteLib.pdb
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLib\obj\Debug\WiimoteLib.csprojAssemblyReference.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLib\obj\Debug\WiimoteLib.csproj.CoreCompileInputs.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLib\obj\Debug\WiimoteLib.dll
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLib\obj\Debug\WiimoteLib.pdb
