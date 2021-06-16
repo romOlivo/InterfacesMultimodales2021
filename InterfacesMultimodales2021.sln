@@ -59,6 +59,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WiimoteLeds", "WiimoteLeds\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WiimoteButtons", "WiimoteButtons\WiimoteButtons.csproj", "{473B7C82-8AB2-4AF3-9701-5AEDC4C389BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WiimoteLevel", "WiimoteLevel\WiimoteLevel.csproj", "{3EAB8149-4646-44A1-B564-6A3A4AAECB3A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -251,6 +253,14 @@ Global
 		{473B7C82-8AB2-4AF3-9701-5AEDC4C389BB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{473B7C82-8AB2-4AF3-9701-5AEDC4C389BB}.Release|x86.ActiveCfg = Release|Any CPU
 		{473B7C82-8AB2-4AF3-9701-5AEDC4C389BB}.Release|x86.Build.0 = Release|Any CPU
+		{3EAB8149-4646-44A1-B564-6A3A4AAECB3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EAB8149-4646-44A1-B564-6A3A4AAECB3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EAB8149-4646-44A1-B564-6A3A4AAECB3A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3EAB8149-4646-44A1-B564-6A3A4AAECB3A}.Debug|x86.Build.0 = Debug|Any CPU
+		{3EAB8149-4646-44A1-B564-6A3A4AAECB3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EAB8149-4646-44A1-B564-6A3A4AAECB3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EAB8149-4646-44A1-B564-6A3A4AAECB3A}.Release|x86.ActiveCfg = Release|Any CPU
+		{3EAB8149-4646-44A1-B564-6A3A4AAECB3A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -279,6 +289,7 @@ Global
 		{48223EAB-B2E0-4A64-9074-4444662EB693} = {345B7785-724D-4983-A4E7-9862B6FA8154}
 		{752AFCD6-EA94-47C2-BCF1-0C2FBECC1EFF} = {345B7785-724D-4983-A4E7-9862B6FA8154}
 		{473B7C82-8AB2-4AF3-9701-5AEDC4C389BB} = {345B7785-724D-4983-A4E7-9862B6FA8154}
+		{3EAB8149-4646-44A1-B564-6A3A4AAECB3A} = {345B7785-724D-4983-A4E7-9862B6FA8154}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0C07366E-E69A-40A5-9FB5-0F3A658D4F9F}

@@ -1,0 +1,15 @@
+﻿<Window x:Class="WiimoteLevel.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WiimoteLevel"
+        mc:Ignorable="d"
+        SizeToContent="WidthAndHeight"
+        Title="MainWindow">
+    <Grid>
+        <Label Name="LabelDegrees" FontWeight="Bold" FontSize="100" Padding="24" HorizontalContentAlignment="Center">
+            0º
+        </Label>
+    </Grid>
+</Window>

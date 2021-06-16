@@ -1,0 +1,17 @@
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLevel\bin\Debug\WiimoteLevel.exe.config
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLevel\bin\Debug\WiimoteLevel.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLevel\bin\Debug\WiimoteLevel.pdb
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLevel\bin\Debug\WiimoteLib.dll
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLevel\obj\Debug\MainWindow.g.cs
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLevel\obj\Debug\App.g.cs
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLevel\obj\Debug\WiimoteLevel_MarkupCompile.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLevel\obj\Debug\WiimoteLevel_MarkupCompile.lref
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLevel\obj\Debug\MainWindow.baml
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLevel\obj\Debug\WiimoteLevel.g.resources
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLevel\obj\Debug\WiimoteLevel.Properties.Resources.resources
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLevel\obj\Debug\WiimoteLevel.csproj.GenerateResource.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLevel\obj\Debug\WiimoteLevel.csproj.CoreCompileInputs.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLevel\obj\Debug\WiimoteLevel.csproj.CopyComplete
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLevel\obj\Debug\WiimoteLevel.exe
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLevel\obj\Debug\WiimoteLevel.pdb
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteLevel\obj\Debug\WiimoteLevel.csprojAssemblyReference.cache
