@@ -39,6 +39,7 @@ namespace Entrega1Snake
         int RIGHT = 1;
 
         Ellipse head;
+        int score;
 
         List<Ellipse> snake;
         DispatcherTimer timer;
@@ -88,7 +89,11 @@ namespace Entrega1Snake
         {
             snakeColumn = 0;
             snakeRow = 10;
+            snake.Add(drawNewEllipse(snakeRow, snakeColumn-2));
+            snake.Add(drawNewEllipse(snakeRow, snakeColumn-1));
             snake.Add(drawNewEllipse(snakeRow, snakeColumn));
+            snake[2].Fill = Brushes.Yellow;
+            snake[1].Fill = Brushes.Yellow;
         }
 
         private void updateSnake()
@@ -113,6 +118,7 @@ namespace Entrega1Snake
             DrawInitialSnake();
             generateApple();
             direction = 0;
+            score = 0;
             hasMove = true;
             timer.Start();
         }
@@ -120,7 +126,7 @@ namespace Entrega1Snake
         private void died()
         {
             timer.Stop();
-            var results = MessageBox.Show("Tu untuación es de ?? \n ¿Deseas comenzar una nueva partida?",
+            var results = MessageBox.Show($"Tu puntuación es de {score}. \n ¿Deseas comenzar una nueva partida?",
                 "¡Has muerto!", MessageBoxButton.YesNo, MessageBoxImage.Information);
             if (results == MessageBoxResult.Yes)
                 resetGame();
@@ -149,8 +155,6 @@ namespace Entrega1Snake
                     Ellipse e = snake[i];
                     int row = (int)Math.Round((Canvas.GetTop(e)) * N_BOXS_COL / MyCanvas.Width);
                     int col = (int)Math.Round((Canvas.GetLeft(e)) * N_BOXS_ROW / MyCanvas.Height);
-                    Console.WriteLine($"myrow: {snakeRow} --- mycol: {snakeColumn}");
-                    Console.WriteLine($"row: {row} --- col: {col}");
                     dev = dev || (snakeColumn == col && snakeRow == row);
                     i++;
                 }
@@ -181,6 +185,7 @@ namespace Entrega1Snake
 
         private void appleEated()
         {
+            score++;
             generateApple();
             snake.Insert(0, drawNewEllipse(snakeRow, snakeColumn));
         }
