@@ -63,12 +63,9 @@ namespace Entrega1Snake
             directions.Add(new int[] { 0, -1 });
             directions.Add(new int[] { -1, 0 });
 
-            direction = 0;
-            hasMove = true;
-
             this.KeyDown += keyDown;
 
-            DrawInitialSnake();
+            startGame();
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -92,8 +89,6 @@ namespace Entrega1Snake
             snakeColumn = 0;
             snakeRow = 10;
             snake.Add(drawNewEllipse(snakeRow, snakeColumn));
-            generateApple();
-            timer.Start();
         }
 
         private void updateSnake()
@@ -109,11 +104,37 @@ namespace Entrega1Snake
             Canvas.SetTop(head, MyCanvas.Width / N_BOXS_COL * snakeRow + 1);
             Canvas.SetLeft(head, MyCanvas.Height / N_BOXS_ROW * snakeColumn + 1);
         }
+        #endregion
+
+        #region Estados de Juego
+
+        private void startGame()
+        {
+            DrawInitialSnake();
+            generateApple();
+            direction = 0;
+            hasMove = true;
+            timer.Start();
+        }
 
         private void died()
         {
             timer.Stop();
-            MessageBox.Show("You died");
+            var results = MessageBox.Show("Tu untuación es de ?? \n ¿Deseas comenzar una nueva partida?",
+                "¡Has muerto!", MessageBoxButton.YesNo, MessageBoxImage.Information);
+            if (results == MessageBoxResult.Yes)
+                resetGame();
+            else
+                this.Close();
+        }
+
+        private void resetGame()
+        {
+            snake.Clear();
+            head = null;
+            apple = null;
+            MyCanvas.Children.Clear();
+            startGame();
         }
 
         private bool hasDied()
@@ -174,7 +195,7 @@ namespace Entrega1Snake
                 Width = MyCanvas.Width / N_BOXS_COL,
                 Height = MyCanvas.Height / N_BOXS_ROW,
                 Stroke = Brushes.Black,
-                Fill = Brushes.Yellow
+                Fill = Brushes.Orange
             };
             Canvas.SetTop(elipse, MyCanvas.Width / N_BOXS_COL * i);
             Canvas.SetLeft(elipse, MyCanvas.Height / N_BOXS_ROW * j);
