@@ -38,6 +38,8 @@ namespace Entrega1Snake
         int LEFT = -1;
         int RIGHT = 1;
 
+        Ellipse head;
+
         List<Ellipse> snake;
         DispatcherTimer timer;
         public MainWindow()
@@ -74,9 +76,13 @@ namespace Entrega1Snake
             updateSnake();
             if (hasDied())
                 died();
-            if (appleRow == snakeRow && appleColumn == snakeColumn)
-                appleEated();
-            hasMove = false;
+            else
+            {
+                if (appleRow == snakeRow && appleColumn == snakeColumn)
+                    appleEated();
+                hasMove = false;
+            }
+
         }
 
         #region Serpiente
@@ -92,7 +98,10 @@ namespace Entrega1Snake
 
         private void updateSnake()
         {
-            var head = snake.First();
+            if (head != null)
+                head.Fill = Brushes.Yellow;
+            head = snake.First();
+            head.Fill = Brushes.Orange;
             snake.RemoveAt(0);
             snakeRow = snakeRow + directions[direction][0];
             snakeColumn = snakeColumn + directions[direction][1];
@@ -111,9 +120,10 @@ namespace Entrega1Snake
         {
             bool dev = snakeRow < 0 || snakeRow >= N_BOXS_ROW;
             dev = dev || snakeColumn < 0 || snakeColumn >= N_BOXS_COL;
-            if (!dev) {
+            if (!dev)
+            {
                 int i = 0;
-                while(!dev && i < snake.Count - 1)
+                while (!dev && i < snake.Count - 1)
                 {
                     Ellipse e = snake[i];
                     int row = (int)Math.Round((Canvas.GetTop(e)) * N_BOXS_COL / MyCanvas.Width);
@@ -164,7 +174,7 @@ namespace Entrega1Snake
                 Width = MyCanvas.Width / N_BOXS_COL,
                 Height = MyCanvas.Height / N_BOXS_ROW,
                 Stroke = Brushes.Black,
-                Fill = Brushes.Orange
+                Fill = Brushes.Yellow
             };
             Canvas.SetTop(elipse, MyCanvas.Width / N_BOXS_COL * i);
             Canvas.SetLeft(elipse, MyCanvas.Height / N_BOXS_ROW * j);
@@ -186,8 +196,6 @@ namespace Entrega1Snake
                     updateMovement(RIGHT);
                     break;
             }
-
-
         }
 
         private void updateMovement(int m)
@@ -200,9 +208,6 @@ namespace Entrega1Snake
         }
 
         #endregion
-
-
-
 
     }
 }
