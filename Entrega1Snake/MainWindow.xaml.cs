@@ -143,6 +143,9 @@ namespace Entrega1Snake
         private void startGame()
         {
             DrawInitialSnake();
+            obstaclesSeted = false;
+            if (moreObstacles.IsChecked == true)
+                setObstacles();
             generateApple();
             direction = 0;
             score = 0;
@@ -150,9 +153,6 @@ namespace Entrega1Snake
             timer.Start();
             paused = false;
             alreadyWarning = false;
-            obstaclesSeted = false;
-            if (moreObstacles.IsChecked == true)
-                setObstacles();
         }
 
         private void setObstacles()
@@ -160,7 +160,7 @@ namespace Entrega1Snake
             int n = 0;
             obstaclesCol = new int[nObstacles];
             obstaclesRow = new int[nObstacles];
-            while(n < nObstacles)
+            while (n < nObstacles)
             {
                 var i = rand.Next(N_BOXS_ROW - 10) + 5;
                 var j = rand.Next(N_BOXS_COL - 10) + 5;
@@ -246,6 +246,20 @@ namespace Entrega1Snake
         {
             appleRow = rand.Next(N_BOXS_ROW);
             appleColumn = rand.Next(N_BOXS_COL);
+            if (obstaclesSeted)
+            {
+                bool c = true;
+                appleRow = rand.Next(N_BOXS_ROW);
+                appleColumn = rand.Next(N_BOXS_COL);
+                while (c)
+                {
+                    c = false;
+                    for (int i = 0; i < nObstacles; i++)
+                    {
+                        c = c || (appleColumn == obstaclesCol[i] && appleRow == obstaclesRow[i]);
+                    };
+                }
+            }
             if (apple == null)
             {
                 apple = drawNewEllipse(appleRow, appleColumn);
