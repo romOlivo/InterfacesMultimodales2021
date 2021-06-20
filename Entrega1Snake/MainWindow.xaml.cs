@@ -235,5 +235,16 @@ namespace Entrega1Snake
 
         #endregion
 
+        #region Menu
+        private void moreObstacles_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void moreObstacles_Unchecked(object sender, RoutedEventArgs e)
+        {
+
+        }
+        #endregion
     }
 }
