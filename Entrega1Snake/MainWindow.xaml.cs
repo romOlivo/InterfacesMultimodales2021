@@ -82,12 +82,6 @@ namespace Entrega1Snake
             startGame();
         }
 
-        private void MyMenu_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (!paused)
-                pauseGame();
-        }
-
         private void Timer_Tick(object sender, EventArgs e)
         {
             updateSnake();
@@ -299,9 +293,34 @@ namespace Entrega1Snake
 
         private void warningMessage()
         {
+            if (!paused)
+                pauseGame();
             MessageBox.Show("Recuerde que los cambios no serán aplicados hasta empezar una nueva partida",
-                "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
+                "Aviso", MessageBoxButton.OK, MessageBoxImage.Information);
         }
+        
+        private void startNewGame_Click(object sender, RoutedEventArgs e)
+        {
+            if (!paused)
+                pauseGame();
+            var response = MessageBox.Show("¿Está seguro de que desea empezar una nueva partida?",
+                "Nueva Partida", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (response == MessageBoxResult.Yes)
+            {
+                timer.Stop();
+                resetGame();
+            }
+        }
+
+        private void MyMenu_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (!paused)
+                pauseGame();
+        }
+
         #endregion
+
+
+
     }
 }
