@@ -59,19 +59,44 @@ namespace Entrega1Snake
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            // Inicialización a valores por defecto
             snake = new List<Ellipse>();
+
+            // Inicialización y construcción de los elementos del juego
+            initTimer();
+            initDirections();
+            constructPauseScreen();
+
+            // Acoplamiento entre eventos y métodos
+            this.KeyDown += keyDown;
+            MyMenu.GotFocus += MyMenu_GotFocus;
+
+            // Todo listo para comenzar el juego
+            startGame();
+        }
+
+        #region Inicialización
+
+        private void initTimer()
+        {
             timer = new DispatcherTimer
             {
                 Interval = TimeSpan.FromMilliseconds(200)
             };
             timer.Tick += Timer_Tick;
+        }
 
+        private void initDirections()
+        {
             directions = new List<int[]>();
             directions.Add(new int[] { 0, 1 });
             directions.Add(new int[] { 1, 0 });
             directions.Add(new int[] { 0, -1 });
             directions.Add(new int[] { -1, 0 });
+        }
 
+        private void constructPauseScreen()
+        {
             pauseScreen = new Rectangle
             {
                 Width = MyCanvas.Width,
@@ -79,66 +104,11 @@ namespace Entrega1Snake
                 Fill = Brushes.Black,
                 Opacity = .7
             };
-
-            this.KeyDown += keyDown;
-
-            MyMenu.GotFocus += MyMenu_GotFocus;
-
-            startGame();
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            updateSnake();
-            if (hasDied())
-                died();
-            else
-            {
-                if (appleRow == snakeRow && appleColumn == snakeColumn)
-                    appleEated();
-                hasMove = false;
-            }
-
-        }
-
-        #region Serpiente
-
-        private void DrawInitialSnake()
-        {
-            snakeColumn = 0;
-            snakeRow = 10;
-            snake.Add(drawNewEllipse(snakeRow, snakeColumn - 2));
-            snake.Add(drawNewEllipse(snakeRow, snakeColumn - 1));
-            snake.Add(drawNewEllipse(snakeRow, snakeColumn));
-            snake[2].Fill = Brushes.Yellow;
-            snake[1].Fill = Brushes.Yellow;
-        }
-
-        private void updateSnake()
-        {
-            if (head != null)
-                head.Fill = Brushes.Yellow;
-            head = snake.First();
-            head.Fill = Brushes.Orange;
-            snake.RemoveAt(0);
-            snakeRow = snakeRow + directions[direction][0];
-            snakeColumn = snakeColumn + directions[direction][1];
-            snake.Add(head);
-            Canvas.SetTop(head, MyCanvas.Width / N_BOXS_COL * snakeRow + 1);
-            Canvas.SetLeft(head, MyCanvas.Height / N_BOXS_ROW * snakeColumn + 1);
-        }
         #endregion
 
         #region Estados de Juego
-
-        private void updateMovement(int m)
-        {
-            if (hasMove) return;
-            direction = (direction + m) % 4;
-            if (direction == -1)
-                direction = 3;
-            hasMove = true;
-        }
 
         private void startGame()
         {
@@ -153,23 +123,6 @@ namespace Entrega1Snake
             timer.Start();
             paused = false;
             alreadyWarning = false;
-        }
-
-        private void setObstacles()
-        {
-            int n = 0;
-            obstaclesCol = new int[nObstacles];
-            obstaclesRow = new int[nObstacles];
-            while (n < nObstacles)
-            {
-                var i = rand.Next(N_BOXS_ROW - 10) + 5;
-                var j = rand.Next(N_BOXS_COL - 10) + 5;
-                drawNewObstacle(i, j);
-                obstaclesCol[n] = j;
-                obstaclesRow[n] = i;
-                n++;
-            }
-            obstaclesSeted = true;
         }
 
         private void died()
@@ -240,6 +193,77 @@ namespace Entrega1Snake
 
         #endregion
 
+        #region Motor del Juego
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            updateSnake();
+            if (hasDied())
+                died();
+            else
+            {
+                if (appleRow == snakeRow && appleColumn == snakeColumn)
+                    appleEated();
+                hasMove = false;
+            }
+
+        }
+
+        private void setObstacles()
+        {
+            int n = 0;
+            obstaclesCol = new int[nObstacles];
+            obstaclesRow = new int[nObstacles];
+            while (n < nObstacles)
+            {
+                var i = rand.Next(N_BOXS_ROW - 10) + 5;
+                var j = rand.Next(N_BOXS_COL - 10) + 5;
+                drawNewObstacle(i, j);
+                obstaclesCol[n] = j;
+                obstaclesRow[n] = i;
+                n++;
+            }
+            obstaclesSeted = true;
+        }
+
+        #region Serpiente
+
+        private void DrawInitialSnake()
+        {
+            snakeColumn = 0;
+            snakeRow = 10;
+            snake.Add(drawNewEllipse(snakeRow, snakeColumn - 2));
+            snake.Add(drawNewEllipse(snakeRow, snakeColumn - 1));
+            snake.Add(drawNewEllipse(snakeRow, snakeColumn));
+            snake[2].Fill = Brushes.Yellow;
+            snake[1].Fill = Brushes.Yellow;
+        }
+
+        private void updateSnake()
+        {
+            if (head != null)
+                head.Fill = Brushes.Yellow;
+            head = snake.First();
+            head.Fill = Brushes.Orange;
+            snake.RemoveAt(0);
+            snakeRow = snakeRow + directions[direction][0];
+            snakeColumn = snakeColumn + directions[direction][1];
+            snake.Add(head);
+            Canvas.SetTop(head, MyCanvas.Width / N_BOXS_COL * snakeRow + 1);
+            Canvas.SetLeft(head, MyCanvas.Height / N_BOXS_ROW * snakeColumn + 1);
+        }
+
+        private void updateMovement(int m)
+        {
+            if (hasMove) return;
+            direction = (direction + m) % 4;
+            if (direction == -1)
+                direction = 3;
+            hasMove = true;
+        }
+
+        #endregion
+
         #region Manzanas
 
         private void generateApple()
@@ -279,6 +303,8 @@ namespace Entrega1Snake
             generateApple();
             snake.Insert(0, drawNewEllipse(snakeRow, snakeColumn));
         }
+
+        #endregion
 
         #endregion
 
@@ -383,7 +409,6 @@ namespace Entrega1Snake
         }
 
         #endregion
-
 
 
     }
