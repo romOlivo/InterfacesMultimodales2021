@@ -40,6 +40,9 @@ namespace Entrega1Snake
 
         Ellipse head;
         int score;
+        bool paused;
+        Rectangle pauseScreen;
+        bool alreadyWarning;
 
         List<Ellipse> snake;
         DispatcherTimer timer;
@@ -64,9 +67,25 @@ namespace Entrega1Snake
             directions.Add(new int[] { 0, -1 });
             directions.Add(new int[] { -1, 0 });
 
+            pauseScreen = new Rectangle
+            {
+                Width = MyCanvas.Width,
+                Height = MyCanvas.Height,
+                Fill = Brushes.Black,
+                Opacity = .7
+            };
+
             this.KeyDown += keyDown;
 
+            MyMenu.GotFocus += MyMenu_GotFocus;
+
             startGame();
+        }
+
+        private void MyMenu_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (!paused)
+                pauseGame();
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -89,8 +108,8 @@ namespace Entrega1Snake
         {
             snakeColumn = 0;
             snakeRow = 10;
-            snake.Add(drawNewEllipse(snakeRow, snakeColumn-2));
-            snake.Add(drawNewEllipse(snakeRow, snakeColumn-1));
+            snake.Add(drawNewEllipse(snakeRow, snakeColumn - 2));
+            snake.Add(drawNewEllipse(snakeRow, snakeColumn - 1));
             snake.Add(drawNewEllipse(snakeRow, snakeColumn));
             snake[2].Fill = Brushes.Yellow;
             snake[1].Fill = Brushes.Yellow;
@@ -113,6 +132,15 @@ namespace Entrega1Snake
 
         #region Estados de Juego
 
+        private void updateMovement(int m)
+        {
+            if (hasMove) return;
+            direction = (direction + m) % 4;
+            if (direction == -1)
+                direction = 3;
+            hasMove = true;
+        }
+
         private void startGame()
         {
             DrawInitialSnake();
@@ -121,6 +149,8 @@ namespace Entrega1Snake
             score = 0;
             hasMove = true;
             timer.Start();
+            paused = false;
+            alreadyWarning = false;
         }
 
         private void died()
@@ -160,6 +190,23 @@ namespace Entrega1Snake
                 }
             }
             return dev;
+        }
+
+        private void pauseGame()
+        {
+            if (paused)
+            {
+                timer.Start();
+                MyCanvas.Children.Remove(pauseScreen);
+            }
+
+            else
+            {
+                MyCanvas.Children.Add(pauseScreen);
+                timer.Stop();
+            }
+            paused = !paused;
+            alreadyWarning = false;
         }
 
         #endregion
@@ -210,7 +257,7 @@ namespace Entrega1Snake
 
         #endregion
 
-        #region Movimiento
+        #region Entrada
         private void keyDown(object sender, KeyEventArgs e)
         {
             switch (e.Key)
@@ -221,29 +268,39 @@ namespace Entrega1Snake
                 case Key.Right:
                     updateMovement(RIGHT);
                     break;
+                case Key.P:
+                    pauseGame();
+                    break;
             }
         }
 
-        private void updateMovement(int m)
-        {
-            if (hasMove) return;
-            direction = (direction + m) % 4;
-            if (direction == -1)
-                direction = 3;
-            hasMove = true;
-        }
 
         #endregion
 
         #region Menu
         private void moreObstacles_Checked(object sender, RoutedEventArgs e)
         {
-
+            optionsWarning();
         }
 
         private void moreObstacles_Unchecked(object sender, RoutedEventArgs e)
         {
+            optionsWarning();
+        }
 
+        private void optionsWarning()
+        {
+            if (!alreadyWarning)
+            {
+                warningMessage();
+                alreadyWarning = true;
+            }
+        }
+
+        private void warningMessage()
+        {
+            MessageBox.Show("Recuerde que los cambios no serán aplicados hasta empezar una nueva partida",
+                "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
         #endregion
     }

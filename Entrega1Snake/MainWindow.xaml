@@ -8,8 +8,8 @@
         SizeToContent="WidthAndHeight"
         Title="MainWindow" Height="600" Width="900">
     <DockPanel>
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="_Opciones">
+        <Menu DockPanel.Dock="Top" Name="MyMenu">
+            <MenuItem Header="_Opciones" Name="MenuOpciones">
                 <MenuItem Header="_Obstaculos Extra" IsCheckable="True" Checked="moreObstacles_Checked" 
                           Unchecked="moreObstacles_Unchecked" Name="moreObstacles"/>
             </MenuItem>
