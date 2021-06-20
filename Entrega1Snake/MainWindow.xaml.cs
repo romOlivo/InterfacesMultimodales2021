@@ -44,6 +44,11 @@ namespace Entrega1Snake
         Rectangle pauseScreen;
         bool alreadyWarning;
 
+        int nObstacles = 8;
+        bool obstaclesSeted;
+        int[] obstaclesCol;
+        int[] obstaclesRow;
+
         List<Ellipse> snake;
         DispatcherTimer timer;
         public MainWindow()
@@ -145,6 +150,26 @@ namespace Entrega1Snake
             timer.Start();
             paused = false;
             alreadyWarning = false;
+            obstaclesSeted = false;
+            if (moreObstacles.IsChecked == true)
+                setObstacles();
+        }
+
+        private void setObstacles()
+        {
+            int n = 0;
+            obstaclesCol = new int[nObstacles];
+            obstaclesRow = new int[nObstacles];
+            while(n < nObstacles)
+            {
+                var i = rand.Next(N_BOXS_ROW - 10) + 5;
+                var j = rand.Next(N_BOXS_COL - 10) + 5;
+                drawNewObstacle(i, j);
+                obstaclesCol[n] = j;
+                obstaclesRow[n] = i;
+                n++;
+            }
+            obstaclesSeted = true;
         }
 
         private void died()
@@ -164,6 +189,7 @@ namespace Entrega1Snake
             head = null;
             apple = null;
             MyCanvas.Children.Clear();
+            timer.Stop();
             startGame();
         }
 
@@ -180,6 +206,15 @@ namespace Entrega1Snake
                     int row = (int)Math.Round((Canvas.GetTop(e)) * N_BOXS_COL / MyCanvas.Width);
                     int col = (int)Math.Round((Canvas.GetLeft(e)) * N_BOXS_ROW / MyCanvas.Height);
                     dev = dev || (snakeColumn == col && snakeRow == row);
+                    i++;
+                }
+            }
+            if (obstaclesSeted && !dev)
+            {
+                int i = 0;
+                while (!dev && i < nObstacles)
+                {
+                    dev = dev || (snakeColumn == obstaclesCol[i] && snakeRow == obstaclesRow[i]);
                     i++;
                 }
             }
@@ -249,6 +284,22 @@ namespace Entrega1Snake
             return elipse;
         }
 
+        private Rectangle drawNewObstacle(int i, int j)
+        {
+            var rect = new Rectangle
+            {
+                Width = MyCanvas.Width / N_BOXS_COL,
+                Height = MyCanvas.Height / N_BOXS_ROW,
+                Stroke = Brushes.Black,
+                StrokeThickness = 3,
+                Fill = Brushes.DarkGray,
+            };
+            Canvas.SetTop(rect, MyCanvas.Width / N_BOXS_COL * i);
+            Canvas.SetLeft(rect, MyCanvas.Height / N_BOXS_ROW * j);
+            MyCanvas.Children.Add(rect);
+            return rect;
+        }
+
         #endregion
 
         #region Entrada
@@ -267,7 +318,6 @@ namespace Entrega1Snake
                     break;
             }
         }
-
 
         #endregion
 
@@ -298,7 +348,7 @@ namespace Entrega1Snake
             MessageBox.Show("Recuerde que los cambios no serán aplicados hasta empezar una nueva partida",
                 "Aviso", MessageBoxButton.OK, MessageBoxImage.Information);
         }
-        
+
         private void startNewGame_Click(object sender, RoutedEventArgs e)
         {
             if (!paused)
