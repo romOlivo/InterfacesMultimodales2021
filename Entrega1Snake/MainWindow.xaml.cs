@@ -43,6 +43,7 @@ namespace Entrega1Snake
         bool paused;
         Rectangle pauseScreen;
         bool alreadyWarning;
+        int iApple;
 
         int nObstacles = 8;
         bool obstaclesSeted;
@@ -241,13 +242,15 @@ namespace Entrega1Snake
 
         private void updateSnake()
         {
+            snakeRow = snakeRow + directions[direction][0];
+            snakeColumn = snakeColumn + directions[direction][1];
+            if (hasDied())
+                return;
             if (head != null)
                 head.Fill = Brushes.Yellow;
             head = snake.First();
             head.Fill = Brushes.Orange;
             snake.RemoveAt(0);
-            snakeRow = snakeRow + directions[direction][0];
-            snakeColumn = snakeColumn + directions[direction][1];
             snake.Add(head);
             Canvas.SetTop(head, MyCanvas.Width / N_BOXS_COL * snakeRow + 1);
             Canvas.SetLeft(head, MyCanvas.Height / N_BOXS_ROW * snakeColumn + 1);
@@ -284,24 +287,33 @@ namespace Entrega1Snake
                     };
                 }
             }
+            iApple = 0;
             if (apple == null)
-            {
                 apple = drawNewEllipse(appleRow, appleColumn);
-                apple.Fill = Brushes.Red;
-            }
-
             else
             {
                 Canvas.SetTop(apple, MyCanvas.Width / N_BOXS_COL * appleRow + 1);
                 Canvas.SetLeft(apple, MyCanvas.Height / N_BOXS_ROW * appleColumn + 1);
             }
+            if (moreApples.IsChecked == true)
+                iApple = rand.Next(3);
+            if (iApple == 2)
+                apple.Fill = Brushes.DarkGreen;
+            else
+                apple.Fill = iApple == 0 ? Brushes.Red : Brushes.Blue;
+
         }
 
         private void appleEated()
         {
-            score++;
+            for (var i = -1; i < iApple; i++)
+            {
+                score++;
+                snake.Insert(0, drawNewEllipse(snakeRow, snakeColumn));
+                MyCanvas.Children.Remove(head);
+                MyCanvas.Children.Add(head);
+            }
             generateApple();
-            snake.Insert(0, drawNewEllipse(snakeRow, snakeColumn));
         }
 
         #endregion
@@ -316,7 +328,7 @@ namespace Entrega1Snake
                 Width = MyCanvas.Width / N_BOXS_COL,
                 Height = MyCanvas.Height / N_BOXS_ROW,
                 Stroke = Brushes.Black,
-                Fill = Brushes.Orange
+                Fill = Brushes.Yellow
             };
             Canvas.SetTop(elipse, MyCanvas.Width / N_BOXS_COL * i);
             Canvas.SetLeft(elipse, MyCanvas.Height / N_BOXS_ROW * j);
@@ -362,12 +374,12 @@ namespace Entrega1Snake
         #endregion
 
         #region Menu
-        private void moreObstacles_Checked(object sender, RoutedEventArgs e)
+        private void ButtonChecked(object sender, RoutedEventArgs e)
         {
             optionsWarning();
         }
 
-        private void moreObstacles_Unchecked(object sender, RoutedEventArgs e)
+        private void ButtonUnchecked(object sender, RoutedEventArgs e)
         {
             optionsWarning();
         }
