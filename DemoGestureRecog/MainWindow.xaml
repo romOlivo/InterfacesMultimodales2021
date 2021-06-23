@@ -1,0 +1,58 @@
+﻿<Window x:Class="DemoGestureRecog.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DemoGestureRecog"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <DockPanel>
+
+        <Menu DockPanel.Dock="Top">
+            
+        </Menu>
+
+        <Grid DockPanel.Dock="Bottom">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Margin="8" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                
+                <Label> Prototypes </Label>
+                <ListBox Name="etiquetasLB" Grid.Row="1" Grid.ColumnSpan="2" Margin="4"
+                         BorderBrush="Black"/>
+                <TextBox Name="NombreTB" Grid.Row="2" Margin="4"> </TextBox>
+                <Button Grid.Row="2" Grid.Column="1" Margin="4" MinWidth="5cm" 
+                        Name="AddB" IsEnabled="False" Click="Button_Click">
+                    Add
+                </Button> 
+            </Grid>
+
+            <Label Name="SalidaL" Margin="8" Grid.Row="1"
+                   HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"
+                   BorderBrush="Black" BorderThickness="1"
+                   FontSize="40" Foreground="Green"> Nothing </Label>
+
+            <StackPanel Margin="8" Grid.Row="2" Orientation="Horizontal">
+                <RadioButton Name="TrainB" Margin="8" Click="RadB_Click" IsChecked="True"> Training </RadioButton>
+                <RadioButton Name="RecogB" Margin="8" Click="RadB_Click"> Recognition </RadioButton>
+                <Button Name="StartB" Margin="8" MinWidth="3cm" Click="StartB_Click"> Start </Button>
+            </StackPanel>
+            
+        </Grid>
+        
+    </DockPanel>
+</Window>
