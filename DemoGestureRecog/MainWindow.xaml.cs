@@ -34,7 +34,13 @@ namespace DemoGestureRecog
             Etiquetas = new ObservableCollection<string>();
             etiquetasLB.ItemsSource = Etiquetas;
             NombreTB.TextChanged += NombreTB_TextChanged;
+            Etiquetas.CollectionChanged += Etiquetas_CollectionChanged;
             NombreTB.Focus();
+        }
+
+        private void Etiquetas_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            StartB.IsEnabled = Etiquetas.Count() > 0;
         }
 
         private void NombreTB_TextChanged(object sender, TextChangedEventArgs e)

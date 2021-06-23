@@ -49,7 +49,8 @@
             <StackPanel Margin="8" Grid.Row="2" Orientation="Horizontal">
                 <RadioButton Name="TrainB" Margin="8" Click="RadB_Click" IsChecked="True"> Training </RadioButton>
                 <RadioButton Name="RecogB" Margin="8" Click="RadB_Click"> Recognition </RadioButton>
-                <Button Name="StartB" Margin="8" MinWidth="3cm" Click="StartB_Click"> Start </Button>
+                <Button Name="StartB" Margin="8" MinWidth="3cm" Click="StartB_Click"
+                        IsEnabled="False"> Start </Button>
             </StackPanel>
             
         </Grid>
