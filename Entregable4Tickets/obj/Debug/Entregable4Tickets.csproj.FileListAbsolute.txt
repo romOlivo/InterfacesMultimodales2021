@@ -1,0 +1,15 @@
+C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Entregable4Tickets\bin\Debug\Entregable4Tickets.exe.config
+C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Entregable4Tickets\bin\Debug\Entregable4Tickets.exe
+C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Entregable4Tickets\bin\Debug\Entregable4Tickets.pdb
+C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Entregable4Tickets\obj\Debug\Entregable4Tickets.csprojAssemblyReference.cache
+C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Entregable4Tickets\obj\Debug\MainWindow.g.cs
+C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Entregable4Tickets\obj\Debug\App.g.cs
+C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Entregable4Tickets\obj\Debug\Entregable4Tickets_MarkupCompile.cache
+C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Entregable4Tickets\obj\Debug\Entregable4Tickets_MarkupCompile.lref
+C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Entregable4Tickets\obj\Debug\MainWindow.baml
+C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Entregable4Tickets\obj\Debug\Entregable4Tickets.g.resources
+C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Entregable4Tickets\obj\Debug\Entregable4Tickets.Properties.Resources.resources
+C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Entregable4Tickets\obj\Debug\Entregable4Tickets.csproj.GenerateResource.cache
+C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Entregable4Tickets\obj\Debug\Entregable4Tickets.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Entregable4Tickets\obj\Debug\Entregable4Tickets.exe
+C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Entregable4Tickets\obj\Debug\Entregable4Tickets.pdb
