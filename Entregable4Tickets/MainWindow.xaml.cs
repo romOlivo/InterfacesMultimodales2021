@@ -22,9 +22,6 @@ namespace Entregable4Tickets
     public partial class MainWindow : Window
     {
         SpeechRecognitionEngine speechRecognizer;
-        Grammar grammar;
-        GrammarBuilder gb;
-        Choices grammarChoices;
         public MainWindow()
         {
             Loaded += MainWindow_Loaded;
@@ -33,13 +30,9 @@ namespace Entregable4Tickets
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            grammarChoices = new Choices();
-            foreach (var colorName in new string[] { "rojo", "verde", "azul", "amarillo", "blanco", "negro" })
-                grammarChoices.Add(colorName);
-            gb = new GrammarBuilder(grammarChoices);
-            grammar = new Grammar(gb);
+            Grammar g = new Grammar("../../MiGramatica.xml");
             speechRecognizer = new SpeechRecognitionEngine();
-            speechRecognizer.LoadGrammar(grammar);
+            speechRecognizer.LoadGrammar(g);
             speechRecognizer.SpeechRecognized += SpeechRecognized;
             speechRecognizer.SpeechRecognitionRejected += SpeechRecognitionRejected;
             speechRecognizer.SpeechDetected += SpeechDetected;
