@@ -1,13 +1,142 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+﻿<?xml version="1.0" encoding="utf-8" ?>
 
-<grammar root="PizzaSize" xml:lang="es-ES" version="1.0" 
+<grammar root="Orden" xml:lang="es-ES" version="1.0"
 xmlns="http://www.w3.org/2001/06/grammar">
-  <rule id="PizzaSize" scope="public"> 
-    <one-of> 
-      <item>rojo</item> 
-      <item>verde</item>
-      <item>amarillo</item>
-      <item>correr</item>
-    </one-of> 
+  <rule id="Orden" scope="public">
+    <item repeat="0-1">
+      <ruleref uri="#Saludo"/>
+    </item>
+    <item repeat="0-1">
+      <ruleref uri="#Formalismos"/>
+    </item>
+    <one-of>
+      <item>
+        <ruleref uri="#PedirBillete"/>
+      </item>
+      <item>
+        <ruleref uri="#Preguntar"/>
+      </item>
+    </one-of>
+    <item repeat="0-1">
+      <ruleref uri="#Formalismos"/>
+    </item>
   </rule>
+
+  <rule id="Formalismos">
+    <one-of>
+      <item> Por favor </item>
+      <item> Gracias </item>
+    </one-of>
+  </rule>
+
+  <rule id="Saludo">
+    <one-of>
+      <item> Hola </item>
+      <item> Buenos dias </item>
+    </one-of>
+  </rule>
+
+  <rule id="Cuantificadores">
+    <one-of>
+      <item> un </item>
+      <item> algún </item>
+      <item> los </item>
+    </one-of>
+  </rule>
+
+  <rule id="Modificador">
+    <one-of>
+      <item> mas </item>
+      <item> menos </item>
+    </one-of>
+  </rule>
+
+  <rule id="Adjetivo">
+    <item repeat="0-1">
+      <ruleref uri="#Modificador"/>
+    </item>
+    <one-of>
+      <item> barato </item>
+      <item> baratos </item>
+      <item> caro </item>
+      <item> caros </item>
+      <item> rápido </item>
+      <item> rápidos </item>
+      <item> pronto </item>
+      <item> prontos </item>
+      <item> temprano </item>
+      <item> tempranos </item>
+    </one-of>
+  </rule>
+
+  <rule id="Billete">
+    <item repeat="0-1">
+      <ruleref uri="#Cuantificadores"/>
+    </item>
+    <one-of>
+      <item> ir </item>
+      <item> billete </item>
+      <item> billetes </item>
+      <item> vuelo </item>
+      <item> vuelos </item>
+      <item> ticket </item>
+    </one-of>
+  <item repeat="0-1"> <ruleref uri="#Adjetivo"/> </item>
+  </rule>
+
+  <rule id="Ciudad">
+    <one-of>
+      <item> a </item>
+      <item> de </item>
+    </one-of>
+    <one-of>
+      <item> Castellon </item>
+      <item> Valencia </item>
+      <item> Barcelona </item>
+    </one-of>
+  </rule>
+
+  <rule id="fPedir">
+    <one-of>
+      <item> Quiero </item>
+      <item> Dígame </item>
+      <item> Muéstreme </item>
+      <item> Muéstrame </item>
+    </one-of>
+  </rule>
+
+  <rule id="PedirBillete">
+    <item repeat="0-1">
+      <ruleref uri="#fPedir"/>
+    </item>
+    <item>
+      <ruleref uri="#Billete"/>
+    </item>
+    <item>
+      <ruleref uri="#Ciudad"/>
+    </item>
+    <item repeat="0-1">
+      <ruleref uri="#Ciudad"/>
+    </item>
+  </rule>
+
+  <rule id="Preguntar">
+    <one-of>
+      <item> Hay </item>
+      <item> Existe </item>
+      <item> Puedo </item>
+      <item> Me puede mostrar</item>
+    </one-of>
+    <item>
+      <ruleref uri="#Billete"/>
+    </item>
+    <item>
+      <ruleref uri="#Ciudad"/>
+    </item>
+    <item repeat="0-1">
+      <ruleref uri="#Ciudad"/>
+    </item>
+  </rule>
+
+
 </grammar>
