@@ -5,7 +5,7 @@ namespace WiimoteGestureLib
 {
     
 
-    class GerturerCapturer
+    public class GerturerCapturer
     {
         public event Action<Gesture> GestureCaptured;
 

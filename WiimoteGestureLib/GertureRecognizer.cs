@@ -6,13 +6,18 @@ using System.Threading.Tasks;
 
 namespace WiimoteGestureLib
 {
-    class GertureRecognizer
+    public class GertureRecognizer
     {
         public event Action<string> GestureRecognized;
 
         private IReadOnlyList<Gesture> gestures;
 
-        public GertureRecognizer(IReadOnlyList<Gesture> gestures)
+        public GertureRecognizer(IReadOnlyList<Gesture> gestures = null)
+        {
+            this.gestures = gestures;
+        }
+
+        public void SetPrototypes(IReadOnlyList<Gesture> gestures)
         {
             this.gestures = gestures;
         }
