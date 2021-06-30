@@ -48,6 +48,7 @@
     <Compile Include="GerturerCapturer.cs" />
     <Compile Include="GertureRecognizer.cs" />
     <Compile Include="Gesture.cs" />
+    <Compile Include="GestureManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

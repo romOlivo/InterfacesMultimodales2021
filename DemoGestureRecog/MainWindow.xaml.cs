@@ -27,13 +27,10 @@ namespace DemoGestureRecog
 
         public ObservableCollection<string> Etiquetas { get; set; }
 
-        private List<Gesture> gestures = new List<Gesture>();
-
         private int index = 0;
 
         private readonly Wiimote wm = new Wiimote();
-        private readonly GerturerCapturer gc = new GerturerCapturer();
-        private readonly GertureRecognizer gr = new GertureRecognizer();
+        private readonly GestureManager gm = new GestureManager();
 
         private readonly string TXT_START = "Start";
         private readonly string TXT_STOP = "Stop";
@@ -64,9 +61,8 @@ namespace DemoGestureRecog
             wm.SetLEDs(3);
             wm.SetReportType(InputReport.ButtonsAccel, true);
             wm.WiimoteChanged += Wm_WiimoteChanged;
-            gc.GestureCaptured += Gc_GestureCaptured;
-            gr.GestureRecognized += Gr_GestureRecognized;
-            gr.SetPrototypes(gestures);
+            gm.GestureCaptured += Gc_GestureCaptured;
+            gm.GestureRecognized += Gr_GestureRecognized;
 
             // Configuramos el foco por defecto
             NombreTB.Focus();
@@ -92,6 +88,8 @@ namespace DemoGestureRecog
         {
             isRecognizing = RecogB.IsChecked == true;
             isTraining = TrainB.IsChecked == true;
+            gm.SetStateGestureCapure(isTraining ? GestureManager.StatesGestureCapure.Capture
+                : GestureManager.StatesGestureCapure.Recog);
         }
 
         private void StartB_Click(object sender, RoutedEventArgs e)
@@ -117,6 +115,8 @@ namespace DemoGestureRecog
                 TrainB.IsEnabled = true;
                 StartB.Content = TXT_START;
                 ButtonText = TXT_START;
+                if (isTraining)
+                    gm.SetNames(Etiquetas);
                 updateText("Done");
             }
         }
@@ -137,19 +137,13 @@ namespace DemoGestureRecog
         {
             if (ButtonText == TXT_START)
                 return;
-            gc.OnWiimoteChanged(sender, e);
+            gm.OnWiimoteChanged(sender, e);
         }
 
-        private void Gc_GestureCaptured(Gesture obj)
+        private void Gc_GestureCaptured()
         {
-            if (isTraining == true)
-            {
-                obj.Name = Etiquetas[index % 2];
-                Dispatcher.BeginInvoke(DispatcherPriority.Normal,
-                new Action<Gesture>(configurePrototype), obj);
-            }
-            else if (isRecognizing == true)
-                gr.OnGestureCaptured(obj);
+            Dispatcher.BeginInvoke(DispatcherPriority.Normal,
+            new Action(nextPrototype));
         }
 
         private void Gr_GestureRecognized(string obj)
@@ -161,13 +155,6 @@ namespace DemoGestureRecog
         #endregion
 
         #region Ventana
-
-        private void configurePrototype(Gesture g)
-        {
-            gestures.Add(g);
-            g.Name = Etiquetas[index];
-            nextPrototype();
-        }
 
         private void nextPrototype()
         {
