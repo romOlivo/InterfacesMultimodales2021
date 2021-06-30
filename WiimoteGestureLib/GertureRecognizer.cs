@@ -22,11 +22,11 @@ namespace WiimoteGestureLib
             this.gestures = gestures;
         }
 
-        void OnGestureCaptured(Gesture h)
+        public void OnGestureCaptured(Gesture h)
         {
             string label = "Unknown";
             if (gestures != null && gestures.Count > 0)
-                label = gestures.Select(g => (d: g.DistanceTo(h), Name: h.Name)).Min().Name;
+                label = gestures.Select(g => (d: g.DistanceTo(h), Name: g.Name)).Min().Name;
             if (GestureRecognized != null)
                 GestureRecognized(label);
         }

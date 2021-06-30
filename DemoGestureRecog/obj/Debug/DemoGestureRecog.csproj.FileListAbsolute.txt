@@ -13,3 +13,7 @@ C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoGestureRecog\obj\Debug\
 C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoGestureRecog\obj\Debug\DemoGestureRecog.csproj.CoreCompileInputs.cache
 C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoGestureRecog\obj\Debug\DemoGestureRecog.exe
 C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoGestureRecog\obj\Debug\DemoGestureRecog.pdb
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoGestureRecog\bin\Debug\WiimoteGestureLib.dll
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoGestureRecog\bin\Debug\WiimoteLib.dll
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoGestureRecog\bin\Debug\WiimoteGestureLib.pdb
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoGestureRecog\obj\Debug\DemoGestureRecog.csproj.CopyComplete

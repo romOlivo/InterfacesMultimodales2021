@@ -19,7 +19,7 @@ namespace WiimoteGestureLib
                 GestureCaptured(g);
         }
 
-        void OnWiimoteChanged(object sender, WiimoteChangedEventArgs e)
+        public void OnWiimoteChanged(object sender, WiimoteChangedEventArgs e)
         {
             if (stateB == EnumStateB.Off && e.WiimoteState.ButtonState.B)
             {
@@ -36,7 +36,11 @@ namespace WiimoteGestureLib
                                         e.WiimoteState.AccelState.Values.Y,
                                         e.WiimoteState.AccelState.Values.Z);
                 else
+                {
+                    stateB = EnumStateB.Off;
                     SendEvent(g);
+                }
+                    
             }
         }
     }

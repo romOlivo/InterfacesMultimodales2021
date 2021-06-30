@@ -1,0 +1,8 @@
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteGestureLib\bin\Debug\WiimoteGestureLib.dll
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteGestureLib\bin\Debug\WiimoteGestureLib.pdb
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteGestureLib\bin\Debug\WiimoteLib.dll
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteGestureLib\obj\Debug\WiimoteGestureLib.csprojAssemblyReference.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteGestureLib\obj\Debug\WiimoteGestureLib.csproj.CoreCompileInputs.cache
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteGestureLib\obj\Debug\WiimoteGestureLib.csproj.CopyComplete
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteGestureLib\obj\Debug\WiimoteGestureLib.dll
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\WiimoteGestureLib\obj\Debug\WiimoteGestureLib.pdb
