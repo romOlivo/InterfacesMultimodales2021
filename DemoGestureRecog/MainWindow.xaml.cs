@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using WiimoteLib;
 using WiimoteGestureLib;
 using System.Windows.Threading;
+using Microsoft.Win32;
 
 namespace DemoGestureRecog
 {
@@ -170,6 +171,32 @@ namespace DemoGestureRecog
         private void updateText(string text)
         {
             SalidaL.Content = text;
+        }
+
+        #endregion
+
+        #region Menu
+        private void MenuItem_Save(object sender, RoutedEventArgs e)
+        {
+            var dialog = new SaveFileDialog();
+            dialog.DefaultExt = ".gst";
+            dialog.Filter = "Gestures (.gst)|*.gst";
+
+            if (dialog.ShowDialog() == true)
+            {
+                gm.Save(dialog.FileName);
+            }
+        }
+
+        private void MenuItem_Load(object sender, RoutedEventArgs e)
+        {
+            var dialog = new OpenFileDialog();
+            dialog.DefaultExt = ".gst";
+            dialog.Filter = "Gestures (.gst)|*.gst";
+            if (dialog.ShowDialog() == true)
+            {
+                gm.Load(dialog.FileName);
+            }
         }
 
         #endregion

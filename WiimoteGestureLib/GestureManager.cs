@@ -40,6 +40,17 @@ namespace WiimoteGestureLib
             }
         }
 
+        public void Save(string file)
+        {
+            // string jsonString = JsonConvert.SerializeObject(people);
+            // File.WriteAllText(file, jsonString);
+        }
+
+        public void Load(string file)
+        {
+
+        }
+
         #endregion
 
         #region Métodos Privados
