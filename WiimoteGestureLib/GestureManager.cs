@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,8 +44,8 @@ namespace WiimoteGestureLib
 
         public void Save(string file)
         {
-            // string jsonString = JsonConvert.SerializeObject(people);
-            // File.WriteAllText(file, jsonString);
+            string jsonString = JsonConvert.SerializeObject(gestures);
+            File.WriteAllText(file, jsonString);
         }
 
         public void Load(string file)

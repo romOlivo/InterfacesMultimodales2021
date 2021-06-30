@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace WiimoteGestureLib
 {
+    [Serializable]
     public class Gesture
     {
-        private List<double[]> samples;
+        public List<double[]> samples;
 
         public string Name { get; set; }
 

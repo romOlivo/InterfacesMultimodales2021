@@ -17,3 +17,5 @@ C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoGestureRecog\bin\Debug\
 C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoGestureRecog\bin\Debug\WiimoteLib.dll
 C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoGestureRecog\bin\Debug\WiimoteGestureLib.pdb
 C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoGestureRecog\obj\Debug\DemoGestureRecog.csproj.CopyComplete
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoGestureRecog\bin\Debug\Newtonsoft.Json.dll
+C:\Users\al341918\Desktop\InterfacesMultimodales2021\DemoGestureRecog\bin\Debug\Newtonsoft.Json.xml
