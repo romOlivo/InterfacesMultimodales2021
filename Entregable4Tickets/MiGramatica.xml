@@ -98,16 +98,18 @@ xmlns="http://www.w3.org/2001/06/grammar">
   <rule id="Ciudad">
     <one-of>
       <item>
-        a <tag> dest = 2; </tag>
+        <one-of>
+          <item> a </item>
+          <item> hasta </item>
+        </one-of>
+        <tag> dest = 2; </tag>
       </item>
       <item>
-        hasta <tag> dest = 2; </tag>
-      </item>
-      <item>
-        de <tag> dest = 1; </tag>
-      </item>
-      <item>
-        desde <tag> dest = 1; </tag>
+        <one-of>
+          <item> de </item>
+          <item> desde </item>
+        </one-of>
+        <tag> dest = 1; </tag>
       </item>
     </one-of>
     <ruleref uri="#NombreCiudad"/>
