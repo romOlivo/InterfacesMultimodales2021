@@ -6,26 +6,45 @@
         xmlns:local="clr-namespace:Entregable4Tickets"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto">
-            </RowDefinition>
-            <RowDefinition Height="auto">
-            </RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto">
-            </ColumnDefinition>
-            <ColumnDefinition Width="*">
-            </ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Label Grid.Row="0" Grid.Column="0">Texto reconocido:
-        </Label>
-        <Label Name="labelTextoReconocido" Grid.Row="0" Grid.Column="1">
-        </Label>
-        <Label Grid.Row="1" Grid.Column="0">Probabilidad:
-        </Label>
-        <Label Name="labelProbabilidad" Grid.Row="1" Grid.Column="1">
-        </Label>
-    </Grid>
+    <DockPanel>
+        <Grid DockPanel.Dock="Bottom" Name="GDebug" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0">Texto reconocido: </Label>
+            <Label Name="labelTextoReconocido" Grid.Row="0" Grid.Column="1"/>
+            <Label Grid.Row="1" Grid.Column="0"> Probabilidad: </Label>
+            <Label Name="labelProbabilidad" Grid.Row="1" Grid.Column="1"/>
+        </Grid>
+
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_Opciones" Name="MenuOpciones">
+                <MenuItem Header="_Modo Debug" IsCheckable="True" Checked="ChangeDebugMode" 
+                          Unchecked="ChangeDebugMode" Name="bDebug"/>
+            </MenuItem>
+        </Menu>
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <UniformGrid Columns="4" Rows="1">
+                <Label FontSize="30"> Desde: </Label>
+                <Label FontSize="24" HorizontalContentAlignment="Center" HorizontalAlignment="Center"
+                       VerticalAlignment="Center" VerticalContentAlignment="Center" Name="Lfrom"> Cualquiera </Label>
+                <Label FontSize="30"> Hasta: </Label>
+                <Label FontSize="24" HorizontalContentAlignment="Center" HorizontalAlignment="Center"
+                       VerticalAlignment="Center" VerticalContentAlignment="Center" Name="Lto"> Cualquiera </Label>
+            </UniformGrid>
+        </Grid>
+
+    </DockPanel>
 </Window>

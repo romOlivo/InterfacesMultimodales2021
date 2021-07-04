@@ -30,19 +30,57 @@ namespace Entregable4Tickets
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            // Cargar la gramática
             Grammar g = new Grammar("../../MiGramatica.xml");
             speechRecognizer = new SpeechRecognitionEngine();
             speechRecognizer.LoadGrammar(g);
+
+            // Preparar el reconocedor de voz
             speechRecognizer.SpeechRecognized += SpeechRecognized;
             speechRecognizer.SpeechRecognitionRejected += SpeechRecognitionRejected;
             speechRecognizer.SpeechDetected += SpeechDetected;
             speechRecognizer.SetInputToDefaultAudioDevice();
             speechRecognizer.RecognizeAsync(RecognizeMode.Multiple);
+
+            // Inicializar el texto de la interfaz
+            ClearInterface();
         }
+
+        #region Speech
 
         void SpeechDetected(object sender, SpeechDetectedEventArgs e) { labelTextoReconocido.Content = "<Voz detectada>"; labelProbabilidad.Content = ""; }
         void SpeechRecognitionRejected(object s, SpeechRecognitionRejectedEventArgs e) { labelTextoReconocido.Content = "<No le he oidobien. Repita por favor>"; labelProbabilidad.Content = ""; }
-        void SpeechRecognized(object sender, SpeechRecognizedEventArgs e) { labelTextoReconocido.Content = e.Result.Text; labelProbabilidad.Content = e.Result.Confidence.ToString(); }
+        void SpeechRecognized(object sender, SpeechRecognizedEventArgs e) {
+            labelTextoReconocido.Content = e.Result.Text;
+            labelProbabilidad.Content = e.Result.Confidence.ToString();
+            ClearInterface();
+            SearchTicket(e);
+        }
+
+        #endregion
+
+        #region Menu
+
+        private void ChangeDebugMode(object sender, RoutedEventArgs e)
+        {
+            GDebug.Visibility = bDebug.IsChecked == true ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        #endregion
+
+        private void ClearInterface()
+        {
+            Lfrom.Content = "Cualquiera";
+            Lto.Content = "Cualquiera";
+        }
+
+        private void SearchTicket(SpeechRecognizedEventArgs e)
+        {
+            if (e.Result.Semantics.ContainsKey("cityFrom"))
+                Lfrom.Content = e.Result.Semantics["cityFrom"].Value.ToString();
+            if (e.Result.Semantics.ContainsKey("cityTo"))
+                Lto.Content = e.Result.Semantics["cityTo"].Value.ToString();
+        }
 
 
     }

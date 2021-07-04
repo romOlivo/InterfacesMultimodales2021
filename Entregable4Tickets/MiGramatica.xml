@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
 <grammar root="Orden" xml:lang="es-ES" version="1.0"
+         tag-format="semantics/1.0"
 xmlns="http://www.w3.org/2001/06/grammar">
   <rule id="Orden" scope="public">
     <item repeat="0-1">
@@ -81,19 +82,29 @@ xmlns="http://www.w3.org/2001/06/grammar">
       <item> vuelos </item>
       <item> ticket </item>
     </one-of>
-  <item repeat="0-1"> <ruleref uri="#Adjetivo"/> </item>
+    <item repeat="0-1">
+      <ruleref uri="#Adjetivo"/>
+    </item>
   </rule>
 
-  <rule id="Ciudad">
-    <one-of>
-      <item> a </item>
-      <item> de </item>
-    </one-of>
+  <rule id="NombreCiudad">
     <one-of>
       <item> Castellon </item>
       <item> Valencia </item>
       <item> Barcelona </item>
     </one-of>
+  </rule>
+
+  <rule id="Ciudad">
+    <one-of>
+      <item>
+        a <tag> dest = 2; </tag>
+      </item>
+      <item>
+        de <tag> dest = 1; </tag>
+      </item>
+    </one-of>
+    <ruleref uri="#NombreCiudad"/>
   </rule>
 
   <rule id="fPedir">
@@ -114,9 +125,13 @@ xmlns="http://www.w3.org/2001/06/grammar">
     </item>
     <item>
       <ruleref uri="#Ciudad"/>
+      <tag> if(dest == 1) out.cityFrom = rules.NombreCiudad; </tag>
+      <tag> if(dest == 2) out.cityTo = rules.NombreCiudad; </tag>
     </item>
     <item repeat="0-1">
       <ruleref uri="#Ciudad"/>
+      <tag> if(dest == 1) out.cityFrom = rules.NombreCiudad; </tag>
+      <tag> if(dest == 2) out.cityTo = rules.NombreCiudad; </tag>
     </item>
   </rule>
 
@@ -132,9 +147,13 @@ xmlns="http://www.w3.org/2001/06/grammar">
     </item>
     <item>
       <ruleref uri="#Ciudad"/>
+      <tag> if(dest == 1) out.cityFrom = rules.NombreCiudad; </tag>
+      <tag> if(dest == 2) out.cityTo = rules.NombreCiudad; </tag>
     </item>
     <item repeat="0-1">
       <ruleref uri="#Ciudad"/>
+      <tag> if(dest == 1) out.cityFrom = rules.NombreCiudad; </tag>
+      <tag> if(dest == 2) out.cityTo = rules.NombreCiudad; </tag>
     </item>
   </rule>
 
