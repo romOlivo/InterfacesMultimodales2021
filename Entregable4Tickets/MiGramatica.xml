@@ -48,11 +48,32 @@ xmlns="http://www.w3.org/2001/06/grammar">
       <item> 7 </item>
       <item> 8 </item>
       <item> 9 </item>
+      <item> 10 </item>
+      <item> 11 </item>
+      <item> 12 </item>
+      <item> 13 </item>
+      <item> 14 </item>
+      <item> 15 </item>
+      <item> 16 </item>
+      <item> 17 </item>
+      <item> 18 </item>
+      <item> 19 </item>
+      <item> 20 </item>
+      <item> 21 </item>
+      <item> 22 </item>
+      <item> 23 </item>
+      <item> 24 </item>
+      <item> 25 </item>
+      <item> 26 </item>
+      <item> 27 </item>
+      <item> 28 </item>
+      <item> 29 </item>
+      <item> 30 </item>
+      <item> 31 </item>
     </one-of>
   </rule>
 
   <rule id="Cuantificadores">
-    <tag> ntickets = 0 </tag>
     <one-of>
       <item>
         un <tag> ntickets = 1 </tag>
@@ -92,6 +113,7 @@ xmlns="http://www.w3.org/2001/06/grammar">
   </rule>
 
   <rule id="Billete">
+    <tag> ntickets = 0 </tag>
     <item repeat="0-1">
       <ruleref uri="#Cuantificadores"/>
     </item>
@@ -152,42 +174,8 @@ xmlns="http://www.w3.org/2001/06/grammar">
       <item> Pasado mañana </item>
     </one-of>
   </rule>
-
-  <rule id="DiaNum">
-    <one-of>
-      <item> 1 </item>
-      <item> 2 </item>
-      <item> 3 </item>
-      <item> 4 </item>
-      <item> 5 </item>
-      <item> 6 </item>
-      <item> 7 </item>
-      <item> 8 </item>
-      <item> 9 </item>
-      <item> 10 </item>
-      <item> 11 </item>
-      <item> 12 </item>
-      <item> 13 </item>
-      <item> 14 </item>
-      <item> 15 </item>
-      <item> 16 </item>
-      <item> 17 </item>
-      <item> 18 </item>
-      <item> 19 </item>
-      <item> 20 </item>
-      <item> 21 </item>
-      <item> 22 </item>
-      <item> 23 </item>
-      <item> 24 </item>
-      <item> 25 </item>
-      <item> 26 </item>
-      <item> 27 </item>
-      <item> 28 </item>
-      <item> 29 </item>
-      <item> 30 </item>
-      <item> 31 </item>
-    </one-of>
-    de
+  
+  <rule id="Mes">
     <one-of>
       <item> enero </item>
       <item> febrero </item>
@@ -204,6 +192,14 @@ xmlns="http://www.w3.org/2001/06/grammar">
     </one-of>
   </rule>
 
+  <rule id="DiaNum">
+    <ruleref uri="#Numero"/>
+    <tag> day = rules.Numero</tag>
+    de
+    <ruleref uri="#Mes"/>
+  <tag> day = rules.Numero + " de " + rules.Mes ; </tag>
+  </rule>
+
   <rule id="Dia">
     <one-of>
       <item repeat="0-1"> de </item>
@@ -216,12 +212,14 @@ xmlns="http://www.w3.org/2001/06/grammar">
     <one-of>
       <item>
         <ruleref uri="#DiaRef"/>
+        <tag> day = rules.DiaRef; </tag>
       </item>
       <item>
         <ruleref uri="#DiaNum"/>
+        <tag> day = day; </tag>
       </item>
     </one-of>
-    <tag> day = rules.latest(); </tag>
+
 
   </rule>
 

@@ -49,7 +49,7 @@ namespace Entregable4Tickets
         #region Speech
 
         void SpeechDetected(object sender, SpeechDetectedEventArgs e) { labelTextoReconocido.Content = "<Voz detectada>"; labelProbabilidad.Content = ""; }
-        void SpeechRecognitionRejected(object s, SpeechRecognitionRejectedEventArgs e) { labelTextoReconocido.Content = "<No le he oidobien. Repita por favor>"; labelProbabilidad.Content = ""; }
+        void SpeechRecognitionRejected(object s, SpeechRecognitionRejectedEventArgs e) { labelTextoReconocido.Content = "<No le he oido bien. Repita por favor>"; labelProbabilidad.Content = ""; }
         void SpeechRecognized(object sender, SpeechRecognizedEventArgs e) {
             labelTextoReconocido.Content = e.Result.Text;
             labelProbabilidad.Content = e.Result.Confidence.ToString();
