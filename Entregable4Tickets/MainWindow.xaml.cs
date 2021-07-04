@@ -80,6 +80,8 @@ namespace Entregable4Tickets
                 Lfrom.Content = e.Result.Semantics["cityFrom"].Value.ToString();
             if (e.Result.Semantics.ContainsKey("cityTo"))
                 Lto.Content = e.Result.Semantics["cityTo"].Value.ToString();
+            if (e.Result.Semantics.ContainsKey("day"))
+                Lday.Content = e.Result.Semantics["day"].Value.ToString();
         }
 
 

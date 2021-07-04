@@ -32,17 +32,27 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <UniformGrid Columns="4" Rows="1">
-                <Label FontSize="30"> Desde: </Label>
-                <Label FontSize="24" HorizontalContentAlignment="Center" HorizontalAlignment="Center"
-                       VerticalAlignment="Center" VerticalContentAlignment="Center" Name="Lfrom"> Cualquiera </Label>
-                <Label FontSize="30"> Hasta: </Label>
-                <Label FontSize="24" HorizontalContentAlignment="Center" HorizontalAlignment="Center"
-                       VerticalAlignment="Center" VerticalContentAlignment="Center" Name="Lto"> Cualquiera </Label>
+            <UniformGrid Columns="4" Rows="1" Background="AntiqueWhite" Margin="10">
+                <Label FontSize="30">Desde:</Label>
+                <Label FontSize="24" HorizontalContentAlignment="Left" HorizontalAlignment="Left"
+                       VerticalAlignment="Center" VerticalContentAlignment="Center" Name="Lfrom">Cualquiera</Label>
+                <Label FontSize="30">Hasta:</Label>
+                <Label FontSize="24" HorizontalContentAlignment="Left" HorizontalAlignment="Left"
+                       VerticalAlignment="Center" VerticalContentAlignment="Center" Name="Lto">Cualquiera</Label>
+            </UniformGrid>
+            <UniformGrid Columns="6" Rows="1" Grid.Row="1" Background="AliceBlue" Margin="10">
+                <Label/>
+                <Label/>
+                <Label FontSize="26">Para:</Label>
+                <Label FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Center"
+                       VerticalAlignment="Center" VerticalContentAlignment="Center" Name="Lday">Cualquier día</Label>
+                <Label/>
+                <Label/>
             </UniformGrid>
         </Grid>
 

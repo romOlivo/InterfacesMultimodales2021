@@ -101,7 +101,13 @@ xmlns="http://www.w3.org/2001/06/grammar">
         a <tag> dest = 2; </tag>
       </item>
       <item>
+        hasta <tag> dest = 2; </tag>
+      </item>
+      <item>
         de <tag> dest = 1; </tag>
+      </item>
+      <item>
+        desde <tag> dest = 1; </tag>
       </item>
     </one-of>
     <ruleref uri="#NombreCiudad"/>
@@ -116,6 +122,86 @@ xmlns="http://www.w3.org/2001/06/grammar">
     </one-of>
   </rule>
 
+  <rule id="DiaRef">
+    <one-of>
+      <item> Hoy </item>
+      <item> Mañana </item>
+      <item> Pasado mañana </item>
+    </one-of>
+  </rule>
+
+  <rule id="DiaNum">
+    <one-of>
+      <item> 1 </item>
+      <item> 2 </item>
+      <item> 3 </item>
+      <item> 4 </item>
+      <item> 5 </item>
+      <item> 6 </item>
+      <item> 7 </item>
+      <item> 8 </item>
+      <item> 9 </item>
+      <item> 10 </item>
+      <item> 11 </item>
+      <item> 12 </item>
+      <item> 13 </item>
+      <item> 14 </item>
+      <item> 15 </item>
+      <item> 16 </item>
+      <item> 17 </item>
+      <item> 18 </item>
+      <item> 19 </item>
+      <item> 20 </item>
+      <item> 21 </item>
+      <item> 22 </item>
+      <item> 23 </item>
+      <item> 24 </item>
+      <item> 25 </item>
+      <item> 26 </item>
+      <item> 27 </item>
+      <item> 28 </item>
+      <item> 29 </item>
+      <item> 30 </item>
+      <item> 31 </item>
+    </one-of>
+    de
+    <one-of>
+      <item> enero </item>
+      <item> febrero </item>
+      <item> marzo </item>
+      <item> abril </item>
+      <item> mayo </item>
+      <item> junio </item>
+      <item> julio </item>
+      <item> agosto </item>
+      <item> septiembre </item>
+      <item> octubre </item>
+      <item> noviembre </item>
+      <item> diciembre </item>
+    </one-of>
+  </rule>
+
+  <rule id="Dia">
+    <one-of>
+      <item repeat="0-1"> de </item>
+      <item repeat="0-1"> para </item>
+      <item repeat="0-1"> para el </item>
+      <item repeat="0-1"> para el dia </item>
+      <item repeat="0-1"> del </item>
+      <item repeat="0-1"> del dia </item>
+    </one-of>
+    <one-of>
+      <item>
+        <ruleref uri="#DiaRef"/>
+      </item>
+      <item>
+        <ruleref uri="#DiaNum"/>
+      </item>
+    </one-of>
+    <tag> day = rules.latest(); </tag>
+
+  </rule>
+
   <rule id="PedirBillete">
     <item repeat="0-1">
       <ruleref uri="#fPedir"/>
@@ -123,6 +209,10 @@ xmlns="http://www.w3.org/2001/06/grammar">
     <item>
       <ruleref uri="#Billete"/>
     </item>
+    <item repeat="0-1">
+      <ruleref uri="#Dia"/>
+      <tag> out.day = day </tag>
+    </item>
     <item>
       <ruleref uri="#Ciudad"/>
       <tag> if(dest == 1) out.cityFrom = rules.NombreCiudad; </tag>
@@ -132,6 +222,10 @@ xmlns="http://www.w3.org/2001/06/grammar">
       <ruleref uri="#Ciudad"/>
       <tag> if(dest == 1) out.cityFrom = rules.NombreCiudad; </tag>
       <tag> if(dest == 2) out.cityTo = rules.NombreCiudad; </tag>
+    </item>
+    <item repeat="0-1">
+      <ruleref uri="#Dia"/>
+      <tag> out.day = day </tag>
     </item>
   </rule>
 
@@ -145,6 +239,10 @@ xmlns="http://www.w3.org/2001/06/grammar">
     <item>
       <ruleref uri="#Billete"/>
     </item>
+    <item repeat="0-1">
+      <ruleref uri="#Dia"/>
+      <tag> out.day = day </tag>
+    </item>
     <item>
       <ruleref uri="#Ciudad"/>
       <tag> if(dest == 1) out.cityFrom = rules.NombreCiudad; </tag>
@@ -154,6 +252,10 @@ xmlns="http://www.w3.org/2001/06/grammar">
       <ruleref uri="#Ciudad"/>
       <tag> if(dest == 1) out.cityFrom = rules.NombreCiudad; </tag>
       <tag> if(dest == 2) out.cityTo = rules.NombreCiudad; </tag>
+    </item>
+    <item repeat="0-1">
+      <ruleref uri="#Dia"/>
+      <tag> out.day = day </tag>
     </item>
   </rule>
 
