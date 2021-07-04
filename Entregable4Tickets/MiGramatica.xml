@@ -37,11 +37,32 @@ xmlns="http://www.w3.org/2001/06/grammar">
     </one-of>
   </rule>
 
-  <rule id="Cuantificadores">
+  <rule id="Numero">
     <one-of>
-      <item> un </item>
+      <item> 1 </item>
+      <item> 2 </item>
+      <item> 3 </item>
+      <item> 4 </item>
+      <item> 5 </item>
+      <item> 6 </item>
+      <item> 7 </item>
+      <item> 8 </item>
+      <item> 9 </item>
+    </one-of>
+  </rule>
+
+  <rule id="Cuantificadores">
+    <tag> ntickets = 0 </tag>
+    <one-of>
+      <item>
+        un <tag> ntickets = 1 </tag>
+      </item>
       <item> algún </item>
       <item> los </item>
+      <item>
+        <ruleref uri="#Numero"/>
+        <tag> ntickets = rules.Numero </tag>
+      </item>
     </one-of>
   </rule>
 
@@ -210,6 +231,7 @@ xmlns="http://www.w3.org/2001/06/grammar">
     </item>
     <item>
       <ruleref uri="#Billete"/>
+      <tag> out.ntickets = ntickets </tag>
     </item>
     <item repeat="0-1">
       <ruleref uri="#Dia"/>
