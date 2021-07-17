@@ -103,6 +103,7 @@ namespace DemoGestureRecog
                 TrainB.IsEnabled = false;
                 if (isTraining)
                 {
+                    gm.Clear();
                     index = 0;
                     SalidaL.Content = Etiquetas[index];
                 }

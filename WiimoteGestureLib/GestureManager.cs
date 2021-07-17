@@ -53,6 +53,16 @@ namespace WiimoteGestureLib
 
         }
 
+        public void ImportGestures(string file)
+        {
+
+        }
+
+        public void Clear()
+        {
+            gestures.Clear();
+        }
+
         #endregion
 
         #region Métodos Privados
