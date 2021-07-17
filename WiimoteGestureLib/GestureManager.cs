@@ -14,11 +14,14 @@ namespace WiimoteGestureLib
     {
         private readonly GertureRecognizer gr;
         private readonly GerturerCapturer gc;
+        private List<Gesture> readGestures;
         private List<Gesture> gestures;
 
         public enum StatesGestureCapure { Capture, Recog };
         public event Action<string> GestureRecognized;
         public event Action GestureCaptured;
+
+        public enum LoadState { Exit, Unreadable, Unformated }
 
         private StatesGestureCapure state;
 
@@ -42,15 +45,29 @@ namespace WiimoteGestureLib
             }
         }
 
+        public IReadOnlyList<string> GetNames()
+        {
+            var names = new List<string>();
+            for (int i = 0; i < gestures.Count; i++)
+                names.Add(gestures[i].Name);
+            return names;
+        }
+
         public void Save(string file)
         {
             string jsonString = JsonConvert.SerializeObject(gestures);
             File.WriteAllText(file, jsonString);
         }
 
-        public void Load(string file)
+        public LoadState Load(string file)
         {
-
+            LoadState state = ReadGestures(file);
+            if (state == LoadState.Exit)
+            {
+                gestures.Clear();
+                gestures.AddRange(readGestures);
+            }
+            return state;
         }
 
         public void ImportGestures(string file)
@@ -94,6 +111,29 @@ namespace WiimoteGestureLib
             {
                 gr.OnGestureCaptured(g);
             }
+        }
+
+        private LoadState ReadGestures(string file)
+        {
+            string readText;
+            try
+            {
+                readText = File.ReadAllText(file);
+            }
+            catch (Exception ex)
+            {
+                return LoadState.Unreadable;
+            }
+
+            try
+            {
+                readGestures = JsonConvert.DeserializeObject<List<Gesture>>(readText);
+            }
+            catch (Exception ex)
+            {
+                return LoadState.Unformated;
+            }
+            return LoadState.Exit;
         }
 
         #endregion

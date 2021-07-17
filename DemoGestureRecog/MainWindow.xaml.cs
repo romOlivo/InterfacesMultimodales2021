@@ -197,7 +197,15 @@ namespace DemoGestureRecog
             if (dialog.ShowDialog() == true)
             {
                 gm.Load(dialog.FileName);
+                setNames();
             }
+        }
+
+        private void setNames()
+        {
+            Etiquetas.Clear();
+            foreach (var name in gm.GetNames())
+                Etiquetas.Add(name);
         }
 
         #endregion
