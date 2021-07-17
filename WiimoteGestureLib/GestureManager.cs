@@ -70,9 +70,14 @@ namespace WiimoteGestureLib
             return state;
         }
 
-        public void ImportGestures(string file)
+        public LoadState ImportGestures(string file)
         {
-
+            LoadState state = ReadGestures(file);
+            if (state == LoadState.Exit)
+            {
+                gestures.AddRange(readGestures);
+            }
+            return state;
         }
 
         public void Clear()

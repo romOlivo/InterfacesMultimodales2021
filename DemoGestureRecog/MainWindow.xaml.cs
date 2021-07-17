@@ -208,6 +208,18 @@ namespace DemoGestureRecog
                 Etiquetas.Add(name);
         }
 
+        private void MenuItem_Import(object sender, RoutedEventArgs e)
+        {
+            var dialog = new OpenFileDialog();
+            dialog.DefaultExt = ".gst";
+            dialog.Filter = "Gestures (.gst)|*.gst";
+            if (dialog.ShowDialog() == true)
+            {
+                gm.ImportGestures(dialog.FileName);
+                setNames();
+            }
+        }
+
         #endregion
 
     }
