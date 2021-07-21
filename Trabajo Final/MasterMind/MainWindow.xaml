@@ -9,7 +9,7 @@
                 <Border Name="n1Border" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Grid Width="2cm" Height="3cm">
                         <TextBlock Name="n1TB" HorizontalAlignment="Center" VerticalAlignment="Center">7</TextBlock>
-                        <InkCanvas Width="2cm" Height="3cm" Background="Transparent"></InkCanvas>
+                        <InkCanvas Width="2cm" Height="3cm" Background="Transparent" Name="InkN1"></InkCanvas>
                     </Grid>
                 </Border>
                 <Border Name="n2Border" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center">

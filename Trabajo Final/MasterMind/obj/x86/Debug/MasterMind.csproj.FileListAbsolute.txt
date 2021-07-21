@@ -16,3 +16,4 @@ C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Trabajo Final\Mas
 C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Trabajo Final\MasterMind\obj\x86\Debug\MasterMind.csproj.CopyComplete
 C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Trabajo Final\MasterMind\obj\x86\Debug\MasterMind.exe
 C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Trabajo Final\MasterMind\obj\x86\Debug\MasterMind.pdb
+C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Trabajo Final\MasterMind\bin\Debug\Microsoft.Ink.dll

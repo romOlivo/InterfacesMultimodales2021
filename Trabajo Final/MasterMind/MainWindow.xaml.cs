@@ -1,5 +1,8 @@
-﻿using System;
+﻿
+using Microsoft.Ink;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -11,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace MasterMind
 {
@@ -19,13 +23,17 @@ namespace MasterMind
     /// </summary>
     public partial class MainWindow : Window
     {
+        private InkCanvas[] allcanvas;
+        private Boolean isDrawing;
+        DispatcherTimer timer;
+
         string _solution;
         string _numberToTest;
         TextBlock[] _digitsTB;
         Border[] _borders;
         int _numTries;
         Random r = new Random();
-        Key[] _validKeys = new Key[] { Key.D0, Key.D1, Key.D2, Key.D3, Key.D4, Key.D5, Key.D6, Key.D7, Key.D8, Key.D9, 
+        Key[] _validKeys = new Key[] { Key.D0, Key.D1, Key.D2, Key.D3, Key.D4, Key.D5, Key.D6, Key.D7, Key.D8, Key.D9,
                                        Key.NumPad0, Key.NumPad1, Key.NumPad2, Key.NumPad3, Key.NumPad4, Key.NumPad5, Key.NumPad6, Key.NumPad7, Key.NumPad8, Key.NumPad9, };
         int _cursorIndex;
         int CursorIndex
@@ -55,6 +63,30 @@ namespace MasterMind
             Loaded += new RoutedEventHandler(MainWindow_Loaded);
         }
 
+
+
+        #region Initialize
+
+        private void inicializeInk()
+        {
+            timer = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromMilliseconds(2000)
+            };
+            timer.Tick += Timer_Tick;
+
+            allcanvas = new[] { InkN1 };
+            foreach (var canvas in allcanvas)
+            {
+                canvas.PreviewMouseUp += MyInkCanvas_MouseUp;
+                canvas.PreviewMouseMove += MyInkCanvas_MouseMove;
+                canvas.PreviewMouseDown += MyInkCanvas_MouseDown;
+            }
+
+            isDrawing = false;
+
+        }
+
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             _digitsTB = new TextBlock[] { n1TB, n2TB, n3TB, n4TB };
@@ -62,10 +94,86 @@ namespace MasterMind
             KeyDown += new KeyEventHandler(MainWindow_KeyDown);
             //solutionSP.Visibility = Visibility.Hidden;   //Descomentar esta línea para ocultar la solución
 
-
+            inicializeInk();
 
             NewGame();
         }
+
+        #endregion
+
+        #region Input Control
+
+        #region Ink
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            int n = -1;
+            foreach (InkCanvas canvas in allcanvas)
+            {
+                n = recognizeDigit(canvas);
+                if (n >= 0) break;
+            }
+            MessageBox.Show($"{n}");
+
+        }
+
+        private int recognizeDigit(InkCanvas inkCanvas)
+        {
+            int dev = -3;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                inkCanvas.Strokes.Save(ms);
+                var ink = new Ink();
+                ink.Load(ms.ToArray());
+                using (RecognizerContext context = new RecognizerContext())
+                {
+                    if (ink.Strokes.Count > 0)
+                    {
+                        context.Strokes = ink.Strokes;
+                        RecognitionStatus status;
+                        var result = context.Recognize(out status);
+                        if (status == RecognitionStatus.NoError)
+                        {
+                            try
+                            {
+                                dev = int.Parse(result.TopString);
+                            }
+                            catch (Exception e)
+                            {
+                                dev = -4;
+                            }
+
+                        }
+                        else
+                            dev = -1;
+                    }
+                    else
+                        dev = -2;
+                }
+            }
+            return dev;
+        }
+
+        private void MyInkCanvas_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            isDrawing = false;
+        }
+
+        private void MyInkCanvas_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            isDrawing = true;
+        }
+
+        private void MyInkCanvas_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (!isDrawing) return;
+            timer.Stop();
+            timer.Start();
+        }
+
+        #endregion
+
+        #endregion
 
         void MainWindow_KeyDown(object sender, KeyEventArgs e)
         {
@@ -115,7 +223,7 @@ namespace MasterMind
 
         int NumDeaths(string solution, string test)
         {
-            return Enumerable.Range(0, solution.Length).Count(i=>solution[i]==test[i]); //Esto es LINQ
+            return Enumerable.Range(0, solution.Length).Count(i => solution[i] == test[i]); //Esto es LINQ
         }
 
         int NumInjuries(string solution, string test)
@@ -125,8 +233,9 @@ namespace MasterMind
 
         string GenerateValidNumber() // cuatro números del 0 al 9, sin repetición
         {
-            string n="";
-            while (n.Length<4) {
+            string n = "";
+            while (n.Length < 4)
+            {
                 var d = r.Next(10).ToString();
                 if (!n.Contains(d)) n += d;
             }
