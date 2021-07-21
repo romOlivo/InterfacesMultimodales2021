@@ -4,6 +4,16 @@
         Title="MasterMind" Height="350" Width="525" MinWidth="10cm" MinHeight="8cm">
     <DockPanel>
 
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_Game">
+                <MenuItem Header="_New Game" Click="NewGameButton_Click"/>
+            </MenuItem>
+
+            <MenuItem Header="_Options">
+                <MenuItem Header="_Debug Window" Click="MenuDebugWindow_Click"/>
+            </MenuItem>
+        </Menu>
+
         <Border DockPanel.Dock="Bottom" BorderBrush="Black" BorderThickness="1">
             <UniformGrid  Columns="4" Rows="1" Margin="8" TextBlock.FontSize="70">
                 <Border Name="n1Border" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -33,7 +43,7 @@
             </UniformGrid>
         </Border>
 
-        <Border DockPanel.Dock="Top" BorderBrush="Black" BorderThickness="1" TextBlock.FontSize="20">
+        <Border DockPanel.Dock="Top" BorderBrush="Black" BorderThickness="1" TextBlock.FontSize="20"  Visibility="Collapsed">
             <DockPanel Margin="4" >
                 <Button DockPanel.Dock="Right" Click="NewGameButton_Click">New game</Button>
                 <StackPanel Name="solutionSP" Orientation="Horizontal">

@@ -23,6 +23,7 @@ namespace MasterMind
     /// </summary>
     public partial class MainWindow : Window
     {
+        private DebugWindow debugWindow;
         Random r = new Random();
         int _cursorIndex;
         int CursorIndex
@@ -236,6 +237,7 @@ namespace MasterMind
             historyTB.Text += "---------------------\n";
             foreach (var digitTB in _digitsTB) digitTB.Text = "";
             CursorIndex = 0;
+            ResetDebug();
         }
 
         int NumDeaths(string solution, string test)
@@ -266,6 +268,31 @@ namespace MasterMind
         void NewGameButton_Click(object sender, RoutedEventArgs e)
         {
             NewGame();
+        }
+
+        private void MenuDebugWindow_Click(object sender, RoutedEventArgs e)
+        {
+            if (debugWindow == null)
+            {
+                debugWindow = new DebugWindow(this);
+                debugWindow.setSolution(_solution);
+                debugWindow.Show();
+            }
+        }
+
+        #endregion
+
+        #region Debug Windows
+
+        public void ClosedDebugWindow()
+        {
+            debugWindow = null;
+        }
+
+        private void ResetDebug()
+        {
+            if (debugWindow == null) return;
+            debugWindow.setSolution(_solution);
         }
 
         #endregion
