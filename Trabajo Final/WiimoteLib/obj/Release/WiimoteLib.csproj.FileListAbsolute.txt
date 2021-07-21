@@ -1,0 +1,5 @@
+C:\Users\David\Desktop\TrabajoSIU021_2021\WiimoteLib\bin\Release\WiimoteLib.dll
+C:\Users\David\Desktop\TrabajoSIU021_2021\WiimoteLib\bin\Release\WiimoteLib.pdb
+C:\Users\David\Desktop\TrabajoSIU021_2021\WiimoteLib\obj\Release\WiimoteLib.csproj.CoreCompileInputs.cache
+C:\Users\David\Desktop\TrabajoSIU021_2021\WiimoteLib\obj\Release\WiimoteLib.dll
+C:\Users\David\Desktop\TrabajoSIU021_2021\WiimoteLib\obj\Release\WiimoteLib.pdb

@@ -1,0 +1,17 @@
+C:\Users\David\Desktop\TrabajoSIU021_2021\MasterMind\bin\Release\MasterMind.exe.config
+C:\Users\David\Desktop\TrabajoSIU021_2021\MasterMind\bin\Release\MasterMind.exe
+C:\Users\David\Desktop\TrabajoSIU021_2021\MasterMind\bin\Release\MasterMind.pdb
+C:\Users\David\Desktop\TrabajoSIU021_2021\MasterMind\bin\Release\WiimoteLib.dll
+C:\Users\David\Desktop\TrabajoSIU021_2021\MasterMind\bin\Release\WiimoteLib.pdb
+C:\Users\David\Desktop\TrabajoSIU021_2021\MasterMind\obj\x86\Release\MasterMind.csprojAssemblyReference.cache
+C:\Users\David\Desktop\TrabajoSIU021_2021\MasterMind\obj\x86\Release\MainWindow.baml
+C:\Users\David\Desktop\TrabajoSIU021_2021\MasterMind\obj\x86\Release\MainWindow.g.cs
+C:\Users\David\Desktop\TrabajoSIU021_2021\MasterMind\obj\x86\Release\App.g.cs
+C:\Users\David\Desktop\TrabajoSIU021_2021\MasterMind\obj\x86\Release\MasterMind_MarkupCompile.cache
+C:\Users\David\Desktop\TrabajoSIU021_2021\MasterMind\obj\x86\Release\MasterMind.g.resources
+C:\Users\David\Desktop\TrabajoSIU021_2021\MasterMind\obj\x86\Release\MasterMind.Properties.Resources.resources
+C:\Users\David\Desktop\TrabajoSIU021_2021\MasterMind\obj\x86\Release\MasterMind.csproj.GenerateResource.cache
+C:\Users\David\Desktop\TrabajoSIU021_2021\MasterMind\obj\x86\Release\MasterMind.csproj.CoreCompileInputs.cache
+C:\Users\David\Desktop\TrabajoSIU021_2021\MasterMind\obj\x86\Release\MasterMind.csproj.CopyComplete
+C:\Users\David\Desktop\TrabajoSIU021_2021\MasterMind\obj\x86\Release\MasterMind.exe
+C:\Users\David\Desktop\TrabajoSIU021_2021\MasterMind\obj\x86\Release\MasterMind.pdb

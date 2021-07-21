@@ -1,0 +1,15 @@
+C:\Users\David\Desktop\TrabajoSIU021_2021\WiimoteTest\bin\Release\WiimoteTest.exe.config
+C:\Users\David\Desktop\TrabajoSIU021_2021\WiimoteTest\bin\Release\WiimoteTest.exe
+C:\Users\David\Desktop\TrabajoSIU021_2021\WiimoteTest\bin\Release\WiimoteTest.pdb
+C:\Users\David\Desktop\TrabajoSIU021_2021\WiimoteTest\bin\Release\WiimoteLib.dll
+C:\Users\David\Desktop\TrabajoSIU021_2021\WiimoteTest\bin\Release\WiimoteLib.pdb
+C:\Users\David\Desktop\TrabajoSIU021_2021\WiimoteTest\obj\Release\WiimoteTest.csprojAssemblyReference.cache
+C:\Users\David\Desktop\TrabajoSIU021_2021\WiimoteTest\obj\Release\WiimoteTest.SingleWiimoteForm.resources
+C:\Users\David\Desktop\TrabajoSIU021_2021\WiimoteTest\obj\Release\WiimoteTest.MultipleWiimoteForm.resources
+C:\Users\David\Desktop\TrabajoSIU021_2021\WiimoteTest\obj\Release\WiimoteTest.Properties.Resources.resources
+C:\Users\David\Desktop\TrabajoSIU021_2021\WiimoteTest\obj\Release\WiimoteTest.WiimoteInfo.resources
+C:\Users\David\Desktop\TrabajoSIU021_2021\WiimoteTest\obj\Release\WiimoteTest.csproj.GenerateResource.cache
+C:\Users\David\Desktop\TrabajoSIU021_2021\WiimoteTest\obj\Release\WiimoteTest.csproj.CoreCompileInputs.cache
+C:\Users\David\Desktop\TrabajoSIU021_2021\WiimoteTest\obj\Release\WiimoteTest.csproj.CopyComplete
+C:\Users\David\Desktop\TrabajoSIU021_2021\WiimoteTest\obj\Release\WiimoteTest.exe
+C:\Users\David\Desktop\TrabajoSIU021_2021\WiimoteTest\obj\Release\WiimoteTest.pdb
