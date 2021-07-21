@@ -71,11 +71,11 @@ namespace MasterMind
         {
             timer = new DispatcherTimer
             {
-                Interval = TimeSpan.FromMilliseconds(2000)
+                Interval = TimeSpan.FromMilliseconds(1200)
             };
             timer.Tick += Timer_Tick;
 
-            allcanvas = new[] { InkN1 };
+            allcanvas = new[] { InkN1, InkN2, InkN3, InkN4 };
             foreach (var canvas in allcanvas)
             {
                 canvas.PreviewMouseUp += MyInkCanvas_MouseUp;
@@ -113,7 +113,9 @@ namespace MasterMind
                 n = recognizeDigit(canvas);
                 if (n >= 0) break;
             }
-            MessageBox.Show($"{n}");
+            if (n >= 0)
+                inputDigit(n);
+            clearInk();
 
         }
 
@@ -154,6 +156,13 @@ namespace MasterMind
             return dev;
         }
 
+        private void clearInk()
+        {
+            foreach (var canvas in allcanvas)
+                canvas.Strokes.Clear();
+            timer.Stop();
+        }
+
         private void MyInkCanvas_MouseUp(object sender, MouseButtonEventArgs e)
         {
             isDrawing = false;
@@ -179,6 +188,11 @@ namespace MasterMind
         {
             if (!_validKeys.Contains(e.Key)) return;
             var digit = e.Key.ToString().Last().ToString();
+            inputDigit(digit);
+        }
+
+        private void inputDigit(string digit)
+        {
             if (_numberToTest.Contains(digit)) return;
             _digitsTB[_numberToTest.Length].Text = digit;
             _numberToTest += digit;
@@ -189,6 +203,11 @@ namespace MasterMind
                 TestNumber(_numberToTest);
                 _numberToTest = "";
             }
+        }
+
+        private void inputDigit(int digit)
+        {
+            inputDigit($"{digit}");
         }
 
         void TestNumber(string number)
