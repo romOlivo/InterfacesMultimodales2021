@@ -1,20 +1,20 @@
 ﻿
-using Microsoft.Ink;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Microsoft.Ink;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Controls;
 using System.Windows.Threading;
+using System.Windows.Documents;
+using System.Windows.Navigation;
+using System.Collections.Generic;
+using System.Windows.Media.Imaging;
 
 namespace MasterMind
 {
@@ -23,18 +23,7 @@ namespace MasterMind
     /// </summary>
     public partial class MainWindow : Window
     {
-        private InkCanvas[] allcanvas;
-        private Boolean isDrawing;
-        DispatcherTimer timer;
-
-        string _solution;
-        string _numberToTest;
-        TextBlock[] _digitsTB;
-        Border[] _borders;
-        int _numTries;
         Random r = new Random();
-        Key[] _validKeys = new Key[] { Key.D0, Key.D1, Key.D2, Key.D3, Key.D4, Key.D5, Key.D6, Key.D7, Key.D8, Key.D9,
-                                       Key.NumPad0, Key.NumPad1, Key.NumPad2, Key.NumPad3, Key.NumPad4, Key.NumPad5, Key.NumPad6, Key.NumPad7, Key.NumPad8, Key.NumPad9, };
         int _cursorIndex;
         int CursorIndex
         {
@@ -62,8 +51,6 @@ namespace MasterMind
             InitializeComponent();
             Loaded += new RoutedEventHandler(MainWindow_Loaded);
         }
-
-
 
         #region Initialize
 
@@ -103,7 +90,23 @@ namespace MasterMind
 
         #region Input Control
 
+        #region Keyboard
+        Key[] _validKeys = new Key[] { Key.D0, Key.D1, Key.D2, Key.D3, Key.D4, Key.D5, Key.D6, Key.D7, Key.D8, Key.D9,
+                                       Key.NumPad0, Key.NumPad1, Key.NumPad2, Key.NumPad3, Key.NumPad4, Key.NumPad5, Key.NumPad6, Key.NumPad7, Key.NumPad8, Key.NumPad9, };
+
+        void MainWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!_validKeys.Contains(e.Key)) return;
+            var digit = e.Key.ToString().Last().ToString();
+            inputDigit(digit);
+        }
+
+        #endregion
+
         #region Ink
+        private Boolean isDrawing;
+        private InkCanvas[] allcanvas;
+        private DispatcherTimer timer;
 
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -184,12 +187,12 @@ namespace MasterMind
 
         #endregion
 
-        void MainWindow_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (!_validKeys.Contains(e.Key)) return;
-            var digit = e.Key.ToString().Last().ToString();
-            inputDigit(digit);
-        }
+        #region Motor Game
+        TextBlock[] _digitsTB;
+        string _numberToTest;
+        Border[] _borders;
+        string _solution;
+        int _numTries;
 
         private void inputDigit(string digit)
         {
@@ -221,11 +224,6 @@ namespace MasterMind
                 CursorIndex = -1;
             }
             historyTB.ScrollToEnd();
-        }
-
-        void NewGameButton_Click(object sender, RoutedEventArgs e)
-        {
-            NewGame();
         }
 
         void NewGame()
@@ -260,5 +258,17 @@ namespace MasterMind
             }
             return n;
         }
+
+        #endregion
+
+        #region Menu
+
+        void NewGameButton_Click(object sender, RoutedEventArgs e)
+        {
+            NewGame();
+        }
+
+        #endregion
+
     }
 }
