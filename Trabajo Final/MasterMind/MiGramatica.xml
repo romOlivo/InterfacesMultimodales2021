@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<grammar root="InputNumber" xml:lang="es-ES" version="1.0"
+         tag-format="semantics/1.0"
+xmlns="http://www.w3.org/2001/06/grammar">
+
+  <rule id="InputNumber">
+    <one-of>
+      <item>
+        <ruleref uri="#OneNumber"/>
+      </item>
+      <item>
+        <ruleref uri="#TwoNumbers"/>
+      </item>
+      <item>
+        <ruleref uri="#ThreeNumbers"/>
+      </item>
+      <item>
+        <ruleref uri="#FourNumbers"/>
+      </item>
+    </one-of>
+  </rule>
+
+  <rule id="OneNumber">
+    <one-of>
+      <item> cero </item>
+      <item> uno </item>
+      <item> dos </item>
+      <item> tres </item>
+      <item> cuatro </item>
+      <item> cinco </item>
+      <item> seis </item>
+      <item> siete </item>
+      <item> ocho </item>
+      <item> nueve </item>
+    </one-of>
+  </rule>
+
+  <rule id="TwoNumbers">
+    <one-of>
+      <item>
+        <one-of>
+          <item> diez </item>
+          <item> veinti </item>
+          <item> treinta </item>
+          <item> cuarenta </item>
+          <item> cincuenta </item>
+          <item> sesenta </item>
+          <item> setenta </item>
+          <item> ochenta </item>
+          <item> noventa </item>
+        </one-of>
+        <item repeat="0-1"> y </item>
+        <item>
+          <ruleref uri="#OneNumber"/>
+        </item>
+      </item>
+      <item> diez </item>
+      <item> once </item>
+      <item> doce </item>
+      <item> trece </item>
+      <item> catorce </item>
+      <item> quince </item>
+      <item> veinte </item>
+    </one-of>
+  </rule>
+
+  <rule id="ThreeNumbers">
+    <one-of>
+      <item> cien </item>
+      <item>
+        <one-of>
+          <item> ciento </item>
+          <item> quinientos </item>
+          <item>
+            <one-of>
+              <item> dos </item>
+              <item> tres </item>
+              <item> cuatro </item>
+              <item> seis </item>
+              <item> sete </item>
+              <item> ocho </item>
+              <item> nove </item>
+            </one-of>
+            cientos
+          </item>
+        </one-of>
+        <one-of>
+          <item repeat="0-1">
+            <ruleref uri="#OneNumber"/>
+          </item>
+          <item repeat="0-1">
+            <ruleref uri="#TwoNumbers"/>
+          </item>
+        </one-of>
+      </item>
+    </one-of>
+  </rule>
+
+  <rule id="FourNumbers">
+    <one-of>
+      <item repeat="0-1"> dos </item>
+      <item repeat="0-1"> tres </item>
+      <item repeat="0-1"> cuatro </item>
+      <item repeat="0-1"> cinco </item>
+      <item repeat="0-1"> seis </item>
+      <item repeat="0-1"> siete </item>
+      <item repeat="0-1"> ocho </item>
+      <item repeat="0-1"> nueve </item>
+    </one-of>
+    mil
+    <one-of>
+      <item repeat="0-1">
+        <ruleref uri="#OneNumber"/>
+      </item>
+      <item repeat="0-1">
+        <ruleref uri="#TwoNumbers"/>
+      </item>
+      <item repeat="0-1">
+        <ruleref uri="#ThreeNumbers"/>
+      </item>
+    </one-of>
+  </rule>
+
+</grammar>

@@ -15,6 +15,7 @@ using System.Windows.Documents;
 using System.Windows.Navigation;
 using System.Collections.Generic;
 using System.Windows.Media.Imaging;
+using System.Speech.Recognition;
 
 namespace MasterMind
 {
@@ -75,6 +76,21 @@ namespace MasterMind
 
         }
 
+        private void inicializeSpeech()
+        {
+            // Cargar la gramática
+            Grammar g = new Grammar("../../MiGramatica.xml");
+            speechRecognizer = new SpeechRecognitionEngine();
+            speechRecognizer.LoadGrammar(g);
+
+            // Preparar el reconocedor de voz
+            speechRecognizer.SpeechRecognized += SpeechRecognized;
+            speechRecognizer.SpeechRecognitionRejected += SpeechRecognitionRejected;
+            speechRecognizer.SpeechDetected += SpeechDetected;
+            speechRecognizer.SetInputToDefaultAudioDevice();
+            speechRecognizer.RecognizeAsync(RecognizeMode.Multiple);
+        }
+
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             _digitsTB = new TextBlock[] { n1TB, n2TB, n3TB, n4TB };
@@ -83,6 +99,7 @@ namespace MasterMind
             //solutionSP.Visibility = Visibility.Hidden;   //Descomentar esta línea para ocultar la solución
 
             inicializeInk();
+            inicializeSpeech();
 
             NewGame();
         }
@@ -186,6 +203,30 @@ namespace MasterMind
 
         #endregion
 
+        #region Speech
+        SpeechRecognitionEngine speechRecognizer;
+        Choices grammarChoices;
+        GrammarBuilder gb;
+        Grammar grammar;
+
+        void SpeechDetected(object sender, SpeechDetectedEventArgs e)
+        {
+            Console.WriteLine("<Voz detectada>");
+            // labelProbabilidad.Content = "";
+        }
+        void SpeechRecognitionRejected(object s, SpeechRecognitionRejectedEventArgs e)
+        {
+            Console.WriteLine("<No le he oido bien. Repita por favor>");
+            // labelProbabilidad.Content = "";
+        }
+        void SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+        {
+            Console.WriteLine(e.Result.Text);
+            // labelProbabilidad.Content = e.Result.Confidence.ToString(); 
+        }
+
+        #endregion
+
         #endregion
 
         #region Motor Game
@@ -259,6 +300,23 @@ namespace MasterMind
                 if (!n.Contains(d)) n += d;
             }
             return n;
+        }
+
+        bool isValidNumber(int n)
+        {
+            bool isValid = true;
+            isValid = isValid && n <= 9999 && n >= 0;
+            if (isValid)
+            {
+                HashSet<char> digits = new HashSet<char>();
+                string sn = $"{n}";
+                foreach (var sd in sn)
+                {
+                    digits.Add(sd);
+                }
+                isValid = digits.Count == sn.Length;
+            }
+            return isValid;
         }
 
         #endregion
