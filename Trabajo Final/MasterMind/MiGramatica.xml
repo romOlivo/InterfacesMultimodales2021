@@ -19,20 +19,41 @@ xmlns="http://www.w3.org/2001/06/grammar">
         <ruleref uri="#FourNumbers"/>
       </item>
     </one-of>
+    <tag>out.number = number</tag>
   </rule>
 
   <rule id="OneNumber">
     <one-of>
-      <item> cero </item>
-      <item> uno </item>
-      <item> dos </item>
-      <item> tres </item>
-      <item> cuatro </item>
-      <item> cinco </item>
-      <item> seis </item>
-      <item> siete </item>
-      <item> ocho </item>
-      <item> nueve </item>
+      <item>
+        cero <tag>number = 0</tag>
+      </item>
+      <item>
+        uno <tag>number = 1</tag>
+      </item>
+      <item>
+        dos <tag>number = 2</tag>
+      </item>
+      <item>
+        tres <tag>number = 3</tag>
+      </item>
+      <item>
+        cuatro <tag>number = 4</tag>
+      </item>
+      <item>
+        cinco <tag>number = 5</tag>
+      </item>
+      <item>
+        seis <tag>number = 6</tag>
+      </item>
+      <item>
+        siete <tag>number = 7</tag>
+      </item>
+      <item>
+        ocho <tag>number = 8</tag>
+      </item>
+      <item>
+        nueve <tag>number = 9</tag>
+      </item>
     </one-of>
   </rule>
 
@@ -40,57 +61,114 @@ xmlns="http://www.w3.org/2001/06/grammar">
     <one-of>
       <item>
         <one-of>
-          <item> diez </item>
-          <item> veinti </item>
-          <item> treinta </item>
-          <item> cuarenta </item>
-          <item> cincuenta </item>
-          <item> sesenta </item>
-          <item> setenta </item>
-          <item> ochenta </item>
-          <item> noventa </item>
+          <item>
+            diez <tag>mynumber2 = 10</tag>
+          </item>
+          <item>
+            veinti <tag>mynumber2 = 20</tag>
+          </item>
+          <item>
+            treinta <tag>mynumber2 = 30</tag>
+          </item>
+          <item>
+            cuarenta <tag>mynumber2 = 40</tag>
+          </item>
+          <item>
+            cincuenta <tag>mynumber2 = 50</tag>
+          </item>
+          <item>
+            sesenta <tag>mynumber2 = 60</tag>
+          </item>
+          <item>
+            setenta <tag>mynumber2 = 70</tag>
+          </item>
+          <item>
+            ochenta <tag>mynumber2 = 80</tag>
+          </item>
+          <item>
+            noventa <tag>mynumber2 = 90</tag>
+          </item>
         </one-of>
+        <tag>number = mynumber2</tag>
         <item repeat="0-1"> y </item>
-        <item>
+        <item repeat="0-1">
           <ruleref uri="#OneNumber"/>
+          <tag>number = number + mynumber2</tag>
         </item>
       </item>
-      <item> diez </item>
-      <item> once </item>
-      <item> doce </item>
-      <item> trece </item>
-      <item> catorce </item>
-      <item> quince </item>
-      <item> veinte </item>
+      <item>
+        diez <tag>number = 10</tag>
+      </item>
+      <item>
+        once <tag>number = 11</tag>
+      </item>
+      <item>
+        doce <tag>number = 12</tag>
+      </item>
+      <item>
+        trece <tag>number = 13</tag>
+      </item>
+      <item>
+        catorce <tag>number = 14</tag>
+      </item>
+      <item>
+        quince <tag>number = 15</tag>
+      </item>
+      <item>
+        veinte <tag>number = 20</tag>
+      </item>
     </one-of>
   </rule>
 
   <rule id="ThreeNumbers">
     <one-of>
-      <item> cien </item>
+      <item>
+        cien <tag>number = 100</tag>
+      </item>
       <item>
         <one-of>
-          <item> ciento </item>
-          <item> quinientos </item>
+          <item>
+            ciento <tag>mynumber3 = 100</tag>
+          </item>
+          <item>
+            quinientos <tag>mynumber3 = 500</tag>
+          </item>
           <item>
             <one-of>
-              <item> dos </item>
-              <item> tres </item>
-              <item> cuatro </item>
-              <item> seis </item>
-              <item> sete </item>
-              <item> ocho </item>
-              <item> nove </item>
+              <item>
+                dos <tag>mynumber3 = 200</tag>
+              </item>
+              <item>
+                tres <tag>mynumber3 = 300</tag>
+              </item>
+              <item>
+                cuatro <tag>mynumber3 = 400</tag>
+              </item>
+              <item>
+                seis <tag>mynumber3 = 600</tag>
+              </item>
+              <item>
+                sete <tag>mynumber3 = 700</tag>
+              </item>
+              <item>
+                ocho <tag>mynumber3 = 800</tag>
+              </item>
+              <item>
+                nove <tag>mynumber3 = 900</tag>
+              </item>
             </one-of>
+            <tag>number = mynumber3</tag>
             cientos
           </item>
         </one-of>
         <one-of>
           <item repeat="0-1">
             <ruleref uri="#OneNumber"/>
+            <tag>number = number + mynumber3</tag>
           </item>
           <item repeat="0-1">
             <ruleref uri="#TwoNumbers"/>
+            <tag>number = number + mynumber3</tag>
           </item>
         </one-of>
       </item>
@@ -98,26 +176,47 @@ xmlns="http://www.w3.org/2001/06/grammar">
   </rule>
 
   <rule id="FourNumbers">
+    <tag>mynumber4 = 1</tag>
     <one-of>
-      <item repeat="0-1"> dos </item>
-      <item repeat="0-1"> tres </item>
-      <item repeat="0-1"> cuatro </item>
-      <item repeat="0-1"> cinco </item>
-      <item repeat="0-1"> seis </item>
-      <item repeat="0-1"> siete </item>
-      <item repeat="0-1"> ocho </item>
-      <item repeat="0-1"> nueve </item>
+      <item repeat="0-1">
+        dos <tag>mynumber4 = 2</tag>
+      </item>
+      <item repeat="0-1">
+        tres <tag>mynumber4 = 3</tag>
+      </item>
+      <item repeat="0-1">
+        cuatro <tag>mynumber4 = 4</tag>
+      </item>
+      <item repeat="0-1">
+        cinco <tag>mynumber4 = 5</tag>
+      </item>
+      <item repeat="0-1">
+        seis <tag>mynumber4 = 6</tag>
+      </item>
+      <item repeat="0-1">
+        siete <tag>mynumber4 = 7</tag>
+      </item>
+      <item repeat="0-1">
+        ocho <tag>mynumber4 = 8</tag>
+      </item>
+      <item repeat="0-1">
+        nueve <tag>mynumber4 = 9</tag>
+      </item>
     </one-of>
+    <tag>number = 1000 * mynumber4</tag>
     mil
     <one-of>
       <item repeat="0-1">
         <ruleref uri="#OneNumber"/>
+        <tag>number = number + 1000 * mynumber4</tag>
       </item>
       <item repeat="0-1">
         <ruleref uri="#TwoNumbers"/>
+        <tag>number = number + 1000 * mynumber4</tag>
       </item>
       <item repeat="0-1">
         <ruleref uri="#ThreeNumbers"/>
+        <tag>number = number + 1000 * mynumber4</tag>
       </item>
     </one-of>
   </rule>

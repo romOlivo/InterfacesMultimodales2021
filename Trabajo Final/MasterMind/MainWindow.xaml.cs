@@ -222,6 +222,8 @@ namespace MasterMind
         void SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
             Console.WriteLine(e.Result.Text);
+            if (e.Result.Semantics.ContainsKey("number"))
+                Console.WriteLine(e.Result.Semantics["number"].Value.ToString());
             // labelProbabilidad.Content = e.Result.Confidence.ToString(); 
         }
 
