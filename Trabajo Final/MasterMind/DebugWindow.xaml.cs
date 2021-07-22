@@ -35,5 +35,15 @@ namespace MasterMind
         {
             LSol.Content = solution;
         }
+
+        public void setText(string text)
+        {
+            LText.Content = text;
+        }
+
+        public void setConf(string t)
+        {
+            LConf.Content = t;
+        }
     }
 }

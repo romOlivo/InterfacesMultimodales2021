@@ -205,26 +205,36 @@ namespace MasterMind
 
         #region Speech
         SpeechRecognitionEngine speechRecognizer;
-        Choices grammarChoices;
-        GrammarBuilder gb;
-        Grammar grammar;
 
         void SpeechDetected(object sender, SpeechDetectedEventArgs e)
         {
-            Console.WriteLine("<Voz detectada>");
-            // labelProbabilidad.Content = "";
+            if (debugWindow == null) return;
+            debugWindow.setText("<Voz detectada>");
+            debugWindow.setConf(" - ");
         }
         void SpeechRecognitionRejected(object s, SpeechRecognitionRejectedEventArgs e)
         {
-            Console.WriteLine("<No le he oido bien. Repita por favor>");
-            // labelProbabilidad.Content = "";
+            if (debugWindow == null) return;
+            debugWindow.setText("<No le he oido bien. Repita por favor>");
+            debugWindow.setConf(" - ");
         }
         void SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
-            Console.WriteLine(e.Result.Text);
+            if (debugWindow != null)
+            {
+                debugWindow.setText(e.Result.Text);
+                debugWindow.setConf(e.Result.Confidence.ToString());
+            }
             if (e.Result.Semantics.ContainsKey("number"))
-                Console.WriteLine(e.Result.Semantics["number"].Value.ToString());
-            // labelProbabilidad.Content = e.Result.Confidence.ToString(); 
+            {
+                var ns = e.Result.Semantics["number"].Value.ToString();
+                if (isValidNumber(int.Parse(ns)))
+                {
+                    if (_solution.Length - _numberToTest.Length >= ns.Length)
+                        foreach (char c in ns)
+                            inputDigit($"{c}");
+                }
+            }
         }
 
         #endregion

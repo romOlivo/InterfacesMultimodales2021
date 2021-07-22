@@ -11,9 +11,16 @@
     <StackPanel>
         <Label HorizontalAlignment="Center" FontSize="36" Margin="12"> Debug </Label>
         <UniformGrid Rows="1" Columns="2">
-            <Label FontSize="24" HorizontalAlignment="Right" Margin="8">Solution: </Label>
+            <Label FontSize="24" HorizontalAlignment="Left" Margin="8">Solution: </Label>
             <Label FontSize="24" HorizontalAlignment="Left" Margin="8" Name="LSol">????</Label>
         </UniformGrid>
-
+        <UniformGrid Rows="1" Columns="2">
+            <Label FontSize="24" HorizontalAlignment="Left" Margin="8">Texto escuchado:</Label>
+            <Label FontSize="24" HorizontalAlignment="Left" Margin="8" Name="LText"> - </Label>
+        </UniformGrid>
+        <UniformGrid Rows="1" Columns="2">
+            <Label FontSize="24" HorizontalAlignment="Left" Margin="8">Confianza:</Label>
+            <Label FontSize="24" HorizontalAlignment="Left" Margin="8" Name="LConf">-</Label>
+        </UniformGrid>
     </StackPanel>
 </Window>
