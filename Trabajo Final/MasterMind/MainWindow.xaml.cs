@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Collections.Generic;
 using System.Windows.Media.Imaging;
 using System.Speech.Recognition;
+using System.Speech.Synthesis;
 
 namespace MasterMind
 {
@@ -89,6 +90,14 @@ namespace MasterMind
             speechRecognizer.RecognizeAsync(RecognizeMode.Multiple);
         }
 
+        private void inicializeVoice()
+        {
+            synth = new SpeechSynthesizer();
+            var voices = synth.GetInstalledVoices();
+            synth.SelectVoice("Microsoft David Desktop");
+            Console.WriteLine(synth.Voice.Name);
+        }
+
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             _digitsTB = new TextBlock[] { n1TB, n2TB, n3TB, n4TB };
@@ -96,8 +105,9 @@ namespace MasterMind
             KeyDown += new KeyEventHandler(MainWindow_KeyDown);
             //solutionSP.Visibility = Visibility.Hidden;   //Descomentar esta línea para ocultar la solución
 
-            inicializeInk();
             inicializeSpeech();
+            inicializeVoice();
+            inicializeInk();
 
             NewGame();
         }
@@ -105,6 +115,16 @@ namespace MasterMind
         #endregion
 
         #region Input Control
+
+        private void inputDigit(string digit)
+        {
+            evaluateDigit(digit);
+        }
+
+        private void inputDigit(int digit)
+        {
+            inputDigit($"{digit}");
+        }
 
         #region Keyboard
         Key[] _validKeys = new Key[] { Key.D0, Key.D1, Key.D2, Key.D3, Key.D4, Key.D5, Key.D6, Key.D7, Key.D8, Key.D9,
@@ -257,6 +277,46 @@ namespace MasterMind
 
         #endregion
 
+        #region Output Control
+        private bool textIsEnable = true;
+        private bool voideIsEnable = true;
+
+        private void ClearOutput()
+        {
+            historyTB.Text = "";
+        }
+
+        private void ProgramOutput(string text, string sep="")
+        {
+            if (textIsEnable)
+                OutputText(text, sep);
+            if (voideIsEnable)
+                OutputVoice(text);
+        }
+
+        #region Text
+
+        private void OutputText(string text, string sep)
+        {
+            historyTB.Text += text + "\n" + sep;
+            historyTB.ScrollToEnd();
+        }
+
+        #endregion
+
+        #region Voice
+        SpeechSynthesizer synth;
+
+        private void OutputVoice(string text)
+        {
+            synth.SpeakAsyncCancelAll();
+            synth.SpeakAsync(text);
+        }
+
+        #endregion
+
+        #endregion
+
         #region Motor Game
         TextBlock[] _digitsTB;
         string _numberToTest;
@@ -264,7 +324,7 @@ namespace MasterMind
         string _solution;
         int _numTries;
 
-        private void inputDigit(string digit)
+        private void evaluateDigit(string digit)
         {
             if (_numberToTest.Contains(digit)) return;
             _digitsTB[_numberToTest.Length].Text = digit;
@@ -278,24 +338,19 @@ namespace MasterMind
             }
         }
 
-        private void inputDigit(int digit)
-        {
-            inputDigit($"{digit}");
-        }
-
         void TestNumber(string number)
         {
             ++_numTries;
-            historyTB.Text += string.Format("{0}: {1} -> Deaths: {2} - Injuries: {3}.\n", _numTries, number, NumDeaths(_solution, number), NumInjuries(_solution, number));
+            ProgramOutput(string.Format("Try {0}: Number {1} -> Deaths: {2} - Injuries: {3}.", _numTries, number, NumDeaths(_solution, number), NumInjuries(_solution, number)));
             if (number == _solution)
                 EndGame();
-            historyTB.ScrollToEnd();
+            
         }
 
         private void EndGame()
         {
-            historyTB.Text += string.Format("You have found it in {0} tries.\n", _numTries);
-            historyTB.Text += string.Format("Press \"New Game\" to continue...\n", _numTries);
+            ProgramOutput(string.Format("You have found it in {0} tries.", _numTries));
+            ProgramOutput(string.Format("Press \"New Game\" to continue.", _numTries));
             CursorIndex = -1;
             enableSpeech(false);
         }
@@ -307,8 +362,8 @@ namespace MasterMind
             solutionTB.Text = _solution;
             _numberToTest = "";
             _numTries = 0;
-            historyTB.Text = "Welcome and good luck\n";
-            historyTB.Text += "---------------------\n";
+            ClearOutput();
+            ProgramOutput("Welcome and good luck", "---------------------\n");
             foreach (var digitTB in _digitsTB) digitTB.Text = "";
             CursorIndex = 0;
             ResetDebug();
