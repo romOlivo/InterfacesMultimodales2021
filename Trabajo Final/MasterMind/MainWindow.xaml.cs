@@ -84,9 +84,7 @@ namespace MasterMind
             speechRecognizer.LoadGrammar(g);
 
             // Preparar el reconocedor de voz
-            speechRecognizer.SpeechRecognized += SpeechRecognized;
-            speechRecognizer.SpeechRecognitionRejected += SpeechRecognitionRejected;
-            speechRecognizer.SpeechDetected += SpeechDetected;
+            enableSpeech(true);
             speechRecognizer.SetInputToDefaultAudioDevice();
             speechRecognizer.RecognizeAsync(RecognizeMode.Multiple);
         }
@@ -205,6 +203,7 @@ namespace MasterMind
 
         #region Speech
         SpeechRecognitionEngine speechRecognizer;
+        private bool speechIsEnable = false;
 
         void SpeechDetected(object sender, SpeechDetectedEventArgs e)
         {
@@ -234,6 +233,23 @@ namespace MasterMind
                         foreach (char c in ns)
                             inputDigit($"{c}");
                 }
+            }
+        }
+        private void enableSpeech(bool enable)
+        {
+            if (enable == true && speechIsEnable == false)
+            {
+                speechRecognizer.SpeechRecognitionRejected += SpeechRecognitionRejected;
+                speechRecognizer.SpeechRecognized += SpeechRecognized;
+                speechRecognizer.SpeechDetected += SpeechDetected;
+                speechIsEnable = true;
+            }
+            if (enable == false && speechIsEnable == true)
+            {
+                speechRecognizer.SpeechRecognitionRejected -= SpeechRecognitionRejected;
+                speechRecognizer.SpeechRecognized -= SpeechRecognized;
+                speechRecognizer.SpeechDetected -= SpeechDetected;
+                speechIsEnable = false;
             }
         }
 
@@ -272,16 +288,21 @@ namespace MasterMind
             ++_numTries;
             historyTB.Text += string.Format("{0}: {1} -> Deaths: {2} - Injuries: {3}.\n", _numTries, number, NumDeaths(_solution, number), NumInjuries(_solution, number));
             if (number == _solution)
-            {
-                historyTB.Text += string.Format("You have found it in {0} tries.\n", _numTries);
-                historyTB.Text += string.Format("Press \"New Game\" to continue...\n", _numTries);
-                CursorIndex = -1;
-            }
+                EndGame();
             historyTB.ScrollToEnd();
+        }
+
+        private void EndGame()
+        {
+            historyTB.Text += string.Format("You have found it in {0} tries.\n", _numTries);
+            historyTB.Text += string.Format("Press \"New Game\" to continue...\n", _numTries);
+            CursorIndex = -1;
+            enableSpeech(false);
         }
 
         void NewGame()
         {
+            enableSpeech(true);
             _solution = GenerateValidNumber();
             solutionTB.Text = _solution;
             _numberToTest = "";
