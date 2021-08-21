@@ -45,6 +45,8 @@ namespace MasterMind
                     _borders[_cursorIndex].BorderThickness = new Thickness(3);
                     _borders[_cursorIndex].BorderBrush = SystemColors.HighlightBrush;
                     _borders[_cursorIndex].IsEnabled = true;
+                    BDelete.IsEnabled = !(_cursorIndex == 0);
+                    BClear.IsEnabled = !(_cursorIndex == 0);
                 }
             }
         }
@@ -287,6 +289,25 @@ namespace MasterMind
 
         #endregion
 
+        #region Buttons
+
+        private void BDelete_Click(object sender, RoutedEventArgs e)
+        {
+            CursorIndex = CursorIndex - 1;
+            _digitsTB[CursorIndex].Text = "";
+            _numberToTest = _numberToTest.Remove(_numberToTest.Length - 1);
+        }
+
+        private void BClear_Click(object sender, RoutedEventArgs e)
+        {
+            foreach(var item in _digitsTB)
+                item.Text = "";
+            CursorIndex = 0;
+            _numberToTest = "";
+        }
+
+        #endregion
+
         #endregion
 
         #region Output Control
@@ -453,6 +474,20 @@ namespace MasterMind
             }
         }
 
+        private void EnableVoice_Click(object sender, RoutedEventArgs e)
+        {
+            voideIsEnable = !voideIsEnable;
+            VoiceEnableB.IsChecked = voideIsEnable;
+        }
+
+        private void ChangeVoice_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (MenuItem item in voiceSelectorM.Items)
+                item.IsChecked = false;
+            ((MenuItem)sender).IsChecked = true;
+            synth.SelectVoice((string)((MenuItem)sender).Header);
+        }
+
         #endregion
 
         #region Debug Windows
@@ -469,19 +504,6 @@ namespace MasterMind
         }
 
         #endregion
-
-        private void EnableVoice_Click(object sender, RoutedEventArgs e)
-        {
-            voideIsEnable = !voideIsEnable;
-            VoiceEnableB.IsChecked = voideIsEnable;
-        }
-
-        private void ChangeVoice_Click(object sender, RoutedEventArgs e)
-        {
-            foreach(MenuItem item in voiceSelectorM.Items)
-                item.IsChecked = false;
-            ((MenuItem)sender).IsChecked = true;
-            synth.SelectVoice((string)((MenuItem)sender).Header);
-        }
+       
     }
 }

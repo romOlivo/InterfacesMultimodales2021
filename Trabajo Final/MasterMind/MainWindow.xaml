@@ -1,7 +1,7 @@
 ﻿<Window x:Class="MasterMind.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MasterMind" Height="350" Width="525" MinWidth="10cm" MinHeight="8cm">
+        Title="MasterMind" Height="550" Width="525" MinWidth="10cm" MinHeight="8cm">
     <DockPanel>
 
         <Menu DockPanel.Dock="Top">
@@ -23,32 +23,38 @@
         </Menu>
 
         <Border DockPanel.Dock="Bottom" BorderBrush="Black" BorderThickness="1">
-            <UniformGrid  Columns="4" Rows="1" Margin="8" TextBlock.FontSize="70">
-                <Border Name="n1Border" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Grid Width="2cm" Height="3cm">
-                        <TextBlock Name="n1TB" HorizontalAlignment="Center" VerticalAlignment="Center">7</TextBlock>
-                        <InkCanvas Width="2cm" Height="3cm" Background="Transparent" Name="InkN1"></InkCanvas>
-                    </Grid>
-                </Border>
-                <Border Name="n2Border" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Grid Width="2cm" Height="3cm">
-                        <TextBlock Name="n2TB" HorizontalAlignment="Center" VerticalAlignment="Center">7</TextBlock>
-                        <InkCanvas Width="2cm" Height="3cm" Background="Transparent" Name="InkN2"></InkCanvas>
-                    </Grid>
-                </Border>
-                <Border Name="n3Border" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Grid Width="2cm" Height="3cm">
-                        <TextBlock Name="n3TB" HorizontalAlignment="Center" VerticalAlignment="Center">7</TextBlock>
-                        <InkCanvas Width="2cm" Height="3cm" Background="Transparent" Name="InkN3"></InkCanvas>
-                    </Grid>
-                </Border>
-                <Border Name="n4Border" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Grid Width="2cm" Height="3cm">
-                        <TextBlock Name="n4TB" HorizontalAlignment="Center" VerticalAlignment="Center">7</TextBlock>
-                        <InkCanvas Width="2cm" Height="3cm" Background="Transparent" Name="InkN4"></InkCanvas>
-                    </Grid>
-                </Border>
-            </UniformGrid>
+            <StackPanel>
+                <UniformGrid  Columns="4" Rows="1" Margin="8" TextBlock.FontSize="70">
+                    <Border Name="n1Border" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Grid Width="2cm" Height="3cm">
+                            <TextBlock Name="n1TB" HorizontalAlignment="Center" VerticalAlignment="Center">7</TextBlock>
+                            <InkCanvas Width="2cm" Height="3cm" Background="Transparent" Name="InkN1"></InkCanvas>
+                        </Grid>
+                    </Border>
+                    <Border Name="n2Border" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Grid Width="2cm" Height="3cm">
+                            <TextBlock Name="n2TB" HorizontalAlignment="Center" VerticalAlignment="Center">7</TextBlock>
+                            <InkCanvas Width="2cm" Height="3cm" Background="Transparent" Name="InkN2"></InkCanvas>
+                        </Grid>
+                    </Border>
+                    <Border Name="n3Border" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Grid Width="2cm" Height="3cm">
+                            <TextBlock Name="n3TB" HorizontalAlignment="Center" VerticalAlignment="Center">7</TextBlock>
+                            <InkCanvas Width="2cm" Height="3cm" Background="Transparent" Name="InkN3"></InkCanvas>
+                        </Grid>
+                    </Border>
+                    <Border Name="n4Border" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Grid Width="2cm" Height="3cm">
+                            <TextBlock Name="n4TB" HorizontalAlignment="Center" VerticalAlignment="Center">7</TextBlock>
+                            <InkCanvas Width="2cm" Height="3cm" Background="Transparent" Name="InkN4"></InkCanvas>
+                        </Grid>
+                    </Border>
+                </UniformGrid>
+                <UniformGrid  Columns="4" Rows="1" Margin="8" TextBlock.FontSize="17">
+                    <Button Margin="8" Padding="10,2,10,2" Click="BDelete_Click" Name="BDelete"> Delete </Button>
+                    <Button Margin="8" Padding="10,2,10,2" Click="BClear_Click" Name="BClear"> Clear </Button>
+                </UniformGrid>
+            </StackPanel>
         </Border>
 
         <Border DockPanel.Dock="Top" BorderBrush="Black" BorderThickness="1" TextBlock.FontSize="20"  Visibility="Collapsed">
