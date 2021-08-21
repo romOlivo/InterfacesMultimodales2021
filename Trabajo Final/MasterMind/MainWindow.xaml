@@ -9,8 +9,16 @@
                 <MenuItem Header="_New Game" Click="NewGameButton_Click"/>
             </MenuItem>
 
-            <MenuItem Header="_Options">
+            <MenuItem Header="_Help">
                 <MenuItem Header="_Debug Window" Click="MenuDebugWindow_Click"/>
+            </MenuItem>
+
+            <MenuItem Header="_Settings">
+                <MenuItem Header="Output Options" IsCheckable="False">
+                    <MenuItem Header="_Voice Enable" Click="EnableVoice_Click" Name="VoiceEnableB" IsChecked="True"/>
+                </MenuItem>
+                <MenuItem Header="Selected _Voice" IsCheckable="False" Name="voiceSelectorM">
+                </MenuItem>
             </MenuItem>
         </Menu>
 

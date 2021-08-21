@@ -93,9 +93,20 @@ namespace MasterMind
         private void inicializeVoice()
         {
             synth = new SpeechSynthesizer();
-            var voices = synth.GetInstalledVoices();
             synth.SelectVoice("Microsoft David Desktop");
             Console.WriteLine(synth.Voice.Name);
+        }
+
+        private void inicializeMenu()
+        {
+            foreach(InstalledVoice voice in synth.GetInstalledVoices())
+            {
+                MenuItem item = new MenuItem();
+                item.Header = voice.VoiceInfo.Name;
+                item.Click += ChangeVoice_Click;
+                item.IsChecked = ((string)item.Header) == "Microsoft David Desktop";
+                voiceSelectorM.Items.Add(item);
+            }
         }
 
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -107,6 +118,7 @@ namespace MasterMind
 
             inicializeSpeech();
             inicializeVoice();
+            inicializeMenu();
             inicializeInk();
 
             NewGame();
@@ -458,5 +470,18 @@ namespace MasterMind
 
         #endregion
 
+        private void EnableVoice_Click(object sender, RoutedEventArgs e)
+        {
+            voideIsEnable = !voideIsEnable;
+            VoiceEnableB.IsChecked = voideIsEnable;
+        }
+
+        private void ChangeVoice_Click(object sender, RoutedEventArgs e)
+        {
+            foreach(MenuItem item in voiceSelectorM.Items)
+                item.IsChecked = false;
+            ((MenuItem)sender).IsChecked = true;
+            synth.SelectVoice((string)((MenuItem)sender).Header);
+        }
     }
 }
