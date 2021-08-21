@@ -286,12 +286,12 @@ namespace MasterMind
             historyTB.Text = "";
         }
 
-        private void ProgramOutput(string text, string sep="")
+        private void ProgramOutput(string text, string sep = "", bool cancel = true)
         {
             if (textIsEnable)
                 OutputText(text, sep);
             if (voideIsEnable)
-                OutputVoice(text);
+                OutputVoice(text, cancel);
         }
 
         #region Text
@@ -306,11 +306,26 @@ namespace MasterMind
 
         #region Voice
         SpeechSynthesizer synth;
+        Dictionary<Char, Char> FILTER_STRINGS = new Dictionary<Char, Char> {
+            { '-', '.' },
+            { '<', ' '},
+            { '>', ' '},
+        };
 
-        private void OutputVoice(string text)
+        private string filterTextVoice(string text) {
+            string dev = text;
+            foreach(char key in FILTER_STRINGS.Keys)
+            {
+                dev = dev.Replace(key, FILTER_STRINGS[key]);
+            }
+            return dev;
+        }
+
+        private void OutputVoice(string text, bool cancel)
         {
-            synth.SpeakAsyncCancelAll();
-            synth.SpeakAsync(text);
+            if(cancel)
+                synth.SpeakAsyncCancelAll();
+            synth.SpeakAsync(filterTextVoice(text));
         }
 
         #endregion
@@ -349,8 +364,8 @@ namespace MasterMind
 
         private void EndGame()
         {
-            ProgramOutput(string.Format("You have found it in {0} tries.", _numTries));
-            ProgramOutput(string.Format("Press \"New Game\" to continue.", _numTries));
+            ProgramOutput(string.Format("You have found it in {0} tries.", _numTries), cancel: false);
+            ProgramOutput(string.Format("Press \"New Game\" to continue.", _numTries), cancel: false);
             CursorIndex = -1;
             enableSpeech(false);
         }
