@@ -160,6 +160,12 @@ namespace MasterMind
 
         void MainWindow_KeyDown(object sender, KeyEventArgs e)
         {
+            if(e.Key == Key.Back)
+            {
+                BDelete_Click(null, null);
+                return;
+            }
+            
             if (!_validKeys.Contains(e.Key)) return;
             var digit = e.Key.ToString().Last().ToString();
             inputDigit(digit);
