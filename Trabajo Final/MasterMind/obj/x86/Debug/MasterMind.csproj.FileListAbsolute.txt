@@ -20,3 +20,7 @@ C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Trabajo Final\Mas
 C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Trabajo Final\MasterMind\obj\x86\Debug\DebugWindow.g.cs
 C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Trabajo Final\MasterMind\obj\x86\Debug\MasterMind_MarkupCompile.lref
 C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Trabajo Final\MasterMind\obj\x86\Debug\DebugWindow.baml
+C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Trabajo Final\MasterMind\bin\Debug\WiimoteGestureLib.dll
+C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Trabajo Final\MasterMind\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Trabajo Final\MasterMind\bin\Debug\WiimoteGestureLib.pdb
+C:\Users\Usuario\Documents\Projects\InterfacesMultimodales2021\Trabajo Final\MasterMind\bin\Debug\Newtonsoft.Json.xml

@@ -17,6 +17,8 @@ using System.Collections.Generic;
 using System.Windows.Media.Imaging;
 using System.Speech.Recognition;
 using System.Speech.Synthesis;
+using WiimoteLib;
+using WiimoteGestureLib;
 
 namespace MasterMind
 {
@@ -99,6 +101,17 @@ namespace MasterMind
             Console.WriteLine(synth.Voice.Name);
         }
 
+        private void inicializeWiimote()
+        {
+            wm.Connect();
+            wm.SetLEDs(3);
+            wm.SetReportType(InputReport.ButtonsAccel, true);
+            wm.WiimoteChanged += gm.OnWiimoteChanged;
+            gm.GestureRecognized += Gm_GestureRecognized;
+            gm.Load("./../../MisGestos.gst");
+            gm.SetStateGestureCapure(GestureManager.StatesGestureCapure.Recog);
+        }
+
         private void inicializeMenu()
         {
             foreach(InstalledVoice voice in synth.GetInstalledVoices())
@@ -118,6 +131,7 @@ namespace MasterMind
             KeyDown += new KeyEventHandler(MainWindow_KeyDown);
             //solutionSP.Visibility = Visibility.Hidden;   //Descomentar esta línea para ocultar la solución
 
+            inicializeWiimote();
             inicializeSpeech();
             inicializeVoice();
             inicializeMenu();
@@ -285,6 +299,18 @@ namespace MasterMind
                 speechRecognizer.SpeechDetected -= SpeechDetected;
                 speechIsEnable = false;
             }
+        }
+
+        #endregion
+
+        #region Wiimote
+        private readonly GestureManager gm = new GestureManager();
+        private readonly Wiimote wm = new Wiimote();
+
+        private void Gm_GestureRecognized(string obj)
+        {
+            Dispatcher.BeginInvoke(DispatcherPriority.Normal,
+                new Action<string>(inputDigit), obj);
         }
 
         #endregion

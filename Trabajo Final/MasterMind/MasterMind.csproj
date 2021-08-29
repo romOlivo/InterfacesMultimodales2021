@@ -110,6 +110,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="MisGestos.gst" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -117,6 +118,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WiimoteGestureLib\WiimoteGestureLib.csproj">
+      <Project>{1CE4974E-96F3-4DCA-B6E0-26219E56BEAF}</Project>
+      <Name>WiimoteGestureLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WiimoteLib\WiimoteLib.csproj">
       <Project>{37a555df-7012-4b99-8a47-1c922a361e52}</Project>
       <Name>WiimoteLib</Name>

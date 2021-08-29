@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WiimoteLib", "WiimoteLib\Wi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WiimoteTest", "WiimoteTest\WiimoteTest.csproj", "{48223EAB-B2E0-4A64-9074-4444662EB693}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WiimoteGestureLib", "WiimoteGestureLib\WiimoteGestureLib.csproj", "{1CE4974E-96F3-4DCA-B6E0-26219E56BEAF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,14 @@ Global
 		{48223EAB-B2E0-4A64-9074-4444662EB693}.Release|Any CPU.Build.0 = Release|Any CPU
 		{48223EAB-B2E0-4A64-9074-4444662EB693}.Release|x86.ActiveCfg = Release|x86
 		{48223EAB-B2E0-4A64-9074-4444662EB693}.Release|x86.Build.0 = Release|x86
+		{1CE4974E-96F3-4DCA-B6E0-26219E56BEAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CE4974E-96F3-4DCA-B6E0-26219E56BEAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CE4974E-96F3-4DCA-B6E0-26219E56BEAF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1CE4974E-96F3-4DCA-B6E0-26219E56BEAF}.Debug|x86.Build.0 = Debug|Any CPU
+		{1CE4974E-96F3-4DCA-B6E0-26219E56BEAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CE4974E-96F3-4DCA-B6E0-26219E56BEAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CE4974E-96F3-4DCA-B6E0-26219E56BEAF}.Release|x86.ActiveCfg = Release|Any CPU
+		{1CE4974E-96F3-4DCA-B6E0-26219E56BEAF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
