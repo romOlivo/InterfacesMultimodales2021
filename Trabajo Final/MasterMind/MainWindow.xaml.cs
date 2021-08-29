@@ -166,7 +166,7 @@ namespace MasterMind
                 n = recognizeDigit(canvas);
                 if (n >= 0) break;
             }
-            if (n >= 0)
+            if (n >= 0 && n <= 9)
                 inputDigit(n);
             clearInk();
 
