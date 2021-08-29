@@ -514,6 +514,21 @@ namespace MasterMind
             synth.SelectVoice((string)((MenuItem)sender).Header);
         }
 
+        private void IVoiceEnableB_Click(object sender, RoutedEventArgs e)
+        {
+            IVoiceEnableB.IsChecked = !IVoiceEnableB.IsChecked;
+            enableSpeech(IVoiceEnableB.IsChecked == true);
+        }
+
+        private void WiimoteEnableB_Click(object sender, RoutedEventArgs e)
+        {
+            WiimoteEnableB.IsChecked = !WiimoteEnableB.IsChecked;
+            if (WiimoteEnableB.IsChecked == true)
+                wm.WiimoteChanged += gm.OnWiimoteChanged;
+            else
+                wm.WiimoteChanged -= gm.OnWiimoteChanged;
+        }
+
         #endregion
 
         #region Debug Windows
@@ -530,6 +545,6 @@ namespace MasterMind
         }
 
         #endregion
-       
+
     }
 }

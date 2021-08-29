@@ -17,6 +17,10 @@
                 <MenuItem Header="Output Options" IsCheckable="False">
                     <MenuItem Header="_Voice Enable" Click="EnableVoice_Click" Name="VoiceEnableB" IsChecked="True"/>
                 </MenuItem>
+                <MenuItem Header="Input Options" IsCheckable="False">
+                    <MenuItem Header="_Voice Enable" Click="IVoiceEnableB_Click" Name="IVoiceEnableB" IsChecked="True"/>
+                    <MenuItem Header="_Wiimote Enable" Click="WiimoteEnableB_Click" Name="WiimoteEnableB" IsChecked="True"/>
+                </MenuItem>
                 <MenuItem Header="Selected _Voice" IsCheckable="False" Name="voiceSelectorM">
                 </MenuItem>
             </MenuItem>
