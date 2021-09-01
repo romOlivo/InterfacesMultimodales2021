@@ -20,6 +20,7 @@ using System.Speech.Synthesis;
 using WiimoteLib;
 using WiimoteGestureLib;
 using System.Windows.Media.Animation;
+using System.Collections;
 
 namespace MasterMind
 {
@@ -332,14 +333,15 @@ namespace MasterMind
         private void BDelete_Click(object sender, RoutedEventArgs e)
         {
             CursorIndex = CursorIndex - 1;
-            _digitsTB[CursorIndex].Text = "";
+            animateDeleteDigit(CursorIndex);
+            //_digitsTB[CursorIndex].Text = "";
             _numberToTest = _numberToTest.Remove(_numberToTest.Length - 1);
         }
 
         private void BClear_Click(object sender, RoutedEventArgs e)
         {
-            foreach(var item in _digitsTB)
-                item.Text = "";
+            for (int i = 0; i < _digitsTB.Length; i++)
+                animateDeleteDigit(i);
             CursorIndex = 0;
             _numberToTest = "";
         }
@@ -417,12 +419,14 @@ namespace MasterMind
                 animateWrongInput(_numberToTest.Length);
                 return;
             }
+            _digitsTB[_numberToTest.Length].Opacity = 1;
             _digitsTB[_numberToTest.Length].Text = digit;
             _numberToTest += digit;
             CursorIndex = (CursorIndex + 1) % _borders.Length;
             if (_numberToTest.Length == _solution.Length)
             {
-                foreach (var digitTB in _digitsTB) digitTB.Text = "";
+                for (int i = 0; i < _digitsTB.Length; i++)
+                    animateDeleteDigit(i);
                 TestNumber(_numberToTest);
                 _numberToTest = "";
             }
@@ -563,6 +567,7 @@ namespace MasterMind
         #endregion
 
         #region Animations
+        Stack indexStack = new Stack();
 
         private void animateWrongInput()
         {
@@ -577,6 +582,22 @@ namespace MasterMind
             animation.To = SystemColors.HighlightColor;
             animation.Duration = new Duration(TimeSpan.FromSeconds(1));
             _borders[i].BorderBrush.BeginAnimation(SolidColorBrush.ColorProperty, animation);
+        }
+
+        private void animateDeleteDigit(int i)
+        {
+            DoubleAnimation animation = new DoubleAnimation(0d, TimeSpan.FromSeconds(0.2));
+            indexStack.Push(i);
+            animation.Completed += animateDeleteDigitCompleted;
+            _digitsTB[i].BeginAnimation(UIElement.OpacityProperty, animation);
+        }
+
+        private void animateDeleteDigitCompleted(object sender, EventArgs e)
+        {
+            int i = (int)indexStack.Pop();
+            _digitsTB[i].Text = "";
+            DoubleAnimation animation = new DoubleAnimation(1d, TimeSpan.FromSeconds(0.01));
+            _digitsTB[i].BeginAnimation(UIElement.OpacityProperty, animation);
         }
 
         #endregion
