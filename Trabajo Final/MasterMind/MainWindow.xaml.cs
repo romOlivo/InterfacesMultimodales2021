@@ -19,6 +19,7 @@ using System.Speech.Recognition;
 using System.Speech.Synthesis;
 using WiimoteLib;
 using WiimoteGestureLib;
+using System.Windows.Media.Animation;
 
 namespace MasterMind
 {
@@ -129,7 +130,6 @@ namespace MasterMind
             _digitsTB = new TextBlock[] { n1TB, n2TB, n3TB, n4TB };
             _borders = new Border[] { n1Border, n2Border, n3Border, n4Border };
             KeyDown += new KeyEventHandler(MainWindow_KeyDown);
-            //solutionSP.Visibility = Visibility.Hidden;   //Descomentar esta línea para ocultar la solución
 
             inicializeWiimote();
             inicializeSpeech();
@@ -406,7 +406,11 @@ namespace MasterMind
 
         private void evaluateDigit(string digit)
         {
-            if (_numberToTest.Contains(digit)) return;
+            if (_numberToTest.Contains(digit))
+            {
+                animateWrongInput(_numberToTest.Length);
+                return;
+            }
             _digitsTB[_numberToTest.Length].Text = digit;
             _numberToTest += digit;
             CursorIndex = (CursorIndex + 1) % _borders.Length;
@@ -548,6 +552,20 @@ namespace MasterMind
         {
             if (debugWindow == null) return;
             debugWindow.setSolution(_solution);
+        }
+
+        #endregion
+
+        #region Animations
+
+        private void animateWrongInput(int i)
+        {
+            _borders[i].BorderBrush = new SolidColorBrush(Colors.Red);
+            ColorAnimation animation = new ColorAnimation();
+            animation.From = Colors.Red;
+            animation.To = SystemColors.HighlightColor;
+            animation.Duration = new Duration(TimeSpan.FromSeconds(1));
+            _borders[i].BorderBrush.BeginAnimation(SolidColorBrush.ColorProperty, animation);
         }
 
         #endregion
