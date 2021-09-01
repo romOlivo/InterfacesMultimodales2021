@@ -165,8 +165,12 @@ namespace MasterMind
                 BDelete_Click(null, null);
                 return;
             }
-            
-            if (!_validKeys.Contains(e.Key)) return;
+
+            if (!_validKeys.Contains(e.Key))
+            {
+                animateWrongInput();
+                return;
+            }
             var digit = e.Key.ToString().Last().ToString();
             inputDigit(digit);
         }
@@ -188,6 +192,8 @@ namespace MasterMind
             }
             if (n >= 0 && n <= 9)
                 inputDigit(n);
+            else
+                animateWrongInput();
             clearInk();
 
         }
@@ -557,6 +563,11 @@ namespace MasterMind
         #endregion
 
         #region Animations
+
+        private void animateWrongInput()
+        {
+            animateWrongInput(_numberToTest.Length);
+        }
 
         private void animateWrongInput(int i)
         {
