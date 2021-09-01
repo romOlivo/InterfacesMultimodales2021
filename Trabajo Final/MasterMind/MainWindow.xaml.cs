@@ -419,10 +419,14 @@ namespace MasterMind
                 animateWrongInput(_numberToTest.Length);
                 return;
             }
-            _digitsTB[_numberToTest.Length].Opacity = 1;
             _digitsTB[_numberToTest.Length].Text = digit;
             _numberToTest += digit;
             CursorIndex = (CursorIndex + 1) % _borders.Length;
+            animateNewDigit(_numberToTest.Length - 1);
+        }
+
+        private void testingNumber()
+        {
             if (_numberToTest.Length == _solution.Length)
             {
                 for (int i = 0; i < _digitsTB.Length; i++)
@@ -567,7 +571,6 @@ namespace MasterMind
         #endregion
 
         #region Animations
-        Stack indexStack = new Stack();
 
         private void animateWrongInput()
         {
@@ -587,17 +590,19 @@ namespace MasterMind
         private void animateDeleteDigit(int i)
         {
             DoubleAnimation animation = new DoubleAnimation(0d, TimeSpan.FromSeconds(0.2));
-            indexStack.Push(i);
-            animation.Completed += animateDeleteDigitCompleted;
             _digitsTB[i].BeginAnimation(UIElement.OpacityProperty, animation);
         }
 
-        private void animateDeleteDigitCompleted(object sender, EventArgs e)
+        private void animateNewDigit(int i)
         {
-            int i = (int)indexStack.Pop();
-            _digitsTB[i].Text = "";
-            DoubleAnimation animation = new DoubleAnimation(1d, TimeSpan.FromSeconds(0.01));
+            DoubleAnimation animation = new DoubleAnimation(1d, TimeSpan.FromSeconds(0.2));
+            animation.Completed += AnimationNewDigit_Completed;
             _digitsTB[i].BeginAnimation(UIElement.OpacityProperty, animation);
+        }
+
+        private void AnimationNewDigit_Completed(object sender, EventArgs e)
+        {
+            testingNumber();
         }
 
         #endregion
